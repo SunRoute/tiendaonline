@@ -494,12 +494,14 @@ footer {
 .carrito-resumen-titulo {
 
 }
-.resumen-concepto {
+/* en común con el resumen de checkout */
+.carrito-resumen-concepto {
     
 }
-.resumen-importe {
+.carrito-resumen-importe {
 
 }
+/*-------------------------------------*/
 .botones-accion {
 
 }
@@ -511,6 +513,106 @@ footer {
 }
 
 /* checkout */
+
+.checkout {
+    
+}
+.checkout-titulo {
+
+}
+.checkout-formulario {
+    
+}
+.checkout-formulario-datos {
+    
+}
+/* en común con el formulario de contacto. */
+.formulario-datos {
+
+}
+.formulario-datos-label {
+
+}
+.formulario-datos-input {
+
+}
+/* ---------------------------------------*/
+.checkout-pago {
+
+}
+.checkout-resumen {
+
+}
+.checkout-resumen-cabecera {
+
+}
+.checkout-resumen-titulo {
+
+}
+/* en común con el resumen de carrito */
+.resumen-concepto {
+
+}
+.resumen-importe {
+
+}
+/* ---------------------------------- */
+.checkout-forma-pago {
+
+}
+.forma-pago-opcion {
+
+}
+.forma-pago-input {
+    
+}
+.forma-pago-label {
+
+}
+.checkout-boton-pagar {
+
+}
+
+/* contacto */
+
+.contacto {
+    
+}
+.contacto-empresa {
+
+}
+.datos-empresa {
+    
+}
+.datos-empresa-linea {
+
+}
+.datos-empresa-imagen {
+
+}
+.datos-empresa-informacion {
+
+}
+.contacto-formulario {
+
+}
+/* en común con el formulario de checkout. */
+.formulario-datos {
+
+}
+.formulario-datos-label {
+
+}
+.formulario-datos-input {
+
+}
+/* ---------------------------------------*/
+.formulario-datos-texto {
+
+}
+.contacto-boton-enviar {
+    
+}
 
 
 
