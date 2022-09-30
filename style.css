@@ -64,13 +64,11 @@ button, input, optgroup, select, textarea {
     line-height: 1.15; /* 1 */
     margin: 0; /* 2 */
 }
-button,
-input { /* 1 */
+button, input { /* 1 */
     overflow: visible;
     padding: 0;
 }
-button,
-select { /* 1 */
+button, select { /* 1 */
     text-transform: none;
 }
 button,
@@ -173,13 +171,13 @@ h1, h2, h3, h4, h5, h6, a, p{
     color: hsl(0, 0%, 100%);
 }
 h1, h2, h3, h4 {
-    font-family: '';
+    font-family: 'Ubuntu', sans-serif;
 }
 h5, h6 {
-    font-family:'';
+    font-family: 'Ubuntu', sans-serif;
 }
 a, td, th, p, button, span, label, select, input, textarea, li{
-    font-family: '';
+    font-family: 'Ubuntu', sans-serif;
 }
 h1 {
     font-size: 2.5rem;
@@ -283,7 +281,8 @@ footer {
 /* header */
 
 .header-logo {
-    
+    display: flex;
+    justify-content: space-between; 
 }
 .header-logo-imagen {
 
@@ -293,6 +292,10 @@ footer {
 }
 .header-menu {
 
+}
+.header-menu ul {
+    display: flex;
+    justify-content: center;
 }
  /* pie */
 
@@ -306,16 +309,18 @@ footer {
 
 }
 .carrusel {
-    
+    position: relative;     
 }
 .carrusel-imagen {
 
 }
 .carrusel-titulo {
-
+    position: absolute;
+    z-index: 100;
 }
 .carrusel-boton {
-
+    position: absolute;
+    z-index: 100;
 }
 .destacados {
     
@@ -324,7 +329,8 @@ footer {
 
 }
 .destacados-articulos {
-
+    display: flex;
+    justify-content: space-around;
 }
 .destacado-articulo {
     
@@ -342,13 +348,14 @@ footer {
 
 }
 .presentacion {
-
+    display: flex;
+    justify-content: center;
 }
 .presentacion-texto {
 
 }
 .presentacion-imagen {
-
+    justify-self: start;
 }
 
 /* productos */
@@ -357,7 +364,7 @@ footer {
 
 }
 .categorias {
-    
+
 }
 .categorias-titulo {
 
@@ -366,7 +373,7 @@ footer {
 
 }
 .opciones {
-    
+
 }
 .opciones-cabecera {
 
@@ -495,10 +502,10 @@ footer {
 
 }
 /* en común con el resumen de checkout */
-.carrito-resumen-concepto {
+.carrito-resumen-cabecera > .carrito-resumen-concepto {
     
 }
-.carrito-resumen-importe {
+.carrito-resumen-cabecera > .carrito-resumen-importe {
 
 }
 /*-------------------------------------*/
@@ -527,13 +534,13 @@ footer {
     
 }
 /* en común con el formulario de contacto. */
-.formulario-datos {
+.checkout-formulario-datos > .formulario-datos {
 
 }
-.formulario-datos-label {
+.checkout-formulario-datos > .formulario-datos-label {
 
 }
-.formulario-datos-input {
+.checkout-formulario-datos > .formulario-datos-input {
 
 }
 /* ---------------------------------------*/
@@ -550,10 +557,10 @@ footer {
 
 }
 /* en común con el resumen de carrito */
-.resumen-concepto {
+.checkout-resumen > .resumen-concepto {
 
 }
-.resumen-importe {
+.checkout-resumen > .resumen-importe {
 
 }
 /* ---------------------------------- */
@@ -597,13 +604,13 @@ footer {
 
 }
 /* en común con el formulario de checkout. */
-.formulario-datos {
+.contacto-formulario > .formulario-datos {
 
 }
-.formulario-datos-label {
+.contacto-formulario > .formulario-datos-label {
 
 }
-.formulario-datos-input {
+.contacto-formulario > .formulario-datos-input {
 
 }
 /* ---------------------------------------*/
