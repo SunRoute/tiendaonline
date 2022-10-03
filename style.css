@@ -1,5 +1,7 @@
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-
+* {
+    box-sizing: border-box;
+}
 html {
     line-height: 1.15; /* 1 */
     -webkit-text-size-adjust: 100%; /* 2 */
@@ -167,8 +169,8 @@ video {
 
 /* Typography */
 
-h1, h2, h3, h4, h5, h6, a, p{
-    color: hsl(180, 10%, 24%);
+h1, h2, h3, h4, h5, h6, a, p {
+   color: hsl(180, 10%, 24%);
 }
 h1, h2, h3, h4 {
     font-family: 'Ubuntu', sans-serif;
@@ -205,6 +207,14 @@ a:hover, a:focus {
     outline: none;
     text-decoration: none;
     outline-offset: 0;
+}
+
+.custom-button{
+    border: hsl(29, 100%, 64%) 2px solid;
+    background-color: hsl(39, 100%, 76%);
+    color: hsl(0, 97%, 65%);
+    border-radius: 0.5rem;
+    padding: 0.5rem 2rem;
 }
 
 /* Layout */
@@ -262,18 +272,22 @@ a:hover, a:focus {
 .five-columns > .column {
     width: 18%;
 }
+
 /* Structure */ 
 
 header {
-    border: red 1px solid;
+    background-color: hsl(29, 100%, 64%);
     display: flex;
+    padding: 1rem;
 }
-main {
 
+main {
+    background-color: hsl(39, 100%, 76%);
 }
 
 footer {
-
+    background-color: hsl(29, 100%, 64%);
+    padding: 0.5rem;
 }
 
 /* Components */
@@ -281,93 +295,146 @@ footer {
 /* header */
 
 .header-logo {
-    border: red 1px solid;
     display: flex;
     justify-content: start;
 }
 .header-logo-imagen {
+    align-self: center;
+}
+.header-logo-imagen {
+    align-self: center;
     width: 10%;
+}
+.header-logo-imagen svg path {
+    fill: hsl(0, 97%, 65%);
 }
 .header-logo-texto {
     align-self: center;
+    margin-left: 1rem;
+}
+
+.header-logo-texto h2 {
+    color: hsl(0, 97%, 65%);
+    font-size: 3rem;
 }
 .header-menu {
 
 }
 .header-menu ul {
-    border: red 1px solid;
+    color: hsl(0, 0%, 100%);
     display: flex;
-    justify-content: space-around;  
+    justify-content: space-around;
+    align-items: center;
+    font-size: 2rem;
+    height: 100%;   
 }
-.header-menu ul li {
-    border: red 1px solid;
-}
+
  /* pie */
 
  .pie {
-    
+
 }
+ .pie p {
+    color: hsl(0, 0%, 100%);
+    text-align: center;  
+}
+
  
 /* index */
 
 .home {
 
 }
+
+/* Carrusel */ 
+
 .carrusel {
+    height: 80vh;
+    overflow: hidden;
     position: relative;
-    display: flex;
-    justify-content: start;  
-}
-.carrusel-text {
-    position: absolute;
-    z-index: 100;
-    margin-left: 10%;
-    align-self: center;
+    margin-bottom: 2rem;
 }
 .carrusel-imagen {
-
+    position: absolute;
+    z-index: 900;
 }
 .carrusel-titulo {
-    
+    position: absolute;
+    z-index: 1000;
+    top: 30vh;
+    left: 10%;
 }
 .carrusel-boton {
     position: absolute;
-    z-index: 100;
+    z-index: 1000;
+    top: 40vh;
+    left: 10%;
 }
+
 .destacados {
-    
+    width: 80%;
+    margin: auto;
+    margin-bottom: 2rem;
 }
 .destacados-titulo {
-
+    align-self: center;
+    margin-bottom: 2rem;
+}
+.destacados-titulo h2 {
+    color: hsl(0, 97%, 65%);
 }
 .destacados-articulos {
-    display: flex;
-    justify-content: space-around;
+               
 }
 .destacado-articulo {
-    
+    border: hsl(29, 100%, 64%) 3px solid;
+    border-radius: 0.5rem;
+    height: 100%;
 }
 .destacado-articulo-imagen {
-
+    border: hsl(0, 0%, 100%) 1px solid;
+    margin-bottom: 2rem;
+    border-radius: 0.5rem 0.5rem 0 0;
 }
 .destacado-articulo-titulo {
-
+    margin: 0 1rem 1rem;
 }
 .destacado-articulo-enlace {
-
+    margin: 0 1rem 1rem;
+}
+.destacado-articulo-enlace h4 {
+    color: hsl(0, 97%, 65%);
+    margin: 0 0 1rem;
 }
 .destacado-articulo-descripcion {
-
+    margin: 0 1rem 1rem;
+}
+.destacado-articulo-descripcion {
+    margin: 0 1rem 1rem;
+    text-align: justify;
 }
 .presentacion {
+    border: red 1px solid;
     display: flex;
     justify-content: center;
+    width: 80%;
+    margin: auto;
 }
 .presentacion-texto {
-
+    padding: 2rem;
+    text-align: justify;
+}
+.presentacion-texto p {
+    margin-bottom: 1rem;
 }
 .presentacion-imagen {
-    justify-self: start;
+    border: red 1px solid;
+    border-radius: 0.5rem;
+    width: 60%;
+    
+}
+.presentacion-imagen img {
+    border-radius: 0.5rem;
 }
 
 /* productos */
