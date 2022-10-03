@@ -168,7 +168,7 @@ video {
 /* Typography */
 
 h1, h2, h3, h4, h5, h6, a, p{
-    color: hsl(0, 0%, 100%);
+    color: hsl(180, 10%, 24%);
 }
 h1, h2, h3, h4 {
     font-family: 'Ubuntu', sans-serif;
@@ -265,9 +265,9 @@ a:hover, a:focus {
 /* Structure */ 
 
 header {
-
+    border: red 1px solid;
+    display: flex;
 }
-
 main {
 
 }
@@ -281,21 +281,26 @@ footer {
 /* header */
 
 .header-logo {
+    border: red 1px solid;
     display: flex;
-    justify-content: space-between; 
+    justify-content: start;
 }
 .header-logo-imagen {
-
+    width: 10%;
 }
 .header-logo-texto {
-
+    align-self: center;
 }
 .header-menu {
 
 }
 .header-menu ul {
+    border: red 1px solid;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;  
+}
+.header-menu ul li {
+    border: red 1px solid;
 }
  /* pie */
 
@@ -309,14 +314,21 @@ footer {
 
 }
 .carrusel {
-    position: relative;     
+    position: relative;
+    display: flex;
+    justify-content: start;  
+}
+.carrusel-text {
+    position: absolute;
+    z-index: 100;
+    margin-left: 10%;
+    align-self: center;
 }
 .carrusel-imagen {
 
 }
 .carrusel-titulo {
-    position: absolute;
-    z-index: 100;
+    
 }
 .carrusel-boton {
     position: absolute;
