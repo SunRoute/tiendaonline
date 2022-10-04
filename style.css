@@ -233,6 +233,7 @@ a:hover, a:focus {
 }
 .two-columns {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
 }
@@ -252,6 +253,7 @@ a:hover, a:focus {
 }
 .three-columns {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
 }
@@ -260,6 +262,7 @@ a:hover, a:focus {
 }
 .four-columns {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
 }
@@ -268,6 +271,7 @@ a:hover, a:focus {
 }
 .five-columns {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
 }
@@ -349,7 +353,7 @@ footer {
 .carrusel {
     position: relative;
     margin-bottom: 2rem;
-    height: 80vh;
+    height: 85vh;
     overflow: hidden;
 }
 .carrusel-imagen {
@@ -357,16 +361,16 @@ footer {
     z-index: 900;
 }
 .carrusel-titulo {
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 212, 133, 0.5);
     position: absolute;
     z-index: 1000;
-    top: 25vh;
+    top: 30vh;
     left: 10%;
     padding: 1rem;
     border-radius: 0.5rem;
 }
 .carrusel-titulo h1 {
-    color: orangered;
+    color: hsl(24, 93%, 52%);
 }
 .carrusel-boton {
     position: absolute;
@@ -415,14 +419,13 @@ footer {
     text-align: justify;
 }
 .presentacion {
-    display: flex;
-    justify-content: center;
     width: 80%;
     margin: auto;
 }
 .presentacion-texto {
-    padding: 2rem;
+    padding: 4rem;
     text-align: justify;
+    height: 100%;
 }
 .presentacion-texto p {
     margin-bottom: 1rem;
@@ -431,12 +434,11 @@ footer {
     display: flex;
     justify-content: start;
     align-items: center;
-    border-radius: 0.5rem;
     height: 100%;
 }
 .presentacion-imagen img {
     border-radius: 0.5rem;
-    height: 60%;
+    height: 40%;
 }
 
 /* productos */
@@ -445,47 +447,75 @@ footer {
     min-height: 100vh;
 }
 .categorias {
-    border: red 3px solid;
-    justify-self: center;
-    padding: 2rem;
+    position: relative;
+    /* margin-bottom: 2rem; */
+    /* height: 85vh; */
+    /* overflow: hidden; */
+    /* padding: 2rem; */
+    height: 100%;
+}
+.categorias-imagen {
+    position: absolute;
+    z-index: 900;
+    height: 100%;
+}
+.categorias-imagen img {
+    opacity: 0.5;
     height: 100%;
 }
 .categorias-titulo {
-    
+    position: absolute;
+    z-index: 1000;
+    top: 10vh;
+    left: 15%;
 }
 .categorias-menu {
-
+    position: absolute;
+    z-index: 1000;
+    top: 15vh;
+    left: 15%;
 }
 .categorias-menu li {
-    margin-bottom: 0.4rem; 
+    color: hsl(180, 10%, 24%);
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
 }
 .opciones {
-    border: #ff0000 3px solid;
     padding: 2rem;
 }
 .opciones-cabecera {
-    border: #ff0000 3px solid;
-    margin-bottom: 2rem;   
+    margin-bottom: 3rem;   
 }
 .opciones-cabecera-contador {
-    border: #ff0000 3px solid;
+
 }
 .opciones-cabecera-filtro {
-    border: #ff0000 3px solid;
-    align-self: end;
+    margin-left: auto;
+    width: max-content;
+}
+.opciones-cabecera-filtro select {
+    border-radius: 0.4rem;
+    padding: 0.4rem;
 }
 .opciones-articulos {
 
 }
 .opciones-articulo {
-    position: relative;
     border: hsl(29, 100%, 64%) 3px solid;
+    position: relative;
     border-radius: 0.5rem;
-    height: 100%;
+    margin-bottom: 2rem;
 }
 .opciones-articulo span {
+    background-color: hsl(0, 97%, 65%);
+    color:hsl(0, 0%, 100%);
+    font-weight: bold;
     position: absolute;
     border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    top: -0.5rem;
+    right: -0.5rem;
 }
 .opciones-articulo-imagen {
     border: hsl(39, 100%, 76%) 1px solid;
@@ -495,14 +525,12 @@ footer {
 .opciones-articulo-titulo {
     margin: 0 1rem 1rem;
 }
-/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  Las columnas y las posiciones*/
 .opciones-articulo-ampliar {
-    bottom: 0;
+    
 }
 .opciones-articulo-ampliar button {
     border-radius: 0 0 0.5rem 0.5rem;
     width: 100%;
-
 }
 
 /* product */
@@ -520,7 +548,7 @@ footer {
 
 }
 .articulo-texto {
-    
+    padding: 2rem;
 }
 .articulo-texto-titulo {
 
@@ -532,13 +560,14 @@ footer {
 
 }
 .articulo-calcular {
-    
+    display: flex;
+    padding: 2rem;
 }
 .articulo-calcular-texto {
 
 }
 .articulo-mas-menos {
-
+    display: flex;
 }
 .articulo-menos {
     
