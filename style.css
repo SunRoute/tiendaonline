@@ -210,9 +210,11 @@ a:hover, a:focus {
 }
 
 .custom-button{
-    border: hsl(29, 100%, 64%) 2px solid;
-    background-color: hsl(39, 100%, 76%);
-    color: hsl(0, 97%, 65%);
+    border: hsl(0, 0%, 100%) 2px solid;
+    background-color: hsl(29, 100%, 64%);
+    color: hsl(0, 0%, 100%);
+    font-weight: bold;
+    /* color: hsl(0, 97%, 65%); */
     border-radius: 0.5rem;
     padding: 0.5rem 2rem;
 }
@@ -300,10 +302,7 @@ footer {
 }
 .header-logo-imagen {
     align-self: center;
-}
-.header-logo-imagen {
-    align-self: center;
-    width: 10%;
+    width: 10vh;
 }
 .header-logo-imagen svg path {
     fill: hsl(0, 97%, 65%);
@@ -312,7 +311,6 @@ footer {
     align-self: center;
     margin-left: 1rem;
 }
-
 .header-logo-texto h2 {
     color: hsl(0, 97%, 65%);
     font-size: 3rem;
@@ -349,20 +347,26 @@ footer {
 /* Carrusel */ 
 
 .carrusel {
-    height: 80vh;
-    overflow: hidden;
     position: relative;
     margin-bottom: 2rem;
+    height: 80vh;
+    overflow: hidden;
 }
 .carrusel-imagen {
     position: absolute;
     z-index: 900;
 }
 .carrusel-titulo {
+    background: rgba(255, 255, 255, 0.5);
     position: absolute;
     z-index: 1000;
-    top: 30vh;
+    top: 25vh;
     left: 10%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+.carrusel-titulo h1 {
+    color: orangered;
 }
 .carrusel-boton {
     position: absolute;
@@ -372,9 +376,9 @@ footer {
 }
 
 .destacados {
-    width: 80%;
     margin: auto;
     margin-bottom: 2rem;
+    width: 80%;
 }
 .destacados-titulo {
     align-self: center;
@@ -392,7 +396,7 @@ footer {
     height: 100%;
 }
 .destacado-articulo-imagen {
-    border: hsl(0, 0%, 100%) 1px solid;
+    border: hsl(39, 100%, 76%) 1px solid;
     margin-bottom: 2rem;
     border-radius: 0.5rem 0.5rem 0 0;
 }
@@ -408,13 +412,9 @@ footer {
 }
 .destacado-articulo-descripcion {
     margin: 0 1rem 1rem;
-}
-.destacado-articulo-descripcion {
-    margin: 0 1rem 1rem;
     text-align: justify;
 }
 .presentacion {
-    border: red 1px solid;
     display: flex;
     justify-content: center;
     width: 80%;
@@ -428,54 +428,80 @@ footer {
     margin-bottom: 1rem;
 }
 .presentacion-imagen {
-    border: red 1px solid;
+    display: flex;
+    justify-content: start;
+    align-items: center;
     border-radius: 0.5rem;
-    width: 60%;
-    
+    height: 100%;
 }
 .presentacion-imagen img {
     border-radius: 0.5rem;
+    height: 60%;
 }
 
 /* productos */
 
 .productos {
-
+    min-height: 100vh;
 }
 .categorias {
-
+    border: red 3px solid;
+    justify-self: center;
+    padding: 2rem;
+    height: 100%;
 }
 .categorias-titulo {
-
+    
 }
 .categorias-menu {
 
 }
+.categorias-menu li {
+    margin-bottom: 0.4rem; 
+}
 .opciones {
-
+    border: #ff0000 3px solid;
+    padding: 2rem;
 }
 .opciones-cabecera {
-
+    border: #ff0000 3px solid;
+    margin-bottom: 2rem;   
 }
 .opciones-cabecera-contador {
-
+    border: #ff0000 3px solid;
 }
-.opciones-cabecera-titulo {
-
+.opciones-cabecera-filtro {
+    border: #ff0000 3px solid;
+    align-self: end;
 }
 .opciones-articulos {
 
 }
 .opciones-articulo {
-    
+    position: relative;
+    border: hsl(29, 100%, 64%) 3px solid;
+    border-radius: 0.5rem;
+    height: 100%;
+}
+.opciones-articulo span {
+    position: absolute;
+    border-radius: 0.5rem;
 }
 .opciones-articulo-imagen {
-
+    border: hsl(39, 100%, 76%) 1px solid;
+    margin-bottom: 2rem;
+    border-radius: 0.5rem 0.5rem 0 0;
 }
 .opciones-articulo-titulo {
-
+    margin: 0 1rem 1rem;
 }
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  Las columnas y las posiciones*/
 .opciones-articulo-ampliar {
+    bottom: 0;
+}
+.opciones-articulo-ampliar button {
+    border-radius: 0 0 0.5rem 0.5rem;
+    width: 100%;
 
 }
 
