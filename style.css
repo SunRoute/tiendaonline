@@ -65,6 +65,7 @@ button, input, optgroup, select, textarea {
     font-size: 100%; /* 1 */
     line-height: 1.15; /* 1 */
     margin: 0; /* 2 */
+    width: 100%;
 }
 button, input { /* 1 */
     overflow: visible;
@@ -77,7 +78,7 @@ button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
-    -webkit-appearance: button;
+    appearance: button;
 }
 button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
@@ -119,14 +120,14 @@ textarea {
     height: auto;
 }
 [type="search"] {
-    -webkit-appearance: textfield; /* 1 */
+    appearance: textfield; /* 1 */
     outline-offset: -2px; /* 2 */
 }
 [type="search"]::-webkit-search-decoration {
-    -webkit-appearance: none;
+    appearance: none;
 }
 ::-webkit-file-upload-button {
-    -webkit-appearance: button; /* 1 */
+    appearance: button; /* 1 */
     font: inherit; /* 2 */
 }
 details {
@@ -155,7 +156,7 @@ ol, ul {
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-   -webkit-appearance: none;
+   appearance: none;
    margin: 0;
 }
 img {
@@ -209,18 +210,19 @@ a:hover, a:focus {
     outline-offset: 0;
 }
 
-.custom-button{
-    border: hsl(0, 0%, 100%) 2px solid;
-    background-color: rgb(255, 160, 71);
-    color: hsl(0, 0%, 100%);
-    font-weight: bold;
-    /* color: hsl(0, 97%, 65%); */
-    border-radius: 0.5rem;
-    padding: 0.5rem 2rem;
-    box-shadow: 0 0 1.5rem 0.1rem hsl(16, 100%, 50%) inset;
-}
-
 /* Layout */
+
+.mantener-alto{
+    height: 100%;
+}
+.mantener-alto div:last-child{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+div:has(.mantener-alto){
+    padding-bottom: 2rem;
+}
 
 /* Columns */
 
@@ -261,6 +263,7 @@ a:hover, a:focus {
 .three-columns > .column {
     width: 30%;
 }
+
 .four-columns {
     display: flex;
     flex-wrap: wrap;
@@ -280,6 +283,7 @@ a:hover, a:focus {
     width: 18%;
 }
 
+
 /* Structure */ 
 
 header {
@@ -287,17 +291,25 @@ header {
     display: flex;
     padding: 1rem;
 }
-
 main {
     background-color: hsl(39, 100%, 76%);
 }
-
 footer {
     background-color: hsl(29, 100%, 64%);
     padding: 0.5rem;
 }
 
 /* Components */
+
+.custom-button{
+    border: hsl(0, 0%, 100%) 2px solid;
+    background-color: rgb(255, 160, 71);
+    color: hsl(0, 0%, 100%);
+    font-weight: bold;
+    border-radius: 0.5rem;
+    padding: 0.5rem 2rem;
+    box-shadow: 0 0 1.5rem 0.1rem hsl(16, 100%, 50%) inset;
+}
 
 /* header */
 
@@ -307,41 +319,40 @@ footer {
 }
 .header-logo-imagen {
     align-self: center;
-    width: 10vh;
+    margin-right: 1rem;
+}
+
+.header-logo-imagen svg{
+    height: 5rem;
+    width: 5rem;
 }
 .header-logo-imagen svg path {
     fill: hsl(0, 97%, 65%);
 }
 .header-logo-texto {
     align-self: center;
-    margin-left: 1rem;
 }
 .header-logo-texto h2 {
     color: hsl(0, 97%, 65%);
     font-size: 3rem;
 }
-.header-menu {
-
-}
 .header-menu ul {
-    color: hsl(0, 0%, 100%);
     display: flex;
     justify-content: space-around;
     align-items: center;
-    font-size: 2rem;
     height: 100%;   
+}
+.header-menu ul li {
+    color: hsl(0, 0%, 100%);
+    font-size: 2rem;
 }
 
  /* pie */
 
- .pie {
-
-}
  .pie p {
     color: hsl(0, 0%, 100%);
     text-align: center;  
 }
-
  
 /* INDEX */
 
@@ -353,8 +364,12 @@ footer {
 
 .carrusel {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 2rem;
     height: 85vh;
+    max-height: 85vh;
     overflow: hidden;
 }
 .carrusel-imagen {
@@ -362,11 +377,9 @@ footer {
     z-index: 900;
 }
 .carrusel-texto {
-    /* position: absolute; */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-top: 15%;
+    align-items: center;   
 }
 .carrusel-titulo {
     background: rgba(255, 212, 133, 0.6);
@@ -374,6 +387,8 @@ footer {
     padding: 2rem;
     border-radius: 0.5rem;
     margin-bottom: 1rem;
+    text-align: center;
+    max-width: 80vw;
 }
 .carrusel-titulo h1 {
     color: hsl(24, 93%, 52%);
@@ -382,10 +397,14 @@ footer {
     font-size: 4rem;
 }
 .carrusel-boton {
+    width: 25%;
     z-index: 1000;
 }
+
+/* Destacados */ 
+
 .destacados {
-    margin: auto;
+    margin: 0 auto;
     margin-bottom: 2rem;
     width: 80%;
 }
@@ -395,9 +414,6 @@ footer {
 }
 .destacados-titulo h2 {
     color: hsl(0, 97%, 65%);
-}
-.destacados-articulos {
-               
 }
 .destacado-articulo {
     border: hsl(29, 100%, 64%) 3px solid;
@@ -424,6 +440,9 @@ footer {
     margin: 0 1rem 1rem;
     text-align: justify;
 }
+
+/* presentación */
+
 .presentacion {
     width: 80%;
     margin: auto;
@@ -445,20 +464,16 @@ footer {
 .presentacion-imagen img {
     box-shadow: 0.3rem 0.3rem 0.8rem hsl(0, 0%, 0%);
     border-radius: 0.5rem;
-    height: 40%;
+    height: 60%;
 }
 
 /* PRODUCTOS */
 
 .productos {
-    min-height: 100vh;
+    min-height: 90vh;
 }
 .categorias {
-    position: relative;
-    /* margin-bottom: 2rem; */
-    /* height: 85vh; */
-    /* overflow: hidden; */
-    /* padding: 2rem; */
+    position: relative; 
     height: 100%;
 }
 .categorias-imagen {
@@ -482,20 +497,21 @@ footer {
     top: 17vh;
     left: 15%;
 }
-.categorias-menu li {
+.categorias-menu ul li {
     color: hsl(180, 10%, 24%);
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
+/* Un nombre más especifico, puede haber muchas opciones en la web */
 .opciones {
     padding: 3rem;
 }
 .opciones-cabecera {
     margin-bottom: 3rem;   
 }
-.opciones-cabecera-contador {
-    
+.opciones-cabecera-contador span {
+    color: hsl(24, 93%, 52%);
 }
 .opciones-cabecera-filtro {
     margin-left: auto;
@@ -505,9 +521,7 @@ footer {
     border-radius: 0.4rem;
     padding: 0.4rem;
 }
-.opciones-articulos {
 
-}
 .opciones-articulo {
     border: hsl(29, 100%, 64%) 3px solid;
     box-shadow: 0.3rem 0.3rem 0.8rem hsl(29, 100%, 64%);
@@ -530,12 +544,20 @@ footer {
     margin-bottom: 2rem;
     border-radius: 0.5rem 0.5rem 0 0;
 }
+.opciones-articulo-ajuste-vertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 .opciones-articulo-titulo {
-    margin: 0 1rem 1rem;
+    margin: 0 1rem 1.3rem;
 }
-.opciones-articulo-ampliar {
-    
-}
+/* /* .opciones-articulo-ampliar {
+    position: absolute;
+    bottom: 0;
+    width: 100%; 
+} */
+
 .opciones-articulo-ampliar button {
     border-radius: 0 0 0.5rem 0.5rem;
     width: 100%;
@@ -544,17 +566,19 @@ footer {
 /* PRODUCT */
 
 .product {
-
-    min-height: 100vh;
+    min-height: 90vh;
 }
 .carrusel-imagenes {
     border-right: hsl(29, 100%, 64%) 4px solid;
     padding: 3rem 0 0 3rem;
 }
+
+/* Posibilidad de replantear el width a img, porque todos los img tienen 100% por defecto y por tanto es mejor realizar el posicionamiento con la caja
+que le contiene*/
+
 .carrusel-imagenes-imagen {
     display: flex;
     justify-content: center;
-    padding: 2rem;
     margin-bottom: 3rem;
     width: 90%;
 }
@@ -577,62 +601,58 @@ footer {
     margin-bottom: 1rem;
     padding: 4.5rem 5rem 0 0;
 }
-.articulo-texto-titulo {
-    margin-bottom: 1rem;
-}
-.articulo-texto-precio {
-    margin-bottom: 1rem;
+.articulo-texto-titulo, .articulo-texto-precio {
+    margin-bottom: 2rem;
 }
 .articulo-texto-precio h3 {
     color: hsl(0, 97%, 65%);
+    font-size: 1.7rem;
 }
 .articulo-texto-descripcion {
     text-align: justify;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 .articulo-calcular {
     display: flex;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 .articulo-calcular-texto {
-    font-weight: bold;
+    font-weight: 600;
     margin: 0.7rem 2rem 0 0;
-    
 }
+.articulo-boton-accion {
+    width: 25%;
+}
+/* Botón más menos*/
+
 .articulo-mas-menos {
     display: flex;
-    margin-bottom: 1rem;
-}
-.articulo-menos {
-    
 }
 .articulo-menos button {
     border-radius: 0.5rem 0 0 0.5rem;
 }
-.articulo-display {
-    
-}
-.articulo-display input {
-    text-align: center;
-    height: 2.4rem;
-    border: none;
-}
-.articulo-mas {
-
-}
 .articulo-mas button {
     border-radius: 0 0.5rem 0.5rem 0;
 }
-.articulo-boton-accion {
-
+.articulo-display{
+    width: 20%;
+}
+.articulo-display input {
+    color:hsl(0, 0%, 0%);
+    text-align: center;
+    height: 2.4rem;
+    border: none;
+    width: 100%;
 }
 
 /* CARRITO */
 
 .carrito {
-    padding: 4rem;
+    padding: 3.5rem;
     min-height: 90vh;
 }
+
+/* Posibilidad de abstraer los nombres para dar uso al componente en otros contextos (por ejemplo panel de administración)*/
 .carrito-titulo {
     text-align: center;
     margin-bottom: 4rem;
@@ -650,21 +670,20 @@ footer {
     font-size: 1.5rem;
 }
 .carrito-articulos {
-    border-top: hsl(29, 100%, 64%) 4px solid; 
+    border-top: hsl(29, 100%, 64%) 4px solid;
+    margin-bottom: 3rem;
 }
-.carrito-articulo {
-
-}
-.elementos-carrito {
+.alineacion-items {
     align-items: center;
 }
 .carrito-articulo-imagen {
-    text-align: center;
+    margin: 0 auto;
+    width: 30%;
 }
 .carrito-articulo-imagen img {
+    box-shadow: 0.2rem 0.2rem 1rem hsl(29, 100%, 64%);
     border-radius: 0.2rem;
-    margin: 1rem;
-    width: 30%;
+    margin: 1rem 0;
 }
 .carrito-articulo-descripcion {
     text-align: center;
@@ -677,20 +696,17 @@ footer {
     font-size: 1.2rem;
     font-weight: bold;
 }
+
+/* Unificarlo con el de product*/
 .carrito-articulo-mas-menos {
     display: flex;
     justify-content: center;
     margin-bottom: 1rem;
 }
-.carrito-articulo-menos {
-
-}
 .carrito-articulo-menos button {
     border-radius: 0.5rem 0 0 0.5rem;
 }
-.carrito-articulo-display {
 
-}
 .carrito-articulo-display input {
     text-align: center;
     height: 2.4rem;
@@ -703,109 +719,132 @@ footer {
     border-radius: 0 0.5rem 0.5rem 0;
 }
 .carrito-articulos-resumen {
-    border: red 1px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+/*unificarlo con el de checkout*/
 .carrito-resumen {
     border: hsl(29, 100%, 64%) 3px solid;
+    box-shadow: 0.2rem 0.2rem 1rem hsl(29, 100%, 64%);
+    border-radius: 0.5rem;
     width: 30%;
     text-align: center;
+    margin-bottom: 2rem;
 }
 .carrito-resumen-cabecera {
     border-bottom: hsl(29, 100%, 64%) 3px solid;
+    background-color: hsl(29, 100%, 64%);
+    padding: 0.5rem;
+}
+.carrito-resumen-cabecera h4 {
     color:hsl(0, 97%, 65%);
+    font-size: 1.3rem;
 }
-.carrito-resumen-titulo {
-    padding: 0.3rem;
+.carrito-resumen .carrito-resumen-coste:last-child {
+    border-top: hsl(29, 100%, 64%) 3px solid;
+    font-weight: bold;
 }
-.carrito-resumen-titulo h4 {
-    color:hsl(0, 97%, 65%);
-}
-/* en común con el resumen de checkout */
-.carrito-resumen-cabecera .carrito-resumen-concepto {
-    
-}
-.carrito-resumen-cabecera .carrito-resumen-importe {
 
+/* en común con el resumen de checkout */
+.carrito-resumen .resumen-concepto, .carrito-resumen .resumen-importe {
+    padding: 0.5rem;
 }
 /*-------------------------------------*/
-.botones-accion {
-    border: red 1px solid;
+.carrito-articulos-resumen .botones-accion {
     width: 30%;
     text-align: center;
 }
-.carrito-boton-volver {
-    
-}
-.carrito-boton-comprar {
 
-}
+/* CHECKOUT */
 
-/* checkout */
-
+/*posibilidad de arreglar los margenes de las páginas*/
 .checkout {
-    
+    width: 80%;
+    padding: 4rem 10%;
+    min-height: 90vh; 
 }
 .checkout-titulo {
-
+    text-align: center;
+    margin-bottom: 4rem;
 }
-.checkout-formulario {
-    
+.checkout-titulo h2 {
+    font-size: 3rem;
 }
 .checkout-formulario-datos {
-    
+    border-right: hsl(29, 100%, 64%) 5px solid;
+    padding-right: 5rem;
 }
 /* en común con el formulario de contacto. */
-.checkout-formulario-datos > .formulario-datos {
-
+.checkout-formulario-datos .formulario-datos {
+    margin-bottom: 2rem;
 }
-.checkout-formulario-datos > .formulario-datos-label {
-
+.checkout-formulario-datos .formulario-datos-label {
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
 }
-.checkout-formulario-datos > .formulario-datos-input {
+.checkout-formulario-datos .formulario-datos-input {
+    box-shadow: 0.2rem 0.2rem 1rem hsl(29, 100%, 64%);
+    width: 100%;
+}
 
+/*Se puede dar a todos los inputs de la página*/
+.checkout-formulario-datos .formulario-datos-input input {
+    border-radius: 0.2rem;
+    border: none;
+    font-size: 1.5rem;
+    width: 100%;
+    height: 2rem;
 }
 /* ---------------------------------------*/
-.checkout-pago {
 
-}
+/*Unificar con cart*/
 .checkout-resumen {
-
+    border: hsl(29, 100%, 64%) 3px solid;
+    box-shadow: 0.2rem 0.2rem 1rem hsl(29, 100%, 64%);
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    width: 70%;
+    text-align: center;
+    margin-bottom: 3rem;
 }
 .checkout-resumen-cabecera {
-
+    border-bottom: hsl(29, 100%, 64%) 3px solid;
+    background-color: hsl(29, 100%, 64%);
+    color:hsl(0, 97%, 65%);
+    font-size: 1.5rem;
 }
 .checkout-resumen-titulo {
-
+    padding: 0.5rem;
 }
-/* en común con el resumen de carrito */
-.checkout-resumen .resumen-concepto {
-
+.checkout-resumen-titulo h4 {
+    color:hsl(0, 97%, 65%);
 }
-.checkout-resumen .resumen-importe {
-
-}
-/* ---------------------------------- */
 .checkout-forma-pago {
-
+    margin-bottom: 2rem;
 }
 .forma-pago-opcion {
-
+    display: flex;
 }
 .forma-pago-input {
-    
+    margin: 0 2rem 2rem 0;
+}
+.forma-pago-input input[type=radio] {
+    transform: scale(1.5);
+    margin-top: 0.5rem;
 }
 .forma-pago-label {
-
+    font-size: 1.5rem;
 }
 .checkout-boton-pagar {
-
+    width: 30%;
 }
 
-/* contacto */
+/* CONTACTO */
 
 .contacto {
     padding: 4rem;
-    min-height: 100vh;
+    min-height: 90vh;
 }
 .contacto-titulo {
     text-align: center ;
@@ -813,9 +852,6 @@ footer {
 }
 .contacto-titulo h2 {
    font-size: 3rem;
-}
-.contacto-formulario {
-    
 }
 /* en común con el formulario de checkout. */
 .contacto-formulario .formulario-datos {
@@ -829,13 +865,13 @@ footer {
     box-shadow: 0.2rem 0.2rem 1rem hsl(29, 100%, 64%);
     width: 100%;  
 }
-.contacto-formulario .formulario-datos-input input {
+.contacto-formulario .formulario-datos-input input, .formulario-datos-input select {
     border-radius: 0.2rem;
     border: none;
+    font-size: 1.5rem;
     width: 100%;
     height: 2rem;
 }
-/* ---------------------------------------*/
 .formulario-datos-texto {
     box-shadow: 0.2rem 0.2rem 1rem hsl(29, 100%, 64%);
 }
@@ -844,15 +880,6 @@ footer {
     border-radius: 0.2rem;
     width: 100%;
     height: 10rem;
-}
-.contacto-boton-enviar {
-    
-}
-.contacto-empresa {
-
-}
-.datos-empresa {
-    
 }
 .datos-empresa-linea {
     display:flex;
@@ -867,13 +894,9 @@ footer {
 .datos-empresa-linea-imagen svg path {
     fill: hsl(0, 97%, 65%);
 }
-.datos-empresa-linea-informacion {
-
-}
 .datos-empresa-linea-informacion span {
     color: hsl(180, 10%, 24%);
     font-size: 2.4rem;
-
 }
 
 
