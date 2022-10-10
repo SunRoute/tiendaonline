@@ -210,7 +210,9 @@ a:hover, a:focus {
     outline-offset: 0;
 }
 
-/* Layout */
+/* LAYOUT */
+
+/* Fichas galería */
 
 .mantener-alto{
     height: 100%;
@@ -220,11 +222,11 @@ a:hover, a:focus {
     bottom: 0;
     width: 100%;
 }
-div:has(.mantener-alto){
+.column:has(.mantener-alto){
     padding-bottom: 2rem;
 }
 
-/* Columns */
+/* Columnas */
 
 .one-column {
     width: 100%;
@@ -284,7 +286,7 @@ div:has(.mantener-alto){
 }
 
 
-/* Structure */ 
+/* ESTRUCTURA */ 
 
 header {
     background-color: hsl(29, 100%, 64%);
@@ -299,17 +301,7 @@ footer {
     padding: 0.5rem;
 }
 
-/* Components */
-
-.custom-button{
-    border: hsl(0, 0%, 100%) 2px solid;
-    background-color: rgb(255, 160, 71);
-    color: hsl(0, 0%, 100%);
-    font-weight: bold;
-    border-radius: 0.5rem;
-    padding: 0.5rem 2rem;
-    box-shadow: 0 0 1.5rem 0.1rem hsl(16, 100%, 50%) inset;
-}
+/* COMPONENTES*/
 
 /* header */
 
@@ -353,12 +345,44 @@ footer {
     color: hsl(0, 0%, 100%);
     text-align: center;  
 }
+
+/* Botones */
+
+.custom-button{
+    border: hsl(0, 0%, 100%) 2px solid;
+    background-color: rgb(255, 160, 71);
+    color: hsl(0, 0%, 100%);
+    font-weight: bold;
+    border-radius: 0.5rem;
+    padding: 0.5rem 2rem;
+    box-shadow: 0 0 1.5rem 0.1rem hsl(16, 100%, 50%) inset;
+}
+
+/* Unificar el de product y carrito ----CORREGIDO*/
+/* Botón más menos*/
+
+.articulo-mas-menos {
+    display: flex; 
+    justify-content: center;
+}
+.articulo-menos button {
+    border-radius: 0.5rem 0 0 0.5rem;
+}
+.articulo-mas button {
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+.articulo-display{
+    width: 15%;
+}
+.articulo-display input {
+    color: hsl(180, 10%, 24%);
+    text-align: center;
+    height: 2.4rem;
+    border: none;
+    width: 100%;
+}
  
 /* INDEX */
-
-.home {
-
-}
 
 /* Carrusel */ 
 
@@ -441,7 +465,7 @@ footer {
     text-align: justify;
 }
 
-/* presentación */
+/* Presentación */
 
 .presentacion {
     width: 80%;
@@ -503,33 +527,33 @@ footer {
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
-/* Un nombre más especifico, puede haber muchas opciones en la web */
-.opciones {
+/* Un nombre más especifico, puede haber muchas opciones en la web. ----CORREGIDO*/
+.galeria {
     padding: 3rem;
 }
-.opciones-cabecera {
+.galeria-cabecera {
     margin-bottom: 3rem;   
 }
-.opciones-cabecera-contador span {
+.galeria-cabecera-contador span {
     color: hsl(24, 93%, 52%);
 }
-.opciones-cabecera-filtro {
+.galeria-cabecera-filtro {
     margin-left: auto;
     width: max-content;
 }
-.opciones-cabecera-filtro select {
+.galeria-cabecera-filtro select {
     border-radius: 0.4rem;
     padding: 0.4rem;
 }
 
-.opciones-articulo {
+.galeria-articulo {
     border: hsl(29, 100%, 64%) 3px solid;
     box-shadow: 0.3rem 0.3rem 0.8rem hsl(29, 100%, 64%);
     position: relative;
     border-radius: 0.5rem;
     margin-bottom: 2rem;
 }
-.opciones-articulo span {
+.galeria-articulo span {
     background-color: hsl(0, 97%, 65%);
     color:hsl(0, 0%, 100%);
     font-weight: bold;
@@ -539,26 +563,26 @@ footer {
     top: -0.5rem;
     right: -0.5rem;
 }
-.opciones-articulo-imagen {
+.galeria-articulo-imagen {
     border: hsl(39, 100%, 76%) 1px solid;
     margin-bottom: 2rem;
     border-radius: 0.5rem 0.5rem 0 0;
 }
-.opciones-articulo-ajuste-vertical {
+/* .galeria-articulo-ajuste-vertical {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-.opciones-articulo-titulo {
+} */
+.galeria-articulo-titulo {
     margin: 0 1rem 1.3rem;
 }
-/* /* .opciones-articulo-ampliar {
+/* /* .galeria-articulo-ampliar {
     position: absolute;
     bottom: 0;
     width: 100%; 
 } */
 
-.opciones-articulo-ampliar button {
+.galeria-articulo-ampliar button {
     border-radius: 0 0 0.5rem 0.5rem;
     width: 100%;
 }
@@ -569,29 +593,30 @@ footer {
     min-height: 90vh;
 }
 .carrusel-imagenes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border-right: hsl(29, 100%, 64%) 4px solid;
-    padding: 3rem 0 0 3rem;
+    padding: 4rem;
+    
 }
 
 /* Posibilidad de replantear el width a img, porque todos los img tienen 100% por defecto y por tanto es mejor realizar el posicionamiento con la caja
-que le contiene*/
+que le contiene ----CORREGIDO*/
 
 .carrusel-imagenes-imagen {
-    display: flex;
-    justify-content: center;
     margin-bottom: 3rem;
-    width: 90%;
+    width: 80%;
 }
 .carrusel-imagenes-imagen img {
     box-shadow: 1rem 1rem 1rem hsl(29, 100%, 64%);
     border-radius: 0.5rem;
-    width: 70%;
 }
 .carrusel-miniaturas {
-    padding: 0 4rem;
+
 }
 .carrusel-miniaturas-imagen {
-    width: 60%;
+    
 }
 .carrusel-miniaturas-imagen img {
     box-shadow: 0.2rem 0.2rem 1rem hsl(29, 100%, 64%);
@@ -618,31 +643,10 @@ que le contiene*/
 }
 .articulo-calcular-texto {
     font-weight: 600;
-    margin: 0.7rem 2rem 0 0;
+    margin-top: 0.7rem;
 }
 .articulo-boton-accion {
     width: 25%;
-}
-/* Botón más menos*/
-
-.articulo-mas-menos {
-    display: flex;
-}
-.articulo-menos button {
-    border-radius: 0.5rem 0 0 0.5rem;
-}
-.articulo-mas button {
-    border-radius: 0 0.5rem 0.5rem 0;
-}
-.articulo-display{
-    width: 20%;
-}
-.articulo-display input {
-    color:hsl(0, 0%, 0%);
-    text-align: center;
-    height: 2.4rem;
-    border: none;
-    width: 100%;
 }
 
 /* CARRITO */
@@ -651,108 +655,86 @@ que le contiene*/
     padding: 3.5rem;
     min-height: 90vh;
 }
-
-/* Posibilidad de abstraer los nombres para dar uso al componente en otros contextos (por ejemplo panel de administración)*/
-.carrito-titulo {
+/* Posibilidad de abstraer los nombres para dar uso al componente en otros contextos (por ejemplo panel de administración) ----CORREGIDO*/
+.panel-titulo {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
 }
-.carrito-titulo h2 {
+.panel-titulo h2 {
     font-size: 3rem;
 }
-.carrito-encabezados {
+.panel-encabezados {
     margin-bottom: 1rem;
 }
-.carrito-encabezado {
+.panel-encabezado {
     text-align: center;
 }
-.carrito-encabezado h4 {
+.panel-encabezado h4 {
     font-size: 1.5rem;
 }
-.carrito-articulos {
+.panel-articulos {
     border-top: hsl(29, 100%, 64%) 4px solid;
     margin-bottom: 3rem;
 }
 .alineacion-items {
     align-items: center;
 }
-.carrito-articulo-imagen {
+.panel-articulo-imagen {
     margin: 0 auto;
     width: 30%;
 }
-.carrito-articulo-imagen img {
+.panel-articulo-imagen img {
     box-shadow: 0.2rem 0.2rem 1rem hsl(29, 100%, 64%);
     border-radius: 0.2rem;
     margin: 1rem 0;
 }
-.carrito-articulo-descripcion {
+.panel-articulo-descripcion {
     text-align: center;
 }
-.carrito-articulo-precio {
+.panel-articulo-precio {
     text-align: center;
 }
-.carrito-articulo span {
+.panel-articulo span {
     color: hsl(180, 10%, 24%);
     font-size: 1.2rem;
     font-weight: bold;
 }
 
-/* Unificarlo con el de product*/
-.carrito-articulo-mas-menos {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
-}
-.carrito-articulo-menos button {
-    border-radius: 0.5rem 0 0 0.5rem;
-}
-
-.carrito-articulo-display input {
-    text-align: center;
-    height: 2.4rem;
-    border: none;
-}
-.carrito-articulo-mas {
-
-}
-.carrito-articulo-mas button {
-    border-radius: 0 0.5rem 0.5rem 0;
-}
 .carrito-articulos-resumen {
     display: flex;
     flex-direction: column;
+    
     align-items: center;
 }
 /*unificarlo con el de checkout*/
-.carrito-resumen {
+.resumen {
     border: hsl(29, 100%, 64%) 3px solid;
     box-shadow: 0.2rem 0.2rem 1rem hsl(29, 100%, 64%);
     border-radius: 0.5rem;
-    width: 30%;
     text-align: center;
     margin-bottom: 2rem;
 }
-.carrito-resumen-cabecera {
+.resumen-cabecera {
     border-bottom: hsl(29, 100%, 64%) 3px solid;
     background-color: hsl(29, 100%, 64%);
     padding: 0.5rem;
 }
-.carrito-resumen-cabecera h4 {
+.resumen-cabecera h4 {
     color:hsl(0, 97%, 65%);
     font-size: 1.3rem;
 }
-.carrito-resumen .carrito-resumen-coste:last-child {
+.resumen .resumen-coste:last-child {
     border-top: hsl(29, 100%, 64%) 3px solid;
     font-weight: bold;
 }
-
-/* en común con el resumen de checkout */
-.carrito-resumen .resumen-concepto, .carrito-resumen .resumen-importe {
+.resumen .resumen-concepto, .resumen .resumen-importe {
     padding: 0.5rem;
 }
+
+
 /*-------------------------------------*/
 .carrito-articulos-resumen .botones-accion {
-    width: 30%;
+    width: 25%;
     text-align: center;
 }
 
@@ -798,8 +780,10 @@ que le contiene*/
 }
 /* ---------------------------------------*/
 
+
+
 /*Unificar con cart*/
-.checkout-resumen {
+/* .checkout-resumen {
     border: hsl(29, 100%, 64%) 3px solid;
     box-shadow: 0.2rem 0.2rem 1rem hsl(29, 100%, 64%);
     border-radius: 0.5rem;
@@ -819,24 +803,24 @@ que le contiene*/
 }
 .checkout-resumen-titulo h4 {
     color:hsl(0, 97%, 65%);
-}
-.checkout-forma-pago {
+} */
+.formulario-datos-pago {
     margin-bottom: 2rem;
 }
-.forma-pago-opcion {
+.formulario-datos-pago-opcion {
     display: flex;
 }
-.forma-pago-input {
+.formulario-datos-pago-input {
     margin: 0 2rem 2rem 0;
 }
-.forma-pago-input input[type=radio] {
+.formulario-datos-pago-input input[type=radio] {
     transform: scale(1.5);
     margin-top: 0.5rem;
 }
-.forma-pago-label {
+.formulario-datos-pago-label {
     font-size: 1.5rem;
 }
-.checkout-boton-pagar {
+.formulario-datos-boton-pagar {
     width: 30%;
 }
 
