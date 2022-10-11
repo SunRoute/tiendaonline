@@ -222,7 +222,7 @@ a:hover, a:focus {
     bottom: 0;
     width: 100%;
 }
-.column:has(.mantener-alto){
+.column:has(.mantener-alto) {
     padding-bottom: 2rem;
 }
 
@@ -601,8 +601,7 @@ footer {
     
 }
 
-/* Posibilidad de replantear el width a img, porque todos los img tienen 100% por defecto y por tanto es mejor realizar el posicionamiento con la caja
-que le contiene ----CORREGIDO*/
+/* Posibilidad de replantear el width a img, porque todos los img tienen 100% por defecto y por tanto es mejor realizar el posicionamiento con la caja que le contiene ----CORREGIDO*/
 
 .carrusel-imagenes-imagen {
     margin-bottom: 3rem;
@@ -706,6 +705,9 @@ que le contiene ----CORREGIDO*/
     
     align-items: center;
 }
+.resumen-carrito {
+    width: 30%;
+}
 /*unificarlo con el de checkout*/
 .resumen {
     border: hsl(29, 100%, 64%) 3px solid;
@@ -723,18 +725,21 @@ que le contiene ----CORREGIDO*/
     color:hsl(0, 97%, 65%);
     font-size: 1.3rem;
 }
+.resumen-coste {
+    padding: 0.5rem;
+}
 .resumen .resumen-coste:last-child {
     border-top: hsl(29, 100%, 64%) 3px solid;
     font-weight: bold;
 }
-.resumen .resumen-concepto, .resumen .resumen-importe {
+/* .resumen .resumen-concepto, .resumen .resumen-importe {
     padding: 0.5rem;
-}
+} */
 
 
 /*-------------------------------------*/
 .carrito-articulos-resumen .botones-accion {
-    width: 25%;
+    width: 30%;
     text-align: center;
 }
 
