@@ -8,7 +8,7 @@ sed -i 's/chroot_local_user=.*/chroot_local_user=YES/' /etc/vsftpd.conf
 sed -i 's/chroot_list_enable=.*/chroot_list_enable=YES/' /etc/vsftpd.conf
 sed -i 's/chroot_list_file=.*/chroot_list_file=/etc/vsftpd.chroot_list/' /etc/vsftpd.conf
 
-USER=$(whoami) 
+# read -p  "Ingresa un nombre de usuario para la conexión (minusculas y sin espacios):"  USER
 
 sed -i "s/$USER/" /etc/vsftpd.chroot_list
 
