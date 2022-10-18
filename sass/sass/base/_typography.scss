@@ -1,0 +1,39 @@
+h1, h2, h3, h4, h5, h6, a, p, label {
+    color: hsl(180, 10%, 24%);
+ }
+ h1, h2, h3, h4 {
+     font-family: 'Ubuntu', sans-serif;
+ }
+ h5, h6 {
+     font-family: 'Ubuntu', sans-serif;
+ }
+ a, td, th, p, button, span, label, select, input, textarea, li{
+     font-family: 'Ubuntu', sans-serif;
+ }
+ h1 {
+     font-size: 2.5rem;
+     font-weight: 600;
+     text-decoration: none;
+ }
+ h2 {
+     font-size: 2rem;
+     font-weight: 600;
+     text-decoration: none;
+ }
+ h4 {
+     font-weight: 600;
+     text-decoration: none;
+ }
+ a {
+     -webkit-transition: 300ms;
+     -moz-transition: 300ms;
+     -o-transition: 300ms;
+     font-weight: 600;
+     text-decoration: none;
+     transition: 300ms;
+ }
+ a:hover, a:focus {
+     outline: none;
+     text-decoration: none;
+     outline-offset: 0;
+ }

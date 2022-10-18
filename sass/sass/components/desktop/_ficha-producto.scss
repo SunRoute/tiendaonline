@@ -1,0 +1,34 @@
+/* Contenedor de los elementos de la ficha de cada producto de la galería */
+.galeria-articulo {
+    border: hsl(29, 100%, 64%) 3px solid;
+    box-shadow: 0.3rem 0.3rem 0.8rem hsl(29, 100%, 64%);
+    position: relative;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+}
+/* Precio del producto con posición absolute para que se pueda situar por encima del resto de elementos y en cualquier lugar sin afectarles */
+.galeria-articulo span {
+    background-color: hsl(0, 97%, 65%);
+    color:hsl(0, 0%, 100%);
+    font-weight: bold;
+    position: absolute;
+    border-radius: 0.5rem;
+    padding: 0.8rem 1rem;
+    top: -0.6rem;
+    right: -0.6rem;
+}
+/* Aplicado radius solo en las dos esquinas superiores de la imagen */
+.galeria-articulo-imagen {
+    border: hsl(39, 100%, 76%) 1px solid;
+    margin-bottom: 2rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+.galeria-articulo-titulo {
+    margin: 0 1rem 1.3rem;
+}
+
+/* Aplicado radius solo en las dos esquinas inferiores del botón */
+.galeria-articulo-ampliar button {
+    border-radius: 0 0 0.5rem 0.5rem;
+    width: 100%;
+}

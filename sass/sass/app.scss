@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+@import "helpers/variables";
+@import "helpers/mixins";
+@import "base/normalize";
+@import "base/contents";
+@import "base/typography";
+@import "layout/desktop/master";
+@import "layout/desktop/header";
+@import "layout/desktop/footer";
+@import "layout/desktop/columns";
+@import "pages/cart/desktop/carrusel";
+@import "components/desktop/boton";
+@import "components/desktop/ficha-destacada";
+@import "components/desktop/ficha-producto";
+@import "components/desktop/boton-mas-menos";
+@import "components/desktop/formulario";
+@import "components/desktop/cuadro-resumen";
+@import "pages/desktop/checkout";
+@import "pages/desktop/contacto";
+@import "pages/desktop/index";
+@import "pages/desktop/product";
+@import "pages/desktop/productos";
+
+
+
+

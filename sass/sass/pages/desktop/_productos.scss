@@ -1,0 +1,58 @@
+.productos {
+    min-height: 90vh;
+}
+/* Columna aside. Debe ser una imagen que pueda alargarse hasta tres o cuatro filas sin deformarse ya que se añadiría paginación a partir de cierta cantidad de productos  */
+.categorias {
+    position: relative; 
+    height: 100%;
+}
+.categorias-imagen {
+    position: absolute;
+    z-index: 900;
+    height: 100%;
+}
+.categorias-imagen img {
+    opacity: 0.3;
+    height: 100%;
+}
+/* Menú de columna aside de productos. Posición absolute y z-index superior al del contenedor de la imagen para que quede por encima de él */
+.categorias-titulo {
+    position: absolute;
+    z-index: 1000;
+    top: 10vh;
+    left: 15%;
+}
+.categorias-menu {
+    position: absolute;
+    z-index: 1000;
+    top: 17vh;
+    left: 15%;
+}
+.categorias-menu ul li {
+    color: hsl(180, 10%, 24%);
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* Galería de productos*/
+/* Modificado a un nombre más especifico, puede haber muchas opciones en la web. ----CORREGIDO*/
+.galeria {
+    padding: 3rem;
+}
+.galeria-cabecera {
+    margin-bottom: 3rem;   
+}
+.galeria-cabecera-contador span {
+    color: hsl(24, 93%, 52%);
+}
+.galeria-cabecera-filtro {
+    margin-left: auto;
+    width: max-content;
+}
+/* Particularidades del select de productos */
+.galeria-cabecera-filtro select {
+    border-radius: 0.4rem;
+    padding: 0.4rem;
+    font-size: 1.2rem;
+}

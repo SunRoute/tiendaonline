@@ -1,0 +1,34 @@
+/* Unificado el formulario de checkout y contacto. Mantener la coherencia de los nombres formulario-datos-... ----CORREGIDO */
+.formulario-datos {
+    margin-bottom: 2rem;
+}
+.formulario-datos-label  {
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+}
+/* Contenedor de los input de texto. Sombreado externo */
+.formulario-datos-input, .formulario-datos-texto  {
+    box-shadow: 0.2rem 0.2rem 1rem hsl(29, 100%, 64%); 
+}
+/* Particularidad en los input y select del formulario. No se puede añadir a todos los input porque afectaría a algunos que no debería (botón más menos) */
+.formulario-datos-input input, .formulario-datos-input select, .formulario-datos-texto textarea {
+    border-radius: 0.2rem;
+}
+/* Particularidad del textarea del formulario, para que tenga un alto determinado */
+.formulario-datos-texto textarea {
+    height: 10rem;
+}
+/* Particularidades del input tipo radio del formulario. De este modo se ponen uno debajo de otro, se separan verticalmente, se aleja el label que se encuentra a su derecha y se aumenta el radio del input  */
+.formulario-datos-pago-opcion {
+    display: flex;
+}
+.formulario-datos-pago-input {
+    margin: 0 2rem 2rem 0;
+}
+.formulario-datos-pago-input input[type=radio] {
+    transform: scale(1.5);
+}
+/* Botón de acción del formulario */
+.formulario-datos-boton-accion {
+    width: 20%;
+}

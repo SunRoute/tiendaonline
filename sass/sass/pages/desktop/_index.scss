@@ -1,0 +1,40 @@
+/* Destacados */ 
+.destacados {
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    width: 80%;
+}
+.destacados-titulo {
+    align-self: center;
+    margin-bottom: 2rem;
+}
+.destacados-titulo h2 {
+    color: hsl(0, 97%, 65%);
+    font-size: 2.2rem;
+}
+/* Presentación */
+/* Podría incluirse como componente cuando tenga claro el tipo de imagen y cómo estructurarlo */
+.presentacion {
+    width: 80%;
+    margin: auto;
+}
+.presentacion-texto {
+    padding: 4rem;
+    text-align: justify;
+    height: 100%;
+}
+.presentacion-texto p {
+    margin-bottom: 1rem;
+}
+/* Replantear la imagen. Añadir varias o cambiar la que hay por otra más adecuada */
+.presentacion-imagen {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 100%;
+}
+.presentacion-imagen img {
+    box-shadow: 0.3rem 0.3rem 0.8rem hsl(0, 0%, 0%);
+    border-radius: 0.5rem;
+    height: 60%;
+}
