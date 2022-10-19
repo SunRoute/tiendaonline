@@ -1,14 +1,15 @@
-h1, h2, h3, h4, h5, h6, a, p, label {
-    color: hsl(180, 10%, 24%);
- }
+// No eliminar este color hasta confirmar que se aplica por html (_master.scss)
+// h1, h2, h3, h4, h5, h6, a, p, label {
+//     color: $font-primary-color;
+//  }
  h1, h2, h3, h4 {
-     font-family: 'Ubuntu', sans-serif;
+     font-family: $font-stack;
  }
  h5, h6 {
-     font-family: 'Ubuntu', sans-serif;
+     font-family: $font-stack;
  }
  a, td, th, p, button, span, label, select, input, textarea, li{
-     font-family: 'Ubuntu', sans-serif;
+     font-family: $font-stack;
  }
  h1 {
      font-size: 2.5rem;

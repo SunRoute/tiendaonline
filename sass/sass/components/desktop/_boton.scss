@@ -1,10 +1,10 @@
-/* Estilo de todos los botones de la web. Tiene una sombra interna para darle un poco de altura. */
-.custom-button{
-    border: hsl(0, 0%, 100%) 2px solid;
-    background-color: rgb(255, 160, 71);
-    color: hsl(0, 0%, 100%);
+// Estilo de todos los botones de la web. Tiene una sombra interna para darle un poco de fondo.
+.custom-button {
+    border: $white 2px solid;
+    background-color: $primary-color;
+    color: $white;
     font-weight: bold;
     border-radius: 0.5rem;
     padding: 0.5rem 2rem;
-    box-shadow: 0 0 1.5rem 0.1rem hsl(16, 100%, 50%) inset;
+    box-shadow: 0 0 1.5rem 0.1rem $button-shadow-color inset;
 }

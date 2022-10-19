@@ -28,7 +28,7 @@ header{
     }
 
 	.header-menu{
-		background-color: hsl(0, 0%, 100%);
+		background-color: $white;
 		height: 100vh;
 		left: 0;
 		position: fixed;
@@ -92,7 +92,7 @@ header{
 		}
 
 		span {
-			background: hsl(0, 0%, 100%);
+			background: $white;
 			border-radius: 1rem;
 			display: block;
 			height: 5px;

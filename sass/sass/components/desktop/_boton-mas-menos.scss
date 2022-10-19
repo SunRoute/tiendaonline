@@ -1,22 +1,24 @@
-/* BOTÓN MÁS MENOS (consta de dos botones y un input entre ellos*/
-/* Unificado el botón para añadir y restar productos en product y carrito ----CORREGIDO*/
+// BOTÓN MÁS MENOS (consta de dos botones y un input entre ellos
+// Unificado el botón para añadir y restar productos en product y carrito ----CORREGIDO
 .articulo-mas-menos {
     display: flex; 
     justify-content: center;
 }
-/* Particularidades del botón derecho (solo radius a la derecha) y del botón izquierdo (solo radius a la izquierda) */
+// Particularidades del botón derecho (solo radius a la derecha) y del botón izquierdo (solo radius a la izquierda)
 .articulo-menos button {
     border-radius: 0.5rem 0 0 0.5rem;
 }
 .articulo-mas button {
     border-radius: 0 0.5rem 0.5rem 0;
 }
-.articulo-display{
+.articulo-display {
     width: 15%;
-}
-/* Particularidades solo del input del 'botón más menos' */
-.articulo-display input {
-    color: hsl(180, 10%, 24%);
-    text-align: center;
-    height: 2.4rem;
+    
+    // Particularidades solo del input del 'botón más menos'
+    input {
+        color: $font-primary-color;
+        font-size: 1.3rem;
+        text-align: center;
+        height: 2.4rem;
+    }
 }

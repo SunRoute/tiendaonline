@@ -1,4 +1,9 @@
-/* Cabecera para todas las páginas de la web */
+header {
+    background-color: $primary-color;
+    display: flex;
+    padding: 1rem;
+}
+// Cabecera para todas las páginas de la web
 .header-logo {
     display: flex;
     justify-content: start;
@@ -6,29 +11,34 @@
 .header-logo-imagen {
     align-self: center;
     margin-right: 1rem;
-}
-/* Tamaño y color del svg del logo */
-.header-logo-imagen svg{
-    width: 4.5rem;
-}
-.header-logo-imagen svg path {
-    fill: hsl(0, 97%, 65%);
+
+    // Tamaño del svg del logo
+    svg {
+        width: 4.5rem;
+
+        // Color del svg del logo
+        path {
+            fill: $secondary-color;
+        }
+    }
 }
 .header-logo-texto {
     align-self: center;
+
+    h2 {
+        color: $secondary-color;
+        font-size: 3.2rem;
+    }
 }
-.header-logo-texto h2 {
-    color: hsl(0, 97%, 65%);
-    font-size: 3.2rem;
-}
-/* Menú para todas las páginas de la web */
+// Menú para todas las páginas de la web
 .header-menu ul {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 100%;   
-}
-.header-menu ul li {
-    color: hsl(0, 0%, 100%);
-    font-size: 2rem;
+    height: 100%;
+    
+    li {
+        color: $white;
+        font-size: 2rem;
+    }
 }

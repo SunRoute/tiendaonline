@@ -1,24 +1,25 @@
-/* Unificado el resumen de carrito y checkout ----CORREGIDO*/
+// Unificado el resumen de carrito y checkout ----CORREGIDO
 .resumen {
-    border: hsl(29, 100%, 64%) 3px solid;
-    box-shadow: 0.2rem 0.2rem 1rem hsl(29, 100%, 64%);
+    border: $primary-color 3px solid;
+    box-shadow: 0.2rem 0.2rem 1rem $primary-color;
     border-radius: 0.5rem;
     text-align: center;
     margin-bottom: 2rem;
 }
 .resumen-cabecera {
-    border-bottom: hsl(29, 100%, 64%) 3px solid;
-    background-color: hsl(29, 100%, 64%);
+    border-bottom: $primary-color 3px solid;
+    background-color: $primary-color;
     padding: 0.5rem;
-}
-.resumen-cabecera h4 {
-    color:hsl(0, 97%, 65%);
-    font-size: 1.3rem;
+
+    h4 {
+        color: $secondary-color;
+        font-size: 1.3rem;
+    }
 }
 .resumen-coste {
     padding: 0.5rem;
 }
 .resumen .resumen-coste:last-child {
-    border-top: hsl(29, 100%, 64%) 3px solid;
+    border-top: $primary-color 3px solid;
     font-weight: bold;
 }

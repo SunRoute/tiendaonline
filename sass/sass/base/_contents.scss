@@ -11,18 +11,18 @@ video {
     object-fit: cover;
     max-width: 100%;
 }
-/*Se puede dar a todos los inputs de la página. ----CORREGIDO */
+// Se puede dar a todos los inputs de la página. ----CORREGIDO
 input, select, textarea {
     border: none;
     font-size: 1.5rem;
     height: 2rem;
 }
-/* Fichas de una galería */
-/* Todas las fichas deben mantener el mismo alto independientemente del ancho de la pantalla y de como se comporte su contenido */
-.mantener-alto{
+// Fichas de una galería
+// Todas las fichas deben mantener el mismo alto independientemente del ancho de la pantalla y de como se comporte su contenido
+.mantener-alto {
     height: 100%;
 }
-.mantener-alto div:last-child{
+.mantener-alto div:last-child {
     position: absolute;
     bottom: 0;
     width: 100%;

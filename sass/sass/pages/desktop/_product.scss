@@ -5,23 +5,24 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-right: hsl(29, 100%, 64%) 4px solid;
+    border-right: $primary-color 4px solid;
     padding: 4rem;
 }
-/* Replanteado el width a img, porque todos los img tienen 100% por defecto y por tanto es mejor realizar el posicionamiento con la caja que le contiene ----CORREGIDO */
+// Replanteado el width a img, porque todos los img tienen 100% por defecto y por tanto es mejor realizar el posicionamiento con la caja que le contiene ----CORREGIDO
 .carrusel-imagenes-imagen {
     margin-bottom: 3rem;
     width: 80%;
-}
-.carrusel-imagenes-imagen img {
-    box-shadow: 1rem 1rem 1rem hsl(29, 100%, 64%);
-    border-radius: 0.5rem;
+
+    img {
+        box-shadow: 1rem 1rem 1rem $primary-color;
+        border-radius: 0.5rem;
+    }
 }
 .carrusel-miniaturas-imagen img {
-    box-shadow: 0.2rem 0.2rem 1rem hsl(29, 100%, 64%);
+    box-shadow: 0.2rem 0.2rem 1rem $primary-color;
     border-radius: 0.5rem;
 }
-/* Columna derecha que contiene los detalles del producto y la opción de añadir al carrito */
+// Columna derecha que contiene los detalles del producto y la opción de añadir al carrito
 .articulo-texto {
     margin-bottom: 1rem;
     padding: 4.5rem 5rem 0 0;
@@ -30,29 +31,31 @@
     margin-bottom: 2rem;
 }
 .articulo-texto-precio h3 {
-    color: hsl(0, 97%, 65%);
+    color: $secondary-color;
     font-size: 1.7rem;
 }
 .articulo-texto-descripcion {
     text-align: justify;
     margin-bottom: 3rem;
 }
-// Pendiente de arreglar!!!!
+// Pendiente de arreglar!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 .articulo-calcular {
     border: red solid 1px;
     display: flex;
     margin-bottom: 3rem;
-}
-.articulo-calcular .articulo-mas-menos {
-    display: flex;
-    justify-content: start;
-    border: red solid 1px;
+
+    .articulo-mas-menos {
+        display: flex;
+        justify-content: start;
+        border: red solid 1px;
+    }
 }
 .articulo-calcular-texto {
     border: red solid 1px;
     font-weight: 600;
     font-size: 1.2rem;
-    /* padding-top: 0.7rem; */
+    padding-top: 0.7rem;
+    margin-right: 2rem;
 }
 .articulo-boton-accion {
     width: 25%;

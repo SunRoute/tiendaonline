@@ -1,24 +1,24 @@
-/* Contenedor de los elementos de la ficha del producto destacado */
+// Contenedor de los elementos de la ficha del producto destacado
 .destacado-articulo {
-    border: hsl(29, 100%, 64%) 3px solid;
-    box-shadow: 0.3rem 0.3rem 0.8rem hsl(29, 100%, 64%);
+    border: $primary-color 3px solid;
+    box-shadow: 0.3rem 0.3rem 0.8rem $primary-color;
     border-radius: 0.5rem;
     height: 100%;
 }
-/* Aplicado radius solo en las dos esquinas superiores de la imagen */
+// Aplicado radius solo en las dos esquinas superiores de la imagen
 .destacado-articulo-imagen {
-    border: hsl(39, 100%, 76%) 1px solid;
+    border: $primary-color-light 1px solid;
     margin-bottom: 2rem;
     border-radius: 0.5rem 0.5rem 0 0;
 }
-.destacado-articulo-titulo, .destacado-articulo-enlace, .destacado-articulo-descripcion  {
+.destacado-articulo-titulo, .destacado-articulo-enlace, .destacado-articulo-descripcion {
     margin: 0 1rem 1rem;
 }
 .destacado-articulo-enlace h4 {
-    color: hsl(0, 97%, 65%);
+    color: $secondary-color;
     margin: 0 0 1rem;
 }
-/* Justificación del texto */
+// Justificación del texto
 .destacado-articulo-descripcion {
     text-align: justify;
 }

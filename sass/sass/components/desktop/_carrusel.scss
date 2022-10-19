@@ -1,4 +1,4 @@
-/* Carrusel */ 
+// Carrusel
 .carrusel {
     position: relative;
     display: flex;
@@ -11,31 +11,32 @@
 }
 .carrusel-imagen {
     position: absolute;
-    z-index: 900;
+    z-index: $z-index-medio;
 }
-/* Agrupación de los elementos de texto sobre el carrusel, para que se muevan en conjunto y no se superponga uno sobre otro al variar el ancho de la pantalla */
+// Agrupación de los elementos de texto sobre el carrusel, para que se muevan en conjunto y no se superponga uno sobre otro al variar el ancho de la pantalla
 .carrusel-texto {
     display: flex;
     flex-direction: column;
     align-items: center;   
 }
-/* Elementos sobre el carrusel. Tienen z-index superior al del contenedor de la imagen para que estén por encima de él. */
+// Elementos sobre el carrusel. Tienen z-index superior al del contenedor de la imagen para que estén por encima de él
 .carrusel-titulo {
-    background: rgba(255, 212, 133, 0.6);
-    z-index: 1000;
+    background: hsla(39, 100%, 76%, 0.6);
+    z-index: $z-index-superior;
     padding: 2rem;
     border-radius: 0.5rem;
     margin-bottom: 1rem;
     text-align: center;
     max-width: 80vw;
-}
-.carrusel-titulo h1 {
-    color: hsl(24, 93%, 52%);
-    text-shadow: 0.2rem 0.2rem 0.4rem hsl(0, 0%, 0%);
-    font-family: 'Pacifico', cursive;
-    font-size: 4rem;
+
+    h1 {
+        color: $font-secondary-color;
+        text-shadow: 0.2rem 0.2rem 0.4rem $black;
+        font-family: 'Pacifico', cursive;
+        font-size: 4rem;
+    }
 }
 .carrusel-boton {
     width: 25%;
-    z-index: 1000;
+    z-index: $z-index-superior;
 }

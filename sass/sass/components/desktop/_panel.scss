@@ -1,0 +1,46 @@
+// Abstracción de los nombres para dar uso al componente en otros contextos (por ejemplo panel de administración) ----CORREGIDO
+.panel-titulo {
+    text-align: center;
+    margin-bottom: 5rem;
+
+    h2 {
+        font-size: 3rem;
+    }
+}
+// A partir de aquí se crean las columnas para los diferentes elementos del articulo (imagen, nombre, precio...)
+.panel-encabezados {
+    margin-bottom: 1rem;
+}
+.panel-encabezado {
+    text-align: center;
+
+    h4 {
+        font-size: 1.5rem;
+    }
+}
+.panel-articulos {
+    border-top: $primary-color 4px solid;
+    margin-bottom: 3rem;
+}
+.panel-articulo-imagen {
+    margin: 0 auto;
+    width: 30%;
+
+    img {
+        box-shadow: 0.2rem 0.2rem 1rem $primary-color;
+        border-radius: 0.2rem;
+        margin: 1rem 0;
+    }
+}
+.panel-articulo-descripcion, .panel-articulo-precio {
+    text-align: center;
+}
+.panel-articulo span {
+    color: $font-primary-color;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+// Replantear, en el html, la posición de esta clase para la alineación (actualmente está la clase en las columnas). Esto supondrá modificar aquí la forma de apuntar a los elementos
+.alineacion-items {
+    align-items: center;
+}

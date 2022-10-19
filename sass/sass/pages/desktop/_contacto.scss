@@ -5,31 +5,34 @@
 .contacto-titulo {
     text-align: center ;
     margin-bottom: 5rem;
+
+    h2 {
+        font-size: 3rem;
+     }
 }
-.contacto-titulo h2 {
-   font-size: 3rem;
-}
-/* Columna derecha de contacto. Preferible pintar el borde izquierdo de esta columna porque de este modo no hay que añadir ningún padding para alejar el contenido */
+// Columna derecha de contacto. Preferible pintar el borde izquierdo de esta columna porque de este modo no hay que añadir ningún padding para alejar el contenido
 .contacto-empresa {
-    border-left: hsl(29, 100%, 64%) 5px solid;
+    border-left: $primary-color 5px solid;
 }
-/* Añadido flex para que se posicione el texto al lado del svg */
+// Añadido flex para que se posicione el texto al lado del svg
 .datos-empresa-linea {
     display:flex;
     margin-bottom: 3rem;
 }
 .datos-empresa-linea-imagen {
     margin: 0 1.5rem 0 10rem;
+
+    svg {
+        width: 3rem;
+
+        /* Coloreado el svg */
+        path {
+            fill: $secondary-color;
+        }
+    }
 }
-.datos-empresa-linea-imagen svg {
-    width: 3rem;
-}
-/* Coloreado el svg */
-.datos-empresa-linea-imagen svg path {
-    fill: hsl(0, 97%, 65%);
-}
-/* Formato del texto de la empresa. Tengo dudas de si debo hacerlo mediante span o bastaría con poner un h2 sin formato que ya tendría un aspecto similar a este */
+// Formato del texto de la empresa. Tengo dudas de si debo hacerlo mediante span o bastaría con poner un h2 sin formato que ya tendría un aspecto similar a este
 .datos-empresa-linea-informacion span {
-    color: hsl(180, 10%, 24%);
+    color: $font-primary-color;
     font-size: 2.4rem;
 }

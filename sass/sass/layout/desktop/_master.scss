@@ -1,12 +1,10 @@
-header {
-    background-color: hsl(29, 100%, 64%);
-    display: flex;
-    padding: 1rem;
+* {
+    box-sizing: border-box;
+  }
+html {
+    font-size: 16px;
+    color: $font-primary-color;
 }
 main {
-    background-color: hsl(39, 100%, 76%);
-}
-footer {
-    background-color: hsl(29, 100%, 64%);
-    padding: 0.5rem;
+    background-color: $primary-color-light;
 }
