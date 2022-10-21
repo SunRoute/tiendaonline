@@ -1,4 +1,3 @@
-@charset "UTF-8";
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
@@ -479,6 +478,28 @@ footer .pie p {
   text-align: justify;
 }
 
+.galeria {
+  padding: 3rem;
+}
+
+.galeria-cabecera {
+  margin-bottom: 3rem;
+}
+
+.galeria-cabecera-contador span {
+  color: #f66e13;
+}
+
+.galeria-cabecera-filtro {
+  margin-left: auto;
+  width: max-content;
+}
+.galeria-cabecera-filtro select {
+  border-radius: 0.4rem;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+}
+
 .galeria-articulo {
   border: #ffa047 3px solid;
   box-shadow: 0.3rem 0.3rem 0.8rem #ffa047;
@@ -604,7 +625,6 @@ footer .pie p {
   height: 10rem;
 }
 
-/* Particularidades del input tipo radio del formulario. De este modo se ponen uno debajo de otro, se separan verticalmente, se aleja el label que se encuentra a su derecha y se aumenta el radio del input  */
 .formulario-datos-pago-opcion {
   display: flex;
 }
@@ -616,7 +636,6 @@ footer .pie p {
   transform: scale(1.5);
 }
 
-/* Botón de acción del formulario */
 .formulario-datos-boton-accion {
   width: 20%;
 }
@@ -723,28 +742,6 @@ footer .pie p {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
-}
-
-.galeria {
-  padding: 3rem;
-}
-
-.galeria-cabecera {
-  margin-bottom: 3rem;
-}
-
-.galeria-cabecera-contador span {
-  color: #f66e13;
-}
-
-.galeria-cabecera-filtro {
-  margin-left: auto;
-  width: max-content;
-}
-.galeria-cabecera-filtro select {
-  border-radius: 0.4rem;
-  padding: 0.4rem;
-  font-size: 1.2rem;
 }
 
 .product {

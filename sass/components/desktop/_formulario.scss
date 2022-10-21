@@ -18,18 +18,19 @@
 .formulario-datos-texto textarea {
     height: 10rem;
 }
-/* Particularidades del input tipo radio del formulario. De este modo se ponen uno debajo de otro, se separan verticalmente, se aleja el label que se encuentra a su derecha y se aumenta el radio del input  */
+// Particularidades del input tipo radio del formulario. De este modo se pone el input y el label uno al lado del otro
 .formulario-datos-pago-opcion {
     display: flex;
 }
+// Se separan verticalmente, se aleja el label que se encuentra a su derecha
 .formulario-datos-pago-input {
     margin: 0 2rem 2rem 0;
-
+    // Se aumenta el radio del input
     input[type=radio] {
         transform: scale(1.5);
     }
 }
-/* Botón de acción del formulario */
+// Botón de acción del formulario
 .formulario-datos-boton-accion {
     width: 20%;
 }

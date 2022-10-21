@@ -36,25 +36,4 @@
         margin-bottom: 0.5rem;
     }
 }
-// Galería de productos
-// Modificado a un nombre más especifico, puede haber muchas opciones en la web. ----CORREGIDO
-.galeria {
-    padding: 3rem;
-}
-.galeria-cabecera {
-    margin-bottom: 3rem;   
-}
-.galeria-cabecera-contador span {
-    color: $font-secondary-color;
-}
-.galeria-cabecera-filtro {
-    margin-left: auto;
-    width: max-content;
 
-    // Particularidades del select de productos
-    select {
-        border-radius: 0.4rem;
-        padding: 0.4rem;
-        font-size: 1.2rem;
-    }
-}
