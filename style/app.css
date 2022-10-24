@@ -452,6 +452,10 @@ footer .pie p {
   box-shadow: 0 0 1.5rem 0.1rem #ff4400 inset;
 }
 
+.destacado-articulos {
+  margin-bottom: 3rem;
+}
+
 .destacado-articulo {
   border: #ffa047 3px solid;
   box-shadow: 0.3rem 0.3rem 0.8rem #ffa047;
@@ -669,7 +673,7 @@ footer .pie p {
 
 .destacados {
   margin: 0 auto;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   width: 80%;
 }
 
