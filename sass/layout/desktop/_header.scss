@@ -12,9 +12,14 @@ header {
     align-self: center;
     margin-right: 1rem;
 
+    // Tamaño de la imagen del logo
+    img {
+        width: 4.5rem;
+    }
     // Tamaño del svg del logo
     svg {
         width: 4.5rem;
+
 
         // Color del svg del logo
         path {
@@ -22,6 +27,7 @@ header {
         }
     }
 }
+
 .header-logo-texto {
     align-self: center;
 

@@ -33,7 +33,8 @@ a {
 abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted; /* 2 */
 }
 
 b, strong {
@@ -93,7 +94,9 @@ button,
 [type=button],
 [type=reset],
 [type=submit] {
-  appearance: button;
+  -webkit-appearance: button;
+     -moz-appearance: button;
+          appearance: button;
 }
 
 button::-moz-focus-inner,
@@ -144,16 +147,20 @@ textarea {
 }
 
 [type=search] {
-  appearance: textfield; /* 1 */
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield; /* 1 */
   outline-offset: -2px; /* 2 */
 }
 
 [type=search]::-webkit-search-decoration {
-  appearance: none;
+  -webkit-appearance: none;
+          appearance: none;
 }
 
 ::-webkit-file-upload-button {
-  appearance: button; /* 1 */
+  -webkit-appearance: button;
+          appearance: button; /* 1 */
   font: inherit; /* 2 */
 }
 
@@ -190,17 +197,20 @@ ol, ul {
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  appearance: none;
+  -webkit-appearance: none;
+          appearance: none;
   margin: 0;
 }
 
 img {
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   max-width: 100%;
 }
 
 video {
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   max-width: 100%;
 }
 
@@ -295,6 +305,9 @@ header {
 .header-logo-imagen {
   align-self: center;
   margin-right: 1rem;
+}
+.header-logo-imagen img {
+  width: 4.5rem;
 }
 .header-logo-imagen svg {
   width: 4.5rem;
@@ -496,6 +509,8 @@ footer .pie p {
 
 .galeria-cabecera-filtro {
   margin-left: auto;
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
 }
 .galeria-cabecera-filtro select {
@@ -896,6 +911,4 @@ footer .pie p {
 .datos-empresa-linea-informacion span {
   color: #374343;
   font-size: 2.4rem;
-}
-
-/*# sourceMappingURL=app.css.map */
+}/*# sourceMappingURL=app.css.map */
