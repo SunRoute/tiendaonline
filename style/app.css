@@ -321,7 +321,14 @@ header {
 }
 .header-logo-texto h2 {
   color: #fc4f4f;
-  font-size: 3.2rem;
+  text-shadow: 0.2rem 0.2rem 0.4rem #f66e13;
+  font-size: 3.3rem;
+}
+.header-logo-texto span {
+  text-shadow: 0.2rem 0.2rem 0.4rem #f66e13;
+  color: #fc4f4f;
+  font-size: 3.7em;
+  font-weight: bold;
 }
 
 .header-menu ul {
@@ -333,6 +340,10 @@ header {
 .header-menu ul li {
   color: #ffffff;
   font-size: 2rem;
+}
+.header-menu ul li:hover {
+  text-shadow: 0.2rem 0.2rem 0.4rem #f66e13;
+  transform: scale(1.1, 1.1);
 }
 
 footer {
@@ -463,6 +474,11 @@ footer .pie p {
   border-radius: 0.5rem;
   padding: 0.5rem 2rem;
   box-shadow: 0 0 1.5rem 0.1rem #ff4400 inset;
+}
+
+.custom-button:hover {
+  transform: scale(1.01, 1.01);
+  box-shadow: 0 0 1.3rem 0.1rem #ff4400 inset;
 }
 
 .destacado-articulos {
@@ -716,14 +732,9 @@ footer .pie p {
 }
 
 .presentacion-imagen {
-  display: flex;
-  justify-content: center;
-  height: 100%;
+  padding: 4rem;
+  width: 100%;
 }
-.presentacion-imagen img {
-  height: 45%;
-}
-
 .productos {
   min-height: 90vh;
 }
@@ -809,18 +820,15 @@ footer .pie p {
 }
 
 .articulo-calcular {
-  border: red solid 1px;
   display: flex;
   margin-bottom: 3rem;
 }
 .articulo-calcular .articulo-mas-menos {
   display: flex;
   justify-content: start;
-  border: red solid 1px;
 }
 
 .articulo-calcular-texto {
-  border: red solid 1px;
   font-weight: 600;
   font-size: 1.2rem;
   padding-top: 0.7rem;

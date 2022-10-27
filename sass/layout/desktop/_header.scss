@@ -33,7 +33,14 @@ header {
 
     h2 {
         color: $secondary-color;
-        font-size: 3.2rem;
+        text-shadow: 0.2rem 0.2rem 0.4rem $font-secondary-color;
+        font-size: 3.3rem;
+    }
+    span {
+        text-shadow: 0.2rem 0.2rem 0.4rem $font-secondary-color;
+        color: $secondary-color;
+        font-size: 3.7em;
+        font-weight: bold;
     }
 }
 // Menú para todas las páginas de la web
@@ -46,5 +53,9 @@ header {
     li {
         color: $white;
         font-size: 2rem;
+    }
+    li:hover {
+        text-shadow: 0.2rem 0.2rem 0.4rem $font-secondary-color;
+        transform: scale(1.1,1.1);
     }
 }

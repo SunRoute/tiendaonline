@@ -30,13 +30,11 @@
 }
 // Replantear la imagen. Añadir varias o cambiar la que hay por otra más adecuada
 .presentacion-imagen {
-    display: flex;
-    justify-content: center;
-    height: 100%;
+    padding: 4rem;
+    width: 100%;
 
     img {
         // box-shadow: 0.3rem 0.3rem 0.8rem $black;
-        // border-radius: 0.5rem;
-        height: 45%;
+        // border-radius: 0.5rem;   
     }
 }
