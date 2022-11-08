@@ -26,6 +26,7 @@
 
     p {
         margin-bottom: 1rem;
+        font-size: 1.2rem;
     }
 }
 // Replantear la imagen. Añadir varias o cambiar la que hay por otra más adecuada
@@ -34,6 +35,9 @@
     width: 100%;
 
     img {
+        width: 70%;
+        margin: auto;
+        display: block;
         // box-shadow: 0.3rem 0.3rem 0.8rem $black;
         // border-radius: 0.5rem;   
     }

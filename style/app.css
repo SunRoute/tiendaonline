@@ -477,7 +477,6 @@ footer .pie p {
 }
 
 .custom-button:hover {
-  transform: scale(1.01, 1.01);
   box-shadow: 0 0 1.3rem 0.1rem #ff4400 inset;
 }
 
@@ -505,10 +504,6 @@ footer .pie p {
 .destacado-articulo-enlace h4 {
   color: #fc4f4f;
   margin: 0 0 1rem;
-}
-
-.destacado-articulo-descripcion {
-  text-align: justify;
 }
 
 .galeria {
@@ -729,12 +724,19 @@ footer .pie p {
 }
 .presentacion-texto p {
   margin-bottom: 1rem;
+  font-size: 1.2rem;
 }
 
 .presentacion-imagen {
   padding: 4rem;
   width: 100%;
 }
+.presentacion-imagen img {
+  width: 70%;
+  margin: auto;
+  display: block;
+}
+
 .productos {
   min-height: 90vh;
 }
@@ -772,6 +774,9 @@ footer .pie p {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
+}
+.categorias-menu ul li:hover {
+  transform: scale(1.04, 1.04);
 }
 
 .product {

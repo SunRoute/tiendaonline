@@ -35,5 +35,8 @@
         font-weight: bold;
         margin-bottom: 0.5rem;
     }
+    ul li:hover {
+        transform: scale(1.04,1.04);
+    }
 }
 
