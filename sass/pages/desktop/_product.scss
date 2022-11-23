@@ -24,8 +24,9 @@
 }
 // Columna derecha que contiene los detalles del producto y la opción de añadir al carrito
 .articulo-texto {
+    // border-top: $primary-color 3px solid;
     margin-bottom: 1rem;
-    padding: 4.5rem 5rem 0 0;
+    padding: 4rem 5rem 0 0;
 }
 .articulo-texto-titulo, .articulo-texto-precio {
     margin-bottom: 2rem;
@@ -34,11 +35,12 @@
     color: $secondary-color;
     font-size: 1.7rem;
 }
-.articulo-texto-descripcion {
-    text-align: justify;
+.articulo-texto-descripcion, .receta-listado {
     margin-bottom: 3rem;
 }
-// Pendiente de arreglar!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+// Posición botones
 .articulo-calcular {
     display: flex;
     margin-bottom: 3rem;

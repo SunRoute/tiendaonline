@@ -634,6 +634,41 @@ footer .pie p {
   align-items: center;
 }
 
+.panel-etiquetas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 4.5rem 5rem 0 0;
+}
+
+.panel-etiqueta {
+  cursor: pointer;
+  text-align: center;
+  border: #ffa047 3px solid;
+  box-shadow: 0 0 1.2rem 0.1rem #ffa047 inset;
+  border-radius: 0.5rem 0.5rem 0 0;
+  padding: 1rem;
+}
+.panel-etiqueta h4 {
+  font-size: 1.5rem;
+}
+.panel-etiqueta h4:hover {
+  transform: scale(1.04, 1.04);
+}
+
+.panel-etiqueta.activo {
+  border-bottom: none;
+  box-shadow: none;
+}
+
+.panel-etiquetas-contenido {
+  display: none;
+  padding: 1rem;
+}
+
+.panel-etiquetas-contenido.activo {
+  display: block;
+}
+
 .formulario-datos {
   margin-bottom: 2rem;
 }
@@ -807,7 +842,7 @@ footer .pie p {
 
 .articulo-texto {
   margin-bottom: 1rem;
-  padding: 4.5rem 5rem 0 0;
+  padding: 4rem 5rem 0 0;
 }
 
 .articulo-texto-titulo, .articulo-texto-precio {
@@ -819,8 +854,7 @@ footer .pie p {
   font-size: 1.7rem;
 }
 
-.articulo-texto-descripcion {
-  text-align: justify;
+.articulo-texto-descripcion, .receta-listado {
   margin-bottom: 3rem;
 }
 
