@@ -115,7 +115,7 @@
                                                     <label>Teléfono</label>
                                                 </div>
                                                 <div class="formulario-datos-input">
-                                                    <input type="">
+                                                    <input type="" data-validacion="telefono">
                                                 </div>
                                             </div>   
                                         </div>
@@ -125,7 +125,7 @@
                                                     <label>Email</label>
                                                 </div>
                                                 <div class="formulario-datos-input">
-                                                    <input type="">
+                                                    <input type="" data-validacion="email">
                                                 </div>
                                             </div>   
                                         </div>    
@@ -137,11 +137,15 @@
                                                     <label>Mensaje</label>
                                                 </div>
                                                 <div class="formulario-datos-texto">
-                                                    <textarea></textarea>
+                                                    <textarea data-validacion="mensaje" maxlength="260"></textarea>
+                                                </div>
+                                                <div class="formulario-datos-contador">
+                                                    <span class="contador">0</span>
+                                                    <span>/260</span>
                                                 </div>
                                             </div>
                                             <div class="formulario-datos-boton-accion">
-                                                <button class="custom-button">Enviar</button>
+                                                <button class="custom-button boton-envio">Enviar</button>
                                             </div>
                                         </div>
                                     </div>
@@ -226,7 +230,9 @@
                 <p>&copy; Derechos reservados</p>
             </div>
         </footer>
-            
+
+        <script type="module" src="js/index.js"></script>
+
     </body>
 
 </html>    

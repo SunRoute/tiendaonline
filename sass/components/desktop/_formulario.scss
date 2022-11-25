@@ -17,6 +17,12 @@
 // Particularidad del textarea del formulario, para que tenga un alto determinado
 .formulario-datos-texto textarea {
     height: 10rem;
+    resize: none;
+}
+.formulario-datos-contador {
+    font-size: 1.2rem;
+    margin-left: auto;
+    width: max-content;
 }
 // Particularidades del input tipo radio del formulario. De este modo se pone el input y el label uno al lado del otro
 .formulario-datos-pago-opcion {

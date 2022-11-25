@@ -688,6 +688,15 @@ footer .pie p {
 
 .formulario-datos-texto textarea {
   height: 10rem;
+  resize: none;
+}
+
+.formulario-datos-contador {
+  font-size: 1.2rem;
+  margin-left: auto;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 
 .formulario-datos-pago-opcion {
