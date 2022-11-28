@@ -1,6 +1,24 @@
 // Unificado el formulario de checkout y contacto. Mantener la coherencia de los nombres formulario-datos-... ----CORREGIDO
 .formulario-datos {
-    margin-bottom: 2rem;
+    position: relative;
+    margin-bottom: 3rem;
+}
+.notificacion {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+}
+.notificacion p {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.notificacion p.exito {
+    display: block;
+    color: green;
+}
+.notificacion p.fallo {
+    display: block;
+    color: red;
 }
 .formulario-datos-label  {
     font-size: 1.5rem;
@@ -13,6 +31,15 @@
 // Particularidad en los input y select del formulario. No se puede añadir a todos los input porque afectaría a algunos que no debería (botón más menos)
 .formulario-datos-input input, .formulario-datos-input select, .formulario-datos-texto textarea {
     border-radius: 0.2rem;
+}
+.formulario-datos-requisito {
+    position: absolute;
+}
+.formulario-datos-requisito{
+    display: none;
+}
+.formulario-datos-requisito.incorrecto {
+    display: block;
 }
 // Particularidad del textarea del formulario, para que tenga un alto determinado
 .formulario-datos-texto textarea {

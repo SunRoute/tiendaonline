@@ -10,6 +10,9 @@
         font-size: 3rem;
      }
 }
+.contacto-formulario {
+    position: relative;
+}
 // Columna derecha de contacto. Preferible pintar el borde izquierdo de esta columna porque de este modo no hay que añadir ningún padding para alejar el contenido
 .contacto-empresa {
     border-left: $primary-color 5px solid;

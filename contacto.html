@@ -87,7 +87,7 @@
                     <div class="two-columns">
                         <div class="column">
                             <div class="contacto-formulario">
-                                <form>
+                                <form id="formulario">
                                     <div class="two-columns">
                                         <div class="column">
                                             <div class="formulario-datos">
@@ -95,9 +95,12 @@
                                                     <label>Nombre</label>
                                                 </div>
                                                 <div class="formulario-datos-input">
-                                                    <input type="">
+                                                    <input type="text" name="nombre" id="nombre" data-validacion="solo-letras">
                                                 </div>
-                                            </div>   
+                                                <div class="formulario-datos-requisito">
+                                                    <span class="texto-requisito">El campo solo admite letras</span>
+                                                </div>
+                                            </div>                                             
                                         </div>
                                         <div class="column">
                                             <div class="formulario-datos">
@@ -105,7 +108,10 @@
                                                     <label>Apellidos</label>
                                                 </div>
                                                 <div class="formulario-datos-input">
-                                                    <input type="">
+                                                    <input type="text" name="apellidos" id="apellidos" data-validacion="solo-letras">
+                                                </div>
+                                                <div class="formulario-datos-requisito">
+                                                    <span class="texto-requisito">El campo solo admite letras</span>
                                                 </div>
                                             </div>   
                                         </div>
@@ -115,7 +121,10 @@
                                                     <label>Teléfono</label>
                                                 </div>
                                                 <div class="formulario-datos-input">
-                                                    <input type="" data-validacion="telefono">
+                                                    <input type="text" name="telefono" id="telefono" data-validacion="telefono">
+                                                </div>
+                                                <div class="formulario-datos-requisito">
+                                                    <span class="texto-requisito">Debe contener 9 números</span>
                                                 </div>
                                             </div>   
                                         </div>
@@ -125,7 +134,10 @@
                                                     <label>Email</label>
                                                 </div>
                                                 <div class="formulario-datos-input">
-                                                    <input type="" data-validacion="email">
+                                                    <input type="text" name="email" id="email" data-validacion="email">
+                                                </div>
+                                                <div class="formulario-datos-requisito">
+                                                    <span class="texto-requisito">ejemplo@ejemplo.com</span>
                                                 </div>
                                             </div>   
                                         </div>    
@@ -145,7 +157,10 @@
                                                 </div>
                                             </div>
                                             <div class="formulario-datos-boton-accion">
-                                                <button class="custom-button boton-envio">Enviar</button>
+                                                <button type="submit" class="custom-button boton-envio">Enviar</button>
+                                            </div>
+                                            <div class="notificacion">
+                                                <p class="notificacion-mensaje">El mensaje ha sido enviado</p>
                                             </div>
                                         </div>
                                     </div>

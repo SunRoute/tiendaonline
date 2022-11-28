@@ -1,28 +1,27 @@
-export let renderContadorTexto = () => {
+export let validador = formInputs => {
 
-    let areaTextos = document.querySelectorAll('textarea');
+    let formValidador = true;
+   
+    let validadores = {
+        "solo-letras": /^[a-zA-Z\s]+$/g,
+        "solo-numeros": /\d/g,
+        "telefono": /^\d{9}$/g,
+        "email": /\w+@\w+\.\w+/g,
+        "web": /^(http|https):\/\/\w+\.\w+/g,
+        "password": /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/g,
+        "date": /^\d{4}-\d{2}-\d{2}$/g,
+        "time": /^\d{2}:\d{2}$/g
+    }
 
-    areaTextos.forEach(areaTexto => {
+    for (let i = 0; i < formInputs.length; i++) {
 
-        let contador = areaTexto.closest('.formulario-datos').querySelector('.contador');
+        if (formInputs[i].dataset.validacion && formInputs[i].value.match(validadores[formInputs[i].dataset.validacion]) == null) {
+            formInputs[i].closest('.formulario-datos').querySelector('.formulario-datos-requisito').classList.add('incorrecto');
+            formValidador = false;
+        }else{
+            formInputs[i].closest('.formulario-datos').querySelector('.formulario-datos-requisito').classList.remove('incorrecto');
+        }
+    }
 
-        areaTexto.addEventListener('input', () => {
-
-            contador.textContent = areaTexto.value.length;
-
-        });
-    });
-}
-export let renderValidador = () => {
-
-    let botonEnvio = document.querySelector('.boton-envio');
-
-    botonEnvio.addEventListener('click', () => {
-
-        
-
-    });
-
-
-
-}
+    return formValidador;
+};

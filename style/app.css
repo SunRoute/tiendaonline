@@ -670,7 +670,29 @@ footer .pie p {
 }
 
 .formulario-datos {
-  margin-bottom: 2rem;
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.notificacion {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.notificacion p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.notificacion p.exito {
+  display: block;
+  color: green;
+}
+
+.notificacion p.fallo {
+  display: block;
+  color: red;
 }
 
 .formulario-datos-label {
@@ -684,6 +706,18 @@ footer .pie p {
 
 .formulario-datos-input input, .formulario-datos-input select, .formulario-datos-texto textarea {
   border-radius: 0.2rem;
+}
+
+.formulario-datos-requisito {
+  position: absolute;
+}
+
+.formulario-datos-requisito {
+  display: none;
+}
+
+.formulario-datos-requisito.incorrecto {
+  display: block;
 }
 
 .formulario-datos-texto textarea {
@@ -942,6 +976,10 @@ footer .pie p {
 }
 .contacto-titulo h2 {
   font-size: 3rem;
+}
+
+.contacto-formulario {
+  position: relative;
 }
 
 .contacto-empresa {
