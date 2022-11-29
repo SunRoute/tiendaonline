@@ -680,19 +680,22 @@ footer .pie p {
   right: 1rem;
 }
 
-.notificacion p {
-  font-size: 1.5rem;
-  font-weight: bold;
+.notificacion.active {
+  opacity: 1;
+  z-index: 5000;
 }
 
-.notificacion p.exito {
-  display: block;
+.notificacion.exito {
   color: green;
 }
 
-.notificacion p.fallo {
-  display: block;
+.notificacion.fallo {
   color: red;
+}
+
+.notificacion p {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .formulario-datos-label {

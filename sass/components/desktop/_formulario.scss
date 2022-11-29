@@ -8,17 +8,19 @@
     bottom: 1rem;
     right: 1rem;
 }
+.notificacion.active{
+    opacity: 1;
+    z-index: 5000;
+}
+.notificacion.exito {
+    color: green;
+}
+.notificacion.fallo {
+    color: red;
+}
 .notificacion p {
     font-size: 1.5rem;
     font-weight: bold;
-}
-.notificacion p.exito {
-    display: block;
-    color: green;
-}
-.notificacion p.fallo {
-    display: block;
-    color: red;
 }
 .formulario-datos-label  {
     font-size: 1.5rem;
