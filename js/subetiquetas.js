@@ -1,12 +1,12 @@
-export let renderEtiquetas = () => {
+export let renderSubetiquetas = () => {
 
-    let activarEtiquetas = document.querySelectorAll(".panel-etiqueta");
-    let mostrarContenidos = document.querySelectorAll(".panel-etiquetas-contenido");
+    let activarSubetiquetas = document.querySelectorAll(".panel-etiqueta");
+    let mostrarSubcontenidos = document.querySelectorAll(".panel-etiquetas-contenido");
 
 
-    activarEtiquetas.forEach(activarEtiqueta => {
+    activarSubetiquetas.forEach(activarSubetiqueta => {
 
-        activarEtiqueta.addEventListener('click', () => {
+        activarSubetiqueta.addEventListener('click', () => {
             
             activarEtiquetas.forEach(activarEtiqueta => {
 
@@ -27,6 +27,7 @@ export let renderEtiquetas = () => {
                     mostrarContenido.classList.add('activo');
                     
                 } else {
+                    
                     mostrarContenido.classList.remove('activo');
 
                 }
@@ -36,4 +37,3 @@ export let renderEtiquetas = () => {
     });  
 
 }
-

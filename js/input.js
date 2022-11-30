@@ -4,7 +4,7 @@ export let renderContadorTexto = () => {
 
     for (let input of inputs){
 
-        if(input.maxLength != null){
+        if(input.maxLength != null) {
 
             input.addEventListener('input', () => {
     
@@ -12,7 +12,6 @@ export let renderContadorTexto = () => {
                 contador.textContent = input.value.length;
     
             });
-        }
-       
+        }   
     }
 }

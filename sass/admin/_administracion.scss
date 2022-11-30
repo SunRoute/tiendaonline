@@ -1,0 +1,27 @@
+.administracion {
+    min-height: 90vh;
+}
+.administracion-titulo {
+    text-align: center ;
+    margin-bottom: 1rem;
+
+    h2 {
+        font-size: 2rem;
+     }
+}
+.icono-menu {
+    margin-left: auto;
+    width: 5rem;
+}
+.icono-menu img {
+    width: max-content;
+}
+.registro {
+    padding: 3rem 0 0 2rem;
+}
+.articulo-texto {
+    border: $primary-color 3px solid;
+    border-top: none;
+    border-radius: 0 0 0.5rem 0.5rem;
+    padding: 3rem;
+}

@@ -37,8 +37,9 @@
 .formulario-datos-requisito {
     position: absolute;
 }
-.formulario-datos-requisito{
+.formulario-datos-requisito {
     display: none;
+    color: red;
 }
 .formulario-datos-requisito.incorrecto {
     display: block;

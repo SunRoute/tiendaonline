@@ -18,7 +18,7 @@ export let validador = formInputs => {
         if (formInputs[i].dataset.validacion && formInputs[i].value.match(validadores[formInputs[i].dataset.validacion]) == null) {
             formInputs[i].closest('.formulario-datos').querySelector('.formulario-datos-requisito').classList.add('incorrecto');
             formValidador = false;
-        }else{
+        } else {
             formInputs[i].closest('.formulario-datos').querySelector('.formulario-datos-requisito').classList.remove('incorrecto');
         }
     }
