@@ -288,12 +288,16 @@ html {
 }
 
 main {
+  position: relative;
+  min-height: 100vh;
   background-color: #ffd485;
 }
 
 header {
+  position: relative;
   background-color: #ffa047;
   display: flex;
+  z-index: 1000;
   padding: 1rem;
 }
 
@@ -636,11 +640,17 @@ footer .pie p {
 
 .panel-etiquetas {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  padding: 4rem 2rem 0;
 }
 
-.panel-etiqueta {
+.panel-etiquetas.doble {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.panel-etiquetas.triple {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.panel-etiqueta, .panel-subetiqueta {
   cursor: pointer;
   text-align: center;
   border: #ffa047 3px solid;
@@ -648,21 +658,30 @@ footer .pie p {
   border-radius: 0.5rem 0.5rem 0 0;
   padding: 1rem;
 }
-.panel-etiqueta h4 {
+.panel-etiqueta h4, .panel-subetiqueta h4 {
   font-size: 1.5rem;
 }
-.panel-etiqueta h4:hover {
+.panel-etiqueta h4:hover, .panel-subetiqueta h4:hover {
   transform: scale(1.04, 1.04);
 }
 
-.panel-etiqueta.activo {
+.panel-etiqueta.fijo {
+  box-shadow: none;
+}
+
+.panel-etiqueta.activo, .panel-subetiqueta.activo {
   border-bottom: none;
   box-shadow: none;
 }
 
-.panel-etiquetas-contenido {
+.panel-etiquetas-contenidos {
+  border: #ffa047 3px solid;
+  border-top: none;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.panel-etiquetas-contenido, .panel-subetiquetas-contenido {
   display: none;
-  padding: 0 2rem 2rem;
 }
 
 .editor textarea {
@@ -671,7 +690,7 @@ footer .pie p {
   border-radius: 0 0 0.5rem 0.5rem;
 }
 
-.panel-etiquetas-contenido.activo {
+.panel-etiquetas-contenido.activo, .panel-subetiquetas-contenido.activo {
   display: block;
 }
 

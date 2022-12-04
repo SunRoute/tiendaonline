@@ -1,6 +1,8 @@
 header {
+    position: relative;
     background-color: $primary-color;
     display: flex;
+    z-index: $z-index-superior;
     padding: 1rem;
 }
 // Cabecera para todas las páginas de la web

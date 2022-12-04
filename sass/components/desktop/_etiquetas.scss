@@ -1,9 +1,14 @@
 .panel-etiquetas {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    padding: 4rem 2rem 0;
 }
-.panel-etiqueta {
+.panel-etiquetas.doble {
+    grid-template-columns: repeat(2, 1fr);
+}
+.panel-etiquetas.triple {
+    grid-template-columns: repeat(3, 1fr);
+}
+// Las subetiquetas son necesarias en el caso de que exista un bloque de etiquetas anidado dentro de otro. De lo contrario, crearía conflictos en el js al interferir entre ellos.
+.panel-etiqueta, .panel-subetiqueta {
     cursor: pointer;
     text-align: center;
     border: $primary-color 3px solid;
@@ -18,20 +23,28 @@
         transform: scale(1.04,1.04);
     }
 }
-.panel-etiqueta.activo {
+.panel-etiqueta.fijo {
+    box-shadow: none;
+}
+.panel-etiqueta.activo, .panel-subetiqueta.activo  {
     border-bottom: none;
     box-shadow: none;
 }
-.panel-etiquetas-contenido {
+.panel-etiquetas-contenidos {
+    border: $primary-color 3px solid;
+    border-top: none;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+.panel-etiquetas-contenido, .panel-subetiquetas-contenido {
     display: none;
-    padding: 0 2rem 2rem;
+    // margin: 0 0 2rem 2rem;
 }
 .editor textarea {
     height: 10rem;
     resize: none;
     border-radius: 0 0 0.5rem 0.5rem;
 }
-.panel-etiquetas-contenido.activo {
+.panel-etiquetas-contenido.activo, .panel-subetiquetas-contenido.activo {
     display: block;
 }
 

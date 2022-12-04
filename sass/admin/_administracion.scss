@@ -1,27 +1,101 @@
 .administracion {
     min-height: 90vh;
 }
-.administracion-titulo {
-    text-align: center ;
-    margin-bottom: 1rem;
 
-    h2 {
-        font-size: 2rem;
-     }
+// CABECERA
+.header-admin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+.titulo-admin h2 {
+    color: $white;
 }
 .icono-menu {
-    margin-left: auto;
     width: 5rem;
 }
-.icono-menu img {
+
+// MENÚ
+.menu-admin {
+    position: absolute;
+    background-color: $primary-color;
+    z-index: $z-index-medio;
+    width: 100%;
+	height: 100%;
+    top: -800;
+    transition: all 0.7s;
+}
+.menu-admin.activo {
+    top: 0;
+    transition: all 0.7s;
+}
+.menu-admin nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(12rem, 20rem));
+    justify-content: space-around;
+    margin-top: 7%;
+    height: 80%;
+}
+.menu-admin-elemento ul li {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+.menu-admin-elemento ul li:first-child {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+// FORMULARIO
+.admin-formulario {
+    margin: 4rem 0 2rem 2rem;
+}
+.admin-formulario-datos {
+    padding: 2rem 3rem;
+}
+.admin-formulario-etiquetas-anidado {
+    margin: 0.5rem;
+}
+.admin-formulario-etiquetas-anidado .admin-formulario-datos  {
+    padding: 2rem;
+}
+.admin-formulario-accion {
+    margin-left: auto;
     width: max-content;
+    
+    svg {
+        width: 2rem;
+        margin: 0.6rem;
+
+        /* Coloreado el svg */
+        path {
+            fill: $font-primary-color;
+        }
+    }
+}
+
+// REGISTROS
+.registros {
+    padding: 4rem 2rem;
 }
 .registro {
-    padding: 3rem 0 0 2rem;
-}
-.articulo-texto {
+    display: grid;
+    grid-template-columns: 2fr 6fr 1fr 1fr;
     border: $primary-color 3px solid;
-    border-top: none;
-    border-radius: 0 0 0.5rem 0.5rem;
-    padding: 3rem;
+    border-left: none ;
+    border-right: none;
+    padding: 1.7rem 1rem;
+    margin-bottom: 1rem;
+}
+.registro-accion {
+    align-self: center;
+    justify-self: end;
+
+    svg {
+        width: 2rem;
+
+        /* Coloreado el svg */
+        path {
+            fill: $font-primary-color;
+        }
+    }
 }

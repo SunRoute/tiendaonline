@@ -1,12 +1,12 @@
 export let renderSubetiquetas = () => {
 
-    let activarSubetiquetas = document.querySelectorAll(".panel-etiqueta");
-    let mostrarSubcontenidos = document.querySelectorAll(".panel-etiquetas-contenido");
+    let activarEtiquetas = document.querySelectorAll(".panel-subetiqueta");
+    let mostrarContenidos = document.querySelectorAll(".panel-subetiquetas-contenido");
 
 
-    activarSubetiquetas.forEach(activarSubetiqueta => {
+    activarEtiquetas.forEach(activarEtiqueta => {
 
-        activarSubetiqueta.addEventListener('click', () => {
+        activarEtiqueta.addEventListener('click', () => {
             
             activarEtiquetas.forEach(activarEtiqueta => {
 
@@ -18,11 +18,11 @@ export let renderSubetiquetas = () => {
 
             mostrarContenidos.forEach(mostrarContenido => {
                 
-                console.log(activarEtiqueta.dataset.etiqueta);
-                console.log(mostrarContenido.dataset.etiqueta);
+                console.log(activarEtiqueta.dataset.subetiqueta);
+                console.log(mostrarContenido.dataset.subetiqueta);
 
 
-                if(activarEtiqueta.dataset.etiqueta == mostrarContenido.dataset.etiqueta) {
+                if(activarEtiqueta.dataset.subetiqueta == mostrarContenido.dataset.subetiqueta) {
                     
                     mostrarContenido.classList.add('activo');
                     

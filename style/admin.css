@@ -288,12 +288,16 @@ html {
 }
 
 main {
+  position: relative;
+  min-height: 100vh;
   background-color: #ffd485;
 }
 
 header {
+  position: relative;
   background-color: #ffa047;
   display: flex;
+  z-index: 1000;
   padding: 1rem;
 }
 
@@ -427,34 +431,109 @@ footer .pie p {
   min-height: 90vh;
 }
 
-.administracion-titulo {
-  text-align: center;
-  margin-bottom: 1rem;
+.header-admin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
 }
-.administracion-titulo h2 {
-  font-size: 2rem;
+
+.titulo-admin h2 {
+  color: #ffffff;
 }
 
 .icono-menu {
-  margin-left: auto;
   width: 5rem;
 }
 
-.icono-menu img {
+.menu-admin {
+  position: absolute;
+  background-color: #ffa047;
+  z-index: 900;
+  width: 100%;
+  height: 100%;
+  top: -800;
+  transition: all 0.7s;
+}
+
+.menu-admin.activo {
+  top: 0;
+  transition: all 0.7s;
+}
+
+.menu-admin nav {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(12rem, 20rem));
+  justify-content: space-around;
+  margin-top: 7%;
+  height: 80%;
+}
+
+.menu-admin-elemento ul li {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.menu-admin-elemento ul li:first-child {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.admin-formulario {
+  margin: 4rem 0 2rem 2rem;
+}
+
+.admin-formulario-datos {
+  padding: 2rem 3rem;
+}
+
+.admin-formulario-etiquetas-anidado {
+  margin: 0.5rem;
+}
+
+.admin-formulario-etiquetas-anidado .admin-formulario-datos {
+  padding: 2rem;
+}
+
+.admin-formulario-accion {
+  margin-left: auto;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
 }
-
-.registro {
-  padding: 3rem 0 0 2rem;
+.admin-formulario-accion svg {
+  width: 2rem;
+  margin: 0.6rem;
+  /* Coloreado el svg */
+}
+.admin-formulario-accion svg path {
+  fill: #374343;
 }
 
-.articulo-texto {
+.registros {
+  padding: 4rem 2rem;
+}
+
+.registro {
+  display: grid;
+  grid-template-columns: 2fr 6fr 1fr 1fr;
   border: #ffa047 3px solid;
-  border-top: none;
-  border-radius: 0 0 0.5rem 0.5rem;
-  padding: 3rem;
+  border-left: none;
+  border-right: none;
+  padding: 1.7rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.registro-accion {
+  align-self: center;
+  justify-self: end;
+}
+.registro-accion svg {
+  width: 2rem;
+  /* Coloreado el svg */
+}
+.registro-accion svg path {
+  fill: #374343;
 }
 
 .formulario-datos {
@@ -542,11 +621,17 @@ footer .pie p {
 
 .panel-etiquetas {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  padding: 4rem 2rem 0;
 }
 
-.panel-etiqueta {
+.panel-etiquetas.doble {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.panel-etiquetas.triple {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.panel-etiqueta, .panel-subetiqueta {
   cursor: pointer;
   text-align: center;
   border: #ffa047 3px solid;
@@ -554,21 +639,30 @@ footer .pie p {
   border-radius: 0.5rem 0.5rem 0 0;
   padding: 1rem;
 }
-.panel-etiqueta h4 {
+.panel-etiqueta h4, .panel-subetiqueta h4 {
   font-size: 1.5rem;
 }
-.panel-etiqueta h4:hover {
+.panel-etiqueta h4:hover, .panel-subetiqueta h4:hover {
   transform: scale(1.04, 1.04);
 }
 
-.panel-etiqueta.activo {
+.panel-etiqueta.fijo {
+  box-shadow: none;
+}
+
+.panel-etiqueta.activo, .panel-subetiqueta.activo {
   border-bottom: none;
   box-shadow: none;
 }
 
-.panel-etiquetas-contenido {
+.panel-etiquetas-contenidos {
+  border: #ffa047 3px solid;
+  border-top: none;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.panel-etiquetas-contenido, .panel-subetiquetas-contenido {
   display: none;
-  padding: 0 2rem 2rem;
 }
 
 .editor textarea {
@@ -577,6 +671,6 @@ footer .pie p {
   border-radius: 0 0 0.5rem 0.5rem;
 }
 
-.panel-etiquetas-contenido.activo {
+.panel-etiquetas-contenido.activo, .panel-subetiquetas-contenido.activo {
   display: block;
 }/*# sourceMappingURL=admin.css.map */
