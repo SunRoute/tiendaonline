@@ -15,12 +15,15 @@ export let validador = formInputs => {
 
     for (let i = 0; i < formInputs.length; i++) {
 
-        if (formInputs[i].dataset.validacion && formInputs[i].value.match(validadores[formInputs[i].dataset.validacion]) == null) {
-            formInputs[i].closest('.formulario-datos').querySelector('.formulario-datos-requisito').classList.add('incorrecto');
-            formValidador = false;
-        } else {
-            formInputs[i].closest('.formulario-datos').querySelector('.formulario-datos-requisito').classList.remove('incorrecto');
-        }
+        if (formInputs[i].dataset.validacion) {
+
+            if (formInputs[i].value.match(validadores[formInputs[i].dataset.validacion]) == null) {
+                formInputs[i].closest('.formulario-datos').querySelector('.formulario-datos-requisito').classList.add('incorrecto');
+                formValidador = false;
+            } else {
+                formInputs[i].closest('.formulario-datos').querySelector('.formulario-datos-requisito').classList.remove('incorrecto');
+            }
+        } 
     }
 
     return formValidador;

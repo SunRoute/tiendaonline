@@ -289,7 +289,6 @@ html {
 
 main {
   position: relative;
-  min-height: 100vh;
   background-color: #ffd485;
 }
 
@@ -701,13 +700,13 @@ footer .pie p {
 
 .notificacion {
   position: absolute;
+  display: none;
   bottom: 1rem;
   right: 1rem;
 }
 
-.notificacion.active {
-  opacity: 1;
-  z-index: 5000;
+.notificacion.activo {
+  display: block;
 }
 
 .notificacion.exito {

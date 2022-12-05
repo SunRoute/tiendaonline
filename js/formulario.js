@@ -4,44 +4,26 @@ export let renderFormulario = () => {
 
     let botonEnvio = document.querySelector('.boton-envio');
     let formulario = document.getElementById('formulario');
-    let formularioInputs = formulario.elements;
 
-    botonEnvio.addEventListener('click', event => {
+    if (botonEnvio) {
 
-        event.preventDefault();
+        botonEnvio.addEventListener('click', event => {
 
-        if(!validador(formularioInputs)){
-            return;
-        } 
-
-    });
-
-
-    // if (botonEnvio) {
-
-    //     botonEnvio.addEventListener('click', () => {
-            
-    //         let name = formularioInputs.value;
+            event.preventDefault();
+    
+            if(!validador(formulario.elements)) {
+                return;
                 
-    //         if(name) {
-    //             // Podemos crear un evento personalizado con dispatchEvent y new CustomEvent que podrá ser escuchado 
-    //             // por otros archivos js y utilizarlo para enviarles datos. 
-    //             // En este caso, el evento se llamará "message" y enviará dos parámetros: "text" y "type".
-    //             document.dispatchEvent(new CustomEvent('mensaje', {
-    //                 detail: {
-    //                     text: 'Formulario enviado correctamente',
-    //                     type: 'exito'
-    //                 }
-    //             }));
-    //         } else {
-    //             document.dispatchEvent(new CustomEvent('mensaje', {
-    //                 detail: {
-    //                     text: 'Por favor, rellene el formulario',
-    //                     type: 'fallo'
-    //                 }
-    //             }));
-    //         }
-    //     });
-    // }
+            } 
+                
+            document.dispatchEvent(new CustomEvent('mensaje', {
+                detail: {
+                    text: 'Formulario enviado correctamente',
+                    type: 'exito'
+                }
+            }));
+             
+        });
+    }
 
 }

@@ -17,9 +17,6 @@ export let renderEtiquetas = () => {
             activarEtiqueta.classList.add('activo');
 
             mostrarContenidos.forEach(mostrarContenido => {
-                
-                console.log(activarEtiqueta.dataset.etiqueta);
-                console.log(mostrarContenido.dataset.etiqueta);
 
 
                 if(activarEtiqueta.dataset.etiqueta == mostrarContenido.dataset.etiqueta) {
@@ -27,6 +24,7 @@ export let renderEtiquetas = () => {
                     mostrarContenido.classList.add('activo');
                     
                 } else {
+                    
                     mostrarContenido.classList.remove('activo');
 
                 }

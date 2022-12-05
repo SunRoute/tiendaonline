@@ -23,7 +23,7 @@
     z-index: $z-index-medio;
     width: 100%;
 	height: 100%;
-    top: -800;
+    top: -1000;
     transition: all 0.7s;
 }
 .menu-admin.activo {
@@ -34,7 +34,7 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(12rem, 20rem));
     justify-content: space-around;
-    margin-top: 7%;
+    margin-top: 10%;
     height: 80%;
 }
 .menu-admin-elemento ul li {
@@ -45,6 +45,7 @@
     font-size: 1.5rem;
     font-weight: bold;
 }
+
 // FORMULARIO
 .admin-formulario {
     margin: 4rem 0 2rem 2rem;
@@ -66,7 +67,6 @@
         width: 2rem;
         margin: 0.6rem;
 
-        /* Coloreado el svg */
         path {
             fill: $font-primary-color;
         }
