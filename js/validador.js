@@ -8,9 +8,10 @@ export let validador = formInputs => {
         "telefono": /^\d{9}$/g,
         "email": /\w+@\w+\.\w+/g,
         "web": /^(http|https):\/\/\w+\.\w+/g,
+        "imagen": /^https?:\/\/(.+\/)+.+(\.(gif|png|jpg|jpeg|webp|svg|psd|bmp|tif|jfif))$/g,
         "password": /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/g,
-        "date": /^\d{4}-\d{2}-\d{2}$/g,
-        "time": /^\d{2}:\d{2}$/g
+        "fecha": /^\d{4}-\d{2}-\d{2}$/g,
+        "hora": /^\d{2}:\d{2}$/g
     }
 
     for (let i = 0; i < formInputs.length; i++) {
@@ -28,3 +29,5 @@ export let validador = formInputs => {
 
     return formValidador;
 };
+
+// Howl's Moving Castle - Merry go round of Life cover by Grissini Project

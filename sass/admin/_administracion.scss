@@ -60,9 +60,14 @@
     padding: 2rem;
 }
 .admin-formulario-accion {
+    display: flex;
     margin-left: auto;
     width: max-content;
-    
+}
+.boton-admin {
+    border: none;
+    background-color: $primary-color-light;
+
     svg {
         width: 2rem;
         margin: 0.6rem;
@@ -86,16 +91,15 @@
     padding: 1.7rem 1rem;
     margin-bottom: 1rem;
 }
-.registro-accion {
-    align-self: center;
-    justify-self: end;
+// .registro-accion {
+//     align-self: center;
+//     justify-self: end;
 
-    svg {
-        width: 2rem;
+//     svg {
+//         width: 2rem;
 
-        /* Coloreado el svg */
-        path {
-            fill: $font-primary-color;
-        }
-    }
-}
+//         path {
+//             fill: $font-primary-color;
+//         }
+//     }
+// }
