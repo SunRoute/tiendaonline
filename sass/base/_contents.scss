@@ -14,6 +14,7 @@ video {
 // Se puede dar a todos los inputs de la página. ----CORREGIDO
 input, select, textarea {
     border: none;
+    padding-left: 0.2rem;
     font-size: 1.5rem;
     height: 2rem;
 }

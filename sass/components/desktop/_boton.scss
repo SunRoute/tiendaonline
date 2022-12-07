@@ -1,5 +1,6 @@
 // Estilo de todos los botones de la web. Tiene una sombra interna para darle un poco de fondo.
 .custom-button {
+    cursor: pointer;
     border: $white 2px solid;
     background-color: $primary-color;
     color: $white;

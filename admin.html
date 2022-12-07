@@ -84,10 +84,10 @@
                                         <form id="formulario">
                                             <div class="etiquetas">
                                                 <div class="panel-etiquetas doble">
-                                                    <div class="panel-etiqueta activo" data-target="#contenido">
+                                                    <div class="panel-etiqueta activo" data-etiqueta="#contenido">
                                                         <h4>Contenido</h4>
                                                     </div>
-                                                    <div class="panel-etiqueta" data-target="#imagenes">
+                                                    <div class="panel-etiqueta" data-etiqueta="#imagenes">
                                                         <h4>Imágenes</h4>
                                                     </div>
                                                 </div>
@@ -113,15 +113,15 @@
                                                             </div>        
                                                             <div class="etiquetas admin-formulario-etiquetas-anidado">
                                                                 <div class="panel-etiquetas doble">
-                                                                    <div class="panel-subetiqueta activo" data-subetiqueta="espanyol">
+                                                                    <div class="panel-etiqueta activo" data-etiqueta="#etiqueta-contenido-espanyol">
                                                                         <h4>Español</h4>
                                                                     </div>
-                                                                    <div class="panel-subetiqueta" data-subetiqueta="ingles">
+                                                                    <div class="panel-etiqueta" data-etiqueta="#etiqueta-contenido-ingles">
                                                                         <h4>Inglés</h4>
                                                                     </div>
                                                                 </div>
                                                                 <div class="panel-etiquetas-contenidos">
-                                                                    <div class="panel-subetiquetas-contenido activo"  data-subetiqueta="espanyol">
+                                                                    <div class="panel-etiquetas-contenido activo"  id="etiqueta-contenido-espanyol">
                                                                         <div class="admin-formulario-contenido">
                                                                             <div class="admin-formulario-datos">
                                                                                 <div class="one-column">
@@ -142,7 +142,7 @@
                                                                             </div> 
                                                                         </div>
                                                                     </div>
-                                                                    <div class="panel-subetiquetas-contenido"  data-subetiqueta="ingles">
+                                                                    <div class="panel-etiquetas-contenido"  id="etiqueta-contenido-ingles">
                                                                         <div class="admin-formulario-contenido">
                                                                             <div class="admin-formulario-datos">
                                                                                 <div class="one-column">
@@ -177,54 +177,26 @@
                                                                                 <label>Imagen URL</label>
                                                                             </div>
                                                                             <div class="formulario-datos-input">
-                                                                                <input type="text" name="url-imagen" id="url-imagen">
-                                                                            </div>
-                                                                            <!-- <div class="formulario-datos-requisito">
-                                                                                <span>El campo solo admite letras</span>
-                                                                            </div> -->
-                                                                        </div>
-                                                                        <div class="formulario-datos">
-                                                                            <div class="formulario-datos-label">
-                                                                                <label>Título</label>
-                                                                            </div>
-                                                                            <div class="formulario-datos-input">
-                                                                                <input type="text" name="titulo-imagen" id="titulo-imagen" data-validacion="solo-letras">
+                                                                                <input type="file" name="url-imagen" id="url-imagen" >
                                                                             </div>
                                                                             <div class="formulario-datos-requisito">
-                                                                                <span>El campo solo admite letras</span>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="formulario-datos">
-                                                                            <div class="formulario-datos-label">
-                                                                                <label>Alt</label>
-                                                                            </div>
-                                                                            <div class="formulario-datos-input">
-                                                                                <input type="text" name="alt-imagen" id="alt-imagen">
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="formulario-datos">
-                                                                            <div class="formulario-datos-label">
-                                                                                <label>Configuración</label>
-                                                                            </div>
-                                                                            <div class="formulario-datos-input">
-                                                                                <input type="text" name="configuracion-imagen" id="configuracion-imagen">
+                                                                                <span>Formatos admitidos: png, jepg, jpg, wepbp</span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>        
-                                                            <!-- <div class="admin-formulario-etiquetas-anidado">
+                                                            </div>
+                                                            <div class="etiquetas admin-formulario-etiquetas-anidado">
                                                                 <div class="panel-etiquetas doble">
-                                                                    <div class="panel-subetiqueta activo" data-subetiqueta="espanyol">
+                                                                    <div class="panel-etiqueta activo" data-etiqueta="#etiqueta-imagenes-espanyol">
                                                                         <h4>Español</h4>
                                                                     </div>
-                                                                    <div class="panel-subetiqueta" data-subetiqueta="ingles">
+                                                                    <div class="panel-etiqueta" data-etiqueta="#etiqueta-imagenes-ingles">
                                                                         <h4>Inglés</h4>
                                                                     </div>
                                                                 </div>
-
                                                                 <div class="panel-etiquetas-contenidos">
-                                                                    <div class="panel-subetiquetas-contenido activo"  data-subetiqueta="espanyol">
+                                                                    <div class="panel-etiquetas-contenido activo"  id="etiqueta-imagenes-espanyol">
                                                                         <div class="admin-formulario-contenido">
                                                                             <div class="admin-formulario-datos">
                                                                                 <div class="one-column">
@@ -234,7 +206,18 @@
                                                                                                 <label>Título</label>
                                                                                             </div>
                                                                                             <div class="formulario-datos-input">
-                                                                                                <input type="text" name="categoria-titulo-español" id="categoria-titulo-español" data-validacion="solo-letras">
+                                                                                                <input type="text" name="titulo-imagen" id="titulo-imagen" data-validacion="solo-letras">
+                                                                                            </div>
+                                                                                            <div class="formulario-datos-requisito">
+                                                                                                <span>El campo solo admite letras</span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="formulario-datos">
+                                                                                            <div class="formulario-datos-label">
+                                                                                                <label>Alt</label>
+                                                                                            </div>
+                                                                                            <div class="formulario-datos-input">
+                                                                                                <input type="text" name="alt-imagen" id="alt-imagen" data-validacion="solo-letras">
                                                                                             </div>
                                                                                             <div class="formulario-datos-requisito">
                                                                                                 <span>El campo solo admite letras</span>
@@ -245,7 +228,7 @@
                                                                             </div> 
                                                                         </div>
                                                                     </div>
-                                                                    <div class="panel-subetiquetas-contenido"  data-subetiqueta="ingles">
+                                                                    <div class="panel-etiquetas-contenido"  id="etiqueta-imagenes-ingles">
                                                                         <div class="admin-formulario-contenido">
                                                                             <div class="admin-formulario-datos">
                                                                                 <div class="one-column">
@@ -255,7 +238,18 @@
                                                                                                 <label>Título</label>
                                                                                             </div>
                                                                                             <div class="formulario-datos-input">
-                                                                                                <input type="text" name="categoria-titulo-ingles" id="categoria-titulo-ingles" data-validacion="solo-letras">
+                                                                                                <input type="text" name="titulo-imagen" id="titulo-imagen" data-validacion="solo-letras">
+                                                                                            </div>
+                                                                                            <div class="formulario-datos-requisito">
+                                                                                                <span>El campo solo admite letras</span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="formulario-datos">
+                                                                                            <div class="formulario-datos-label">
+                                                                                                <label>Alt</label>
+                                                                                            </div>
+                                                                                            <div class="formulario-datos-input">
+                                                                                                <input type="text" name="alt-imagen" id="alt-imagen" data-validacion="solo-letras">
                                                                                             </div>
                                                                                             <div class="formulario-datos-requisito">
                                                                                                 <span>El campo solo admite letras</span>
@@ -267,7 +261,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div> -->
+                                                            </div>      
                                                         </div>
                                                     </div>
                                                     <div class="admin-formulario-accion">

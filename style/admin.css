@@ -216,6 +216,7 @@ video {
 
 input, select, textarea {
   border: none;
+  padding-left: 0.2rem;
   font-size: 1.5rem;
   height: 2rem;
 }
@@ -442,6 +443,7 @@ footer .pie p {
 }
 
 .icono-menu {
+  cursor: pointer;
   width: 5rem;
 }
 
@@ -469,11 +471,13 @@ footer .pie p {
 }
 
 .menu-admin-elemento ul li {
+  cursor: pointer;
   font-size: 1.4rem;
   margin-bottom: 1rem;
 }
 
 .menu-admin-elemento ul li:first-child {
+  cursor: default;
   font-size: 1.5rem;
   font-weight: bold;
 }
@@ -503,8 +507,10 @@ footer .pie p {
 }
 
 .boton-admin {
+  cursor: pointer;
   border: none;
   background-color: #ffd485;
+  border-radius: 0.5rem;
 }
 .boton-admin svg {
   width: 2rem;
@@ -613,6 +619,10 @@ footer .pie p {
 
 .panel-etiquetas {
   display: grid;
+}
+
+.panel-etiquetas.simple {
+  grid-template-columns: 1fr;
 }
 
 .panel-etiquetas.doble {

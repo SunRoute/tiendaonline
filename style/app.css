@@ -216,6 +216,7 @@ video {
 
 input, select, textarea {
   border: none;
+  padding-left: 0.2rem;
   font-size: 1.5rem;
   height: 2rem;
 }
@@ -470,6 +471,7 @@ footer .pie p {
 }
 
 .custom-button {
+  cursor: pointer;
   border: #ffffff 2px solid;
   background-color: #ffa047;
   color: #ffffff;
@@ -639,6 +641,10 @@ footer .pie p {
 
 .panel-etiquetas {
   display: grid;
+}
+
+.panel-etiquetas.simple {
+  grid-template-columns: 1fr;
 }
 
 .panel-etiquetas.doble {

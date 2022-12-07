@@ -17,9 +17,6 @@ export let renderSubetiquetas = () => {
             activarEtiqueta.classList.add('activo');
 
             mostrarContenidos.forEach(mostrarContenido => {
-                
-                console.log(activarEtiqueta.dataset.subetiqueta);
-                console.log(mostrarContenido.dataset.subetiqueta);
 
 
                 if(activarEtiqueta.dataset.subetiqueta == mostrarContenido.dataset.subetiqueta) {

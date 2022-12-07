@@ -13,6 +13,7 @@
     color: $white;
 }
 .icono-menu {
+    cursor: pointer;
     width: 5rem;
 }
 
@@ -38,10 +39,12 @@
     height: 80%;
 }
 .menu-admin-elemento ul li {
+    cursor: pointer;
     font-size: 1.4rem;
     margin-bottom: 1rem;
 }
 .menu-admin-elemento ul li:first-child {
+    cursor: default;
     font-size: 1.5rem;
     font-weight: bold;
 }
@@ -65,8 +68,10 @@
     width: max-content;
 }
 .boton-admin {
+    cursor: pointer;
     border: none;
     background-color: $primary-color-light;
+    border-radius: 0.5rem;
 
     svg {
         width: 2rem;
