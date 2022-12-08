@@ -5,7 +5,7 @@
         <head>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
-            <link rel="shortcut icon" href="https://www.youtube.com/s/desktop/12d6b690/img/favicon.ico">
+            <link rel="shortcut icon" href="imagenes/logo.png">
     
             <title>Administración</title>
             <meta name="description" content="descripción de la web, se recomienda 90 caracteres">
@@ -83,7 +83,7 @@
                                     <div class="admin-formulario">
                                         <form id="formulario">
                                             <div class="etiquetas">
-                                                <div class="panel-etiquetas doble">
+                                                <div class="panel-etiquetas">
                                                     <div class="panel-etiqueta activo" data-etiqueta="#contenido">
                                                         <h4>Contenido</h4>
                                                     </div>
@@ -102,7 +102,7 @@
                                                                                 <label>Nombre</label>
                                                                             </div>
                                                                             <div class="formulario-datos-input">
-                                                                                <input type="text" name="categoria-nombre" id="categoria-nombre" data-validacion="solo-letras">
+                                                                                <input type="text" name="categoriaNombre" id="categoriaNombre" data-validacion="solo-letras">
                                                                             </div>
                                                                             <div class="formulario-datos-requisito">
                                                                                 <span>El campo solo admite letras</span>
@@ -112,7 +112,7 @@
                                                                 </div>
                                                             </div>        
                                                             <div class="etiquetas admin-formulario-etiquetas-anidado">
-                                                                <div class="panel-etiquetas doble">
+                                                                <div class="panel-etiquetas">
                                                                     <div class="panel-etiqueta activo" data-etiqueta="#etiqueta-contenido-espanyol">
                                                                         <h4>Español</h4>
                                                                     </div>
@@ -131,7 +131,7 @@
                                                                                                 <label>Título</label>
                                                                                             </div>
                                                                                             <div class="formulario-datos-input">
-                                                                                                <input type="text" name="categoria-titulo-español" id="categoria-titulo-español" data-validacion="solo-letras">
+                                                                                                <input type="text" name="categoriaTituloEspanyol" id="categoriaTituloEspanyol" data-validacion="solo-letras">
                                                                                             </div>
                                                                                             <div class="formulario-datos-requisito">
                                                                                                 <span>El campo solo admite letras</span>
@@ -152,7 +152,7 @@
                                                                                                 <label>Título</label>
                                                                                             </div>
                                                                                             <div class="formulario-datos-input">
-                                                                                                <input type="text" name="categoria-titulo-ingles" id="categoria-titulo-ingles" data-validacion="solo-letras">
+                                                                                                <input type="text" name="categoriaTituloIngles" id="categoriaTituloIngles" data-validacion="solo-letras">
                                                                                             </div>
                                                                                             <div class="formulario-datos-requisito">
                                                                                                 <span>El campo solo admite letras</span>
@@ -174,20 +174,17 @@
                                                                     <div class="column">
                                                                         <div class="formulario-datos">
                                                                             <div class="formulario-datos-label">
-                                                                                <label>Imagen URL</label>
+                                                                                <label>Imagen</label>
                                                                             </div>
                                                                             <div class="formulario-datos-input">
-                                                                                <input type="file" name="url-imagen" id="url-imagen" >
-                                                                            </div>
-                                                                            <div class="formulario-datos-requisito">
-                                                                                <span>Formatos admitidos: png, jepg, jpg, wepbp</span>
+                                                                                <input type="file" name="urlImagen" id="urlImagen" accept="image/png,image/jpg,image/jpeg,image/webp">
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <div class="etiquetas admin-formulario-etiquetas-anidado">
-                                                                <div class="panel-etiquetas doble">
+                                                                <div class="panel-etiquetas">
                                                                     <div class="panel-etiqueta activo" data-etiqueta="#etiqueta-imagenes-espanyol">
                                                                         <h4>Español</h4>
                                                                     </div>
@@ -206,7 +203,7 @@
                                                                                                 <label>Título</label>
                                                                                             </div>
                                                                                             <div class="formulario-datos-input">
-                                                                                                <input type="text" name="titulo-imagen" id="titulo-imagen" data-validacion="solo-letras">
+                                                                                                <input type="text" name="tituloImagenEspanyol" id="tituloImagenEspanyol" data-validacion="solo-letras">
                                                                                             </div>
                                                                                             <div class="formulario-datos-requisito">
                                                                                                 <span>El campo solo admite letras</span>
@@ -217,7 +214,7 @@
                                                                                                 <label>Alt</label>
                                                                                             </div>
                                                                                             <div class="formulario-datos-input">
-                                                                                                <input type="text" name="alt-imagen" id="alt-imagen" data-validacion="solo-letras">
+                                                                                                <input type="text" name="altImagenEspanyol" id="altImagenEspanyol" data-validacion="solo-letras">
                                                                                             </div>
                                                                                             <div class="formulario-datos-requisito">
                                                                                                 <span>El campo solo admite letras</span>
@@ -238,7 +235,7 @@
                                                                                                 <label>Título</label>
                                                                                             </div>
                                                                                             <div class="formulario-datos-input">
-                                                                                                <input type="text" name="titulo-imagen" id="titulo-imagen" data-validacion="solo-letras">
+                                                                                                <input type="text" name="tituloImagenIngles" id="tituloImagenIngles" data-validacion="solo-letras">
                                                                                             </div>
                                                                                             <div class="formulario-datos-requisito">
                                                                                                 <span>El campo solo admite letras</span>
@@ -249,7 +246,7 @@
                                                                                                 <label>Alt</label>
                                                                                             </div>
                                                                                             <div class="formulario-datos-input">
-                                                                                                <input type="text" name="alt-imagen" id="alt-imagen" data-validacion="solo-letras">
+                                                                                                <input type="text" name="altImagenIngles" id="altImagenIngles" data-validacion="solo-letras">
                                                                                             </div>
                                                                                             <div class="formulario-datos-requisito">
                                                                                                 <span>El campo solo admite letras</span>

@@ -18,6 +18,15 @@ input, select, textarea {
     font-size: 1.5rem;
     height: 2rem;
 }
+input[type="file"] {
+    font-size: 1.3rem;
+    padding: 0;
+    background-color: $white;
+}
+input[type=file]::file-selector-button {
+    font-size: 1.3rem;
+}
+
 // Fichas de una galería
 // Todas las fichas deben mantener el mismo alto independientemente del ancho de la pantalla y de cómo se comporte su contenido
 .mantener-alto {

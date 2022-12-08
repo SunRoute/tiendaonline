@@ -5,10 +5,10 @@
 @import "base/normalize";
 @import "base/contents";
 @import "base/typography";
-@import "layout/desktop/master";
-@import "layout/desktop/header";
-@import "layout/desktop/footer";
-@import "layout/desktop/columns";
+@import "layout/master";
+@import "layout/header";
+@import "layout/footer";
+@import "layout/columns";
 @import "admin/administracion";
-@import "components/desktop/formulario";
-@import "components/desktop/etiquetas";
+@import "components/formulario";
+@import "components/etiquetas";

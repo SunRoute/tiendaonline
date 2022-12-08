@@ -221,6 +221,20 @@ input, select, textarea {
   height: 2rem;
 }
 
+input[type=file] {
+  font-size: 1.3rem;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+input[type=file]::-webkit-file-upload-button {
+  font-size: 1.3rem;
+}
+
+input[type=file]::file-selector-button {
+  font-size: 1.3rem;
+}
+
 .mantener-alto {
   height: 100%;
 }
@@ -641,21 +655,10 @@ footer .pie p {
 
 .panel-etiquetas {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
 }
 
-.panel-etiquetas.simple {
-  grid-template-columns: 1fr;
-}
-
-.panel-etiquetas.doble {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.panel-etiquetas.triple {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.panel-etiqueta, .panel-subetiqueta {
+.panel-etiqueta {
   cursor: pointer;
   text-align: center;
   border: #ffa047 3px solid;
@@ -663,10 +666,10 @@ footer .pie p {
   border-radius: 0.5rem 0.5rem 0 0;
   padding: 1rem;
 }
-.panel-etiqueta h4, .panel-subetiqueta h4 {
+.panel-etiqueta h4 {
   font-size: 1.5rem;
 }
-.panel-etiqueta h4:hover, .panel-subetiqueta h4:hover {
+.panel-etiqueta h4:hover {
   transform: scale(1.04, 1.04);
 }
 
@@ -674,7 +677,7 @@ footer .pie p {
   box-shadow: none;
 }
 
-.panel-etiqueta.activo, .panel-subetiqueta.activo {
+.panel-etiqueta.activo {
   border-bottom: none;
   box-shadow: none;
 }
@@ -685,7 +688,7 @@ footer .pie p {
   border-radius: 0 0 0.5rem 0.5rem;
 }
 
-.panel-etiquetas-contenido, .panel-subetiquetas-contenido {
+.panel-etiquetas-contenido {
   display: none;
 }
 
@@ -695,7 +698,7 @@ footer .pie p {
   border-radius: 0 0 0.5rem 0.5rem;
 }
 
-.panel-etiquetas-contenido.activo, .panel-subetiquetas-contenido.activo {
+.panel-etiquetas-contenido.activo {
   display: block;
 }
 
@@ -739,6 +742,20 @@ footer .pie p {
 
 .formulario-datos-input input, .formulario-datos-input select, .formulario-datos-texto textarea {
   border-radius: 0.2rem;
+}
+
+.formulario-datos-input input[type=file]::-webkit-file-upload-button {
+  border: #ffa047 3px solid;
+  border-radius: 0.2rem 0 0 0.2rem;
+  background-color: #ffd485;
+  color: #374343;
+}
+
+.formulario-datos-input input[type=file]::file-selector-button {
+  border: #ffa047 3px solid;
+  border-radius: 0.2rem 0 0 0.2rem;
+  background-color: #ffd485;
+  color: #374343;
 }
 
 .formulario-datos-requisito {
