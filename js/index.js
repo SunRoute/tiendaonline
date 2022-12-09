@@ -9,6 +9,7 @@ import {renderNotificacion} from "./notificacion.js";
 
 
 
+
 renderMenuAdmin();
 renderBotonMasMenos();
 renderEtiquetas();
@@ -17,3 +18,4 @@ renderFormulario();
 renderContadorTexto();
 renderNotificacion();
 // renderLogin();
+

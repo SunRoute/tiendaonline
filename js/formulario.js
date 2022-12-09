@@ -20,7 +20,11 @@ export let renderFormulario = () => {
 
             let formDataJson = Object.fromEntries(formData.entries());
 
-            fetch('http://192.168.1.16:8080/api/admin/users', {
+            // let formUrl = document.querySelector(formulario.dataset.formulario);
+
+            // console.log(formulario.dataset.formulario)
+
+            fetch('http://192.168.1.16:8080/api/admin/taxes', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

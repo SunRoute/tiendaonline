@@ -1,19 +1,9 @@
-.panel-etiquetas {
+ .panel-etiquetas {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
 }
-// .panel-etiquetas.simple {
-//     grid-template-columns: 1fr;
-// }
-// .panel-etiquetas.doble {
-//     grid-template-columns: repeat(2, 1fr);
-// }
-// .panel-etiquetas.triple {
-//     grid-template-columns: repeat(3, 1fr);
-// }
-
 .panel-etiqueta {
-    cursor: pointer;
+    cursor: default;
     text-align: center;
     border: $primary-color 3px solid;
     box-shadow: 0 0 1.2rem 0.1rem $primary-color inset;
@@ -22,9 +12,6 @@
 
     h4 {
         font-size: 1.5rem;
-    }
-    h4:hover {
-        transform: scale(1.04,1.04);
     }
 }
 .panel-etiqueta.fijo {

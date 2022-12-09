@@ -491,8 +491,8 @@ footer .pie p {
 }
 
 .menu-admin-elemento ul li:hover {
-  text-shadow: 0.1rem 0.1rem 0.5rem #f66e13;
-  transform: scale(1, 1);
+  text-shadow: 0.05rem 0.05rem 0.6rem #f66e13;
+  transform: scale(1.01, 1.01);
 }
 
 .menu-admin-elemento ul li:first-child {
@@ -658,7 +658,7 @@ footer .pie p {
 }
 
 .panel-etiqueta {
-  cursor: pointer;
+  cursor: default;
   text-align: center;
   border: #ffa047 3px solid;
   box-shadow: 0 0 1.2rem 0.1rem #ffa047 inset;
@@ -667,9 +667,6 @@ footer .pie p {
 }
 .panel-etiqueta h4 {
   font-size: 1.5rem;
-}
-.panel-etiqueta h4:hover {
-  transform: scale(1.04, 1.04);
 }
 
 .panel-etiqueta.fijo {
