@@ -16,13 +16,17 @@ export let renderFormulario = () => {
                 
             }
 
+            // CAPTURA LOS DATOS
             let formData = new FormData(formulario);
-
+            // LOS CONVIERTE EN UN OBJETO
             let formDataJson = Object.fromEntries(formData.entries());
 
+            
+            // ..ESTO ERA UN INTENTO DE AÑADIR AL FINAL DE LA DIRECCIÓN UNA VARIABLE (/taxes)
             // let formUrl = document.querySelector(formulario.dataset.formulario);
-
             // console.log(formulario.dataset.formulario)
+            // ..
+
 
             fetch('http://192.168.1.16:8080/api/admin/taxes', {
             method: 'POST',
@@ -30,6 +34,7 @@ export let renderFormulario = () => {
                 'Content-Type': 'application/json',
                 'x-access-token': sessionStorage.getItem('accessToken')
             },
+            // LO CONVIERTE EN CADENA DE TEXTO JSON
             body: JSON.stringify(formDataJson)
         }).then(response => {
             return response.json();
