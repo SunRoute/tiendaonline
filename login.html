@@ -1,0 +1,113 @@
+<doctype html>
+
+    <html lang="es">
+    
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="shortcut icon" href="imagenes/logo.png">
+    
+            <title>Login</title>
+            <meta name="description" content="descripción de la web, se recomienda 90 caracteres">
+            <meta name="keywords" content="palabras clave, separadas, por comas">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+            <link href="style/admin.css" rel="stylesheet">
+        </head>
+    
+        <body>
+    
+            <header>
+                <div class="two-columns">
+                    <div class="column">
+                        <div class="header-logo">
+                            <div class="header-logo-imagen">
+                                <img src="imagenes/logo.png" alt="logo">
+                            </div>
+                            <div class="header-logo-texto">
+                                <h2>Fidawis</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="header-admin">
+                            <div class="titulo-admin">
+                                <h2>Login</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+    
+            <main>
+                <div class="administracion">
+                    <div class="one-column">
+                        <div class="column">      
+                            <div class="admin-formulario">
+                                <form id="formulario">
+                                    <div class="etiquetas etiquetas-login">
+                                        <div class="panel-etiquetas">
+                                            <div class="panel-etiqueta activo" data-etiqueta="#contenido">
+                                                <h4></h4>
+                                            </div>
+                                        </div>
+                                        <div class="panel-etiquetas-contenidos">
+                                            <div class="panel-etiquetas-contenido activo"  id="contenido">
+                                                <div class="admin-formulario-contenido">
+                                                    <div class="admin-formulario-datos">
+                                                        <div class="one-column">
+                                                            <div class="column">
+                                                                <div class="formulario-datos">
+                                                                    <div class="formulario-datos-label">
+                                                                        <label>Email</label>
+                                                                    </div>
+                                                                    <div class="formulario-datos-input">
+                                                                        <input type="text" name="email" id="email" data-validacion="email">
+                                                                    </div>
+                                                                    <div class="formulario-datos-requisito">
+                                                                        <span>ejemplo@ejemplo.com</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="formulario-datos">
+                                                                    <div class="formulario-datos-label">
+                                                                        <label>Password</label>
+                                                                    </div>
+                                                                    <div class="formulario-datos-input">
+                                                                        <input type="password" name="password" id="password">
+                                                                    </div>
+                                                                    <div class="formulario-datos-requisito">
+                                                                        <span>Debe contener mayúsculas, minúsculas y números</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>              
+                                                </div>
+                                            </div>
+                                            <div class="admin-formulario-accion">
+                                                <button  type="submit" class="custom-button boton-login">Enviar</button>
+                                            </div>         
+                                        </div>
+                                    </div>
+                                    <div class="notificacion">
+                                        <p class="notificacion-mensaje"></p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main> 
+    
+            <footer>
+                <div class="pie">
+                    <p>&copy; Derechos reservados</p>
+                </div>
+            </footer>
+    
+           <script type="module" src="js/index.js"></script>
+                
+        </body>
+    
+    </html>    

@@ -80,7 +80,7 @@
                             <div class="two-columns"> 
                                 <div class="column">
                                     <div class="admin-formulario">
-                                        <form id="formulario" data-formulario="faqs">
+                                        <form id="formulario" action="http://127.0.0.1:8080/api/admin/faqs" data-formulario="faqs">
                                             <div class="etiquetas">
                                                 <div class="panel-etiquetas">
                                                     <div class="panel-etiqueta activo" data-etiqueta="#contenido">
@@ -95,22 +95,10 @@
                                                                     <div class="column">
                                                                         <div class="formulario-datos">
                                                                             <div class="formulario-datos-label">
-                                                                                <label for="faqsCategorias">Categoría FAQS</label>
-                                                                            </div>
-                                                                            <div class="formulario-datos-input">
-                                                                                <select name="faqsCategorias" required>
-                                                                                    <option></option>
-                                                                                    <option value="devoluciones">Devoluciones y cambios</option>
-                                                                                    <option value="formasPago">Opciones de pago</option>
-                                                                                </select>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="formulario-datos">
-                                                                            <div class="formulario-datos-label">
                                                                                 <label>Pregunta</label>
                                                                             </div>
                                                                             <div class="formulario-datos-input">
-                                                                                <input type="text" name="pregunta" id="pregunta" data-validacion="solo-letras">
+                                                                                <input type="text" name="question" id="pregunta" data-validacion="solo-letras">
                                                                             </div>
                                                                             <div class="formulario-datos-requisito">
                                                                                 <span>El campo solo admite letras</span>
@@ -121,7 +109,7 @@
                                                                                 <label>Respuesta</label>
                                                                             </div>
                                                                             <div class="formulario-datos-texto">
-                                                                                <textarea name="pregunta" id="pregunta" maxlength="260"></textarea>
+                                                                                <textarea name="answer" id="pregunta" maxlength="260"></textarea>
                                                                             </div>
                                                                             <div class="formulario-datos-contador">
                                                                                 <span class="contador">0</span>

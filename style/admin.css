@@ -541,6 +541,10 @@ footer .pie p {
   fill: #374343;
 }
 
+.boton-login {
+  margin: 0 3rem 2rem;
+}
+
 .registros {
   padding: 4rem 2rem;
 }
@@ -652,6 +656,10 @@ footer .pie p {
   width: 20%;
 }
 
+.etiquetas-login {
+  margin: 0 20rem;
+}
+
 .panel-etiquetas {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
@@ -696,4 +704,19 @@ footer .pie p {
 
 .panel-etiquetas-contenido.activo {
   display: block;
+}
+
+.custom-button {
+  cursor: pointer;
+  border: #ffffff 2px solid;
+  background-color: #ffa047;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  padding: 0.5rem 2rem;
+  box-shadow: 0 0 1.5rem 0.1rem #ff4400 inset;
+}
+
+.custom-button:hover {
+  box-shadow: 0 0 1.3rem 0.1rem #ff4400 inset;
 }/*# sourceMappingURL=admin.css.map */

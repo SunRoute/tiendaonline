@@ -5,7 +5,7 @@ import {renderSubetiquetas} from './subetiquetas.js';
 import {renderFormulario} from './formulario.js';
 import {renderContadorTexto} from './input.js';
 import {renderNotificacion} from "./notificacion.js";
-// import {renderLogin} from "./login.js";
+import {renderLogin} from "./login.js";
 
 
 
@@ -17,5 +17,5 @@ renderSubetiquetas();
 renderFormulario();
 renderContadorTexto();
 renderNotificacion();
-// renderLogin();
+renderLogin();
 

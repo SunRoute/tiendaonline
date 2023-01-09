@@ -9,7 +9,10 @@ export let renderContadorTexto = () => {
             input.addEventListener('input', () => {
     
                 let contador = input.closest('.formulario-datos').querySelector('.contador');
-                contador.textContent = input.value.length;
+
+                if(contador){
+                    contador.textContent = input.value.length;
+                }
     
             });
         }   
