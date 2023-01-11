@@ -1,6 +1,6 @@
 import {validador} from './validador.js';
 
-export let renderFormulario = () => {
+export let renderContactFormulario = () => {
 
     let botonEnvio= document.querySelector('.boton-envio');
 
@@ -10,7 +10,7 @@ export let renderFormulario = () => {
 
             event.preventDefault();
 
-            let formulario = document.getElementById('formulario');
+            let formulario = document.getElementById('formulario-front');
             let formularioInputs = formulario.elements;
     
             validador(formularioInputs);
@@ -26,13 +26,12 @@ export let renderFormulario = () => {
             // let href = window.location.href;
             // let endpointSplit = href.split('/')
             // let endpoint = endpointSplit[endpointSplit.length - 1].split('.')[0];
-            // let url = 'http://127.0.0.1:8080/api/admin/' + endpoint;
+            // let url = 'http://127.0.0.1:8080/api/front/' + endpoint;
 
 
             fetch(url, {
                 method: 'POST',
                 headers: {
-                    'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken'),
                     'Content-Type': 'application/json',
                 },
                 // LO CONVIERTE EN CADENA DE TEXTO JSON

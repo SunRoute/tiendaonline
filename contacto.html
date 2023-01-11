@@ -87,7 +87,7 @@
                     <div class="two-columns">
                         <div class="column">
                             <div class="contacto-formulario">
-                                <form id="formulario">
+                                <form id="formulario-front" action="http://127.0.0.1:8080/api/front/contacts">
                                     <div class="two-columns">
                                         <div class="column">
                                             <div class="formulario-datos">
@@ -95,7 +95,7 @@
                                                     <label>Nombre</label>
                                                 </div>
                                                 <div class="formulario-datos-input">
-                                                    <input type="text" name="nombre" id="nombre" data-validacion="solo-letras">
+                                                    <input type="text" name="name" id="nombre" data-validacion="solo-letras">
                                                 </div>
                                                 <div class="formulario-datos-requisito">
                                                     <span>El campo solo admite letras</span>
@@ -108,7 +108,7 @@
                                                     <label>Apellidos</label>
                                                 </div>
                                                 <div class="formulario-datos-input">
-                                                    <input type="text" name="apellidos" id="apellidos" data-validacion="solo-letras">
+                                                    <input type="text" name="surname" id="apellidos" data-validacion="solo-letras">
                                                 </div>
                                                 <div class="formulario-datos-requisito">
                                                     <span>El campo solo admite letras</span>
@@ -121,7 +121,7 @@
                                                     <label>Teléfono</label>
                                                 </div>
                                                 <div class="formulario-datos-input">
-                                                    <input type="text" name="telefono" id="telefono" data-validacion="telefono">
+                                                    <input type="text" name="phone" id="telefono" data-validacion="telefono">
                                                 </div>
                                                 <div class="formulario-datos-requisito">
                                                     <span>Debe contener 9 números</span>
@@ -149,7 +149,7 @@
                                                     <label>Mensaje</label>
                                                 </div>
                                                 <div class="formulario-datos-texto">
-                                                    <textarea maxlength="260"></textarea>
+                                                    <textarea maxlength="260" name="message"></textarea>
                                                 </div>
                                                 <div class="formulario-datos-contador">
                                                     <span class="contador">0</span>
