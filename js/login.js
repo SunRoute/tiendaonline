@@ -12,9 +12,7 @@ export let renderLogin = () => {
             let formData = new FormData(formulario);
             let formDataJson = Object.fromEntries(formData.entries());
 
-            console.log(formDataJson);
-
-            fetch('http://127.0.0.1:8080/api/auth/users/signin', {
+            fetch('http://127.0.0.1:8080/api/auth/user/signin', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -23,10 +21,29 @@ export let renderLogin = () => {
             }).then(response => {
                 return response.json();
             }).then(data => {
-                console.log(data);
-                sessionStorage.setItem('accessToken', data.accessToken);
+                if(data.accessToken){
+                    sessionStorage.setItem('accessToken', data.accessToken);
+                    document.dispatchEvent(new CustomEvent('mensaje', {
+                        detail: {
+                            text: 'Enviado correctamente',
+                            type: 'exito'
+                        }
+                    }));
+                }else{
+                    document.dispatchEvent(new CustomEvent('mensaje', {
+                        detail: {
+                            text: 'Usuario o contraseña incorrecta',
+                            type: 'fallo'
+                        }
+                    }));
+                }
             }).catch(error => {
-                console.log(error);
+                document.dispatchEvent(new CustomEvent('mensaje', {
+                    detail: {
+                        text: 'Usuario o contraseña incorrecta',
+                        type: 'fallo'
+                    }
+                }));
             });
         });
     }

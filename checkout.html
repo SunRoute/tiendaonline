@@ -88,7 +88,7 @@
                     </div>
                 </div>
                 <div class="checkout-formulario">
-                    <form>
+                    <form  id="formulario-front">
                         <div class="two-columns">
                             <div class="column">
                                 <div class="checkout-formulario-datos">
@@ -99,7 +99,7 @@
                                                     <label>Nombre</label>
                                                 </div>
                                                 <div class="formulario-datos-input">
-                                                    <input type="">
+                                                    <input type="text" name="name" id="nombre" data-validacion="solo-letras">
                                                 </div>
                                             </div>   
                                         </div>
@@ -109,7 +109,7 @@
                                                     <label>Apellidos</label>
                                                 </div>
                                                 <div class="formulario-datos-input">
-                                                    <input type="">
+                                                    <input type="text" name="surname" id="apellidos" data-validacion="solo-letras">
                                                 </div>
                                             </div>   
                                         </div>
@@ -119,7 +119,7 @@
                                                     <label>Teléfono</label>
                                                 </div>
                                                 <div class="formulario-datos-input">
-                                                    <input type="">
+                                                    <input type="text" name="phone" id="telefono" data-validacion="telefono">
                                                 </div>
                                             </div>   
                                         </div>
@@ -129,7 +129,7 @@
                                                     <label>Email</label>
                                                 </div>
                                                 <div class="formulario-datos-input">
-                                                    <input type="">
+                                                    <input type="text" name="email" id="email" data-validacion="email">
                                                 </div>
                                             </div>   
                                         </div>
@@ -139,7 +139,7 @@
                                                     <label>Ciudad</label>
                                                 </div>
                                                 <div class="formulario-datos-input">
-                                                    <select>
+                                                    <select name="city">
                                                         <option></option>
                                                         <option>Palma de Mallorca</option>
                                                         <option>Ibiza</option>
@@ -155,7 +155,7 @@
                                                     <label>Código postal</label>
                                                 </div>
                                                 <div class="formulario-datos-input">
-                                                    <input type="">
+                                                    <input type="text" name="postalCode" id="codigoPostal">
                                                 </div>
                                             </div>
                                         </div>
@@ -167,7 +167,7 @@
                                                     <label>Dirección</label>
                                                 </div>
                                                 <div class="formulario-datos-input">
-                                                    <input type="">
+                                                    <input type="text" name="adress" id="direccion">
                                                 </div>
                                             </div>
                                         </div>
@@ -253,7 +253,7 @@
                                         </div>
                                     </div>
                                     <div class="formulario-datos-boton-accion">
-                                        <button class="custom-button">Pagar</button>
+                                        <button class="custom-button boton-envio-front">Pagar</button>
                                     </div>      
                                 </div>    
                             </div> 
@@ -269,6 +269,7 @@
                 <p>&copy; Derechos reservados</p>
             </div>
         </footer>
+        <script type="module" src="js/index.js"></script>
         
     </body>
 
