@@ -1,12 +1,10 @@
 import {validador} from './validador.js';
 
-export let renderContactFormulario = () => {
+export let renderFrontFormulario = () => {
 
     let botonEnvio= document.querySelector('.boton-envio-front');
 
     if (botonEnvio) {
-
-        console.log("hola");
 
         botonEnvio.addEventListener('click', event => {
 
@@ -15,7 +13,9 @@ export let renderContactFormulario = () => {
             let formulario = document.getElementById('formulario-front');
             let formularioInputs = formulario.elements;
     
-            validador(formularioInputs);
+            if(!validador(formularioInputs)){
+                return;
+            };
 
             // CAPTURA LOS DATOS
             // let formData = new FormData(formulario);
@@ -43,17 +43,11 @@ export let renderContactFormulario = () => {
                 return response.json();
             }).then(data => {
                     
-                document.dispatchEvent(new CustomEvent('mensaje', {
-                    detail: {
-                        text: 'Formulario enviado correctamente',
-                        type: 'exito'
-                    }
-            }));
+            
 
-
-        }).catch(error => {
-            console.log(error);
-        });    
+            }).catch(error => {
+                console.log(error);
+            });    
              
         });
     };

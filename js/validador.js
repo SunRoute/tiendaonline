@@ -30,5 +30,3 @@ export let validador = formInputs => {
 
     return formValidador;
 };
-
-// Howl's Moving Castle - Merry go round of Life cover by Grissini Project

@@ -4,17 +4,13 @@ export let renderContadorTexto = () => {
 
     for (let input of inputs){
 
-        if(input.maxLength != null) {
-
+        if(input.maxLength !== undefined && input.maxLength !== -1) {
+            
             input.addEventListener('input', () => {
-    
-                let contador = input.closest('.formulario-datos').querySelector('.contador');
+                console.log(typeof input.maxLength);
 
-                if(contador){
-                    contador.textContent = input.value.length;
-                }
-    
+                input.closest('.formulario-datos').querySelector('.contador').textContent = input.value.length;
             });
-        }   
+        }
     }
 }

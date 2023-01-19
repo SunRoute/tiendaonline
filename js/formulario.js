@@ -14,7 +14,9 @@ export let renderFormulario = () => {
             let formularioInputs = formulario.elements;
             
 
-            validador(formularioInputs);
+            if(!validador(formularioInputs)){
+                return;
+            };
 
             // CAPTURA LOS DATOS
             // let formData = new FormData(formulario);
@@ -29,7 +31,7 @@ export let renderFormulario = () => {
             let endpointSplit = href.split('/')
             let endpoint = endpointSplit[endpointSplit.length - 1].split('.')[0];
             let url = "http://127.0.0.1:8080/api/admin/" + endpoint;
-            // EN LUGAR DE LA URL SE PODRÍA AÑADIR formulario.action Y ELIMINAR EL ENDPOINT EN LA URL DE LAS PÁGINAS. NO OBSTANTE, NO TENDRÍA SENTIDO PORQUE HABRÍA QUE PONERLA EN TODAS LAS PÁGINAS CUANDO, EN REALIDAD, SE APLICA IGUAL CON ESTA SOLA LÍNEA.
+            // EN LUGAR DE LA URL SE PODRÍA AÑADIR formulario.action Y ELIMINAR EL ENDPOINT EN LA URL DE LAS PÁGINAS. SIN EMBARGO, NO TENDRÍA SENTIDO PORQUE HABRÍA QUE PONERLA EN TODAS LAS PÁGINAS CUANDO, EN REALIDAD, SE APLICA IGUAL CON ESTA SOLA LÍNEA.
 
             fetch(url, {
                 method: 'POST',
