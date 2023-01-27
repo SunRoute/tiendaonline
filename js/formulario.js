@@ -44,18 +44,30 @@ export let renderFormulario = () => {
             }).then(response => {
                 return response.json();
             }).then(data => {
-                    
-                document.dispatchEvent(new CustomEvent('mensaje', {
+                if(data.accessToken){   
+                    document.dispatchEvent(new CustomEvent('message', {
+                        detail: {
+                            text: 'Formulario enviado correctamente',
+                            type: 'exito'
+                        }
+                    }));
+                } else {
+                    document.dispatchEvent(new CustomEvent('message', {
+                        detail: {
+                            text: 'Necesitas autorización para introducir datos',
+                            type: 'fallo'
+                        }
+                    }));
+                }
+            }).catch(error => {
+                console.log(error);
+                document.dispatchEvent(new CustomEvent('message', {
                     detail: {
-                        text: 'Formulario enviado correctamente',
-                        type: 'exito'
+                        text: 'Se ha producido un error',
+                        type: 'fallo'
                     }
-            }));
-
-
-        }).catch(error => {
-            console.log(error);
-        });    
+                }));
+            });    
              
         });
     };

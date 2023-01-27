@@ -42,11 +42,20 @@ export let renderFrontFormulario = () => {
             }).then(response => {
                 return response.json();
             }).then(data => {
-                    
-            
-
+                document.dispatchEvent(new CustomEvent('message', {
+                    detail: {
+                        text: 'Formulario enviado correctamente',
+                        type: 'exito'
+                    }
+                }));
             }).catch(error => {
                 console.log(error);
+                document.dispatchEvent(new CustomEvent('message', {
+                    detail: {
+                        text: 'Se ha producido un error',
+                        type: 'fallo'
+                    }
+                }));
             });    
              
         });

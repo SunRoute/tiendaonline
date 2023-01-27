@@ -5,10 +5,12 @@ import {renderSubetiquetas} from './subetiquetas.js';
 import {renderFormulario} from './formulario.js';
 import {renderFrontFormulario} from './front-formulario.js';
 import {renderContadorTexto} from './input.js';
-import {renderNotificacion} from "./notificacion.js";
+// import {renderNotificacion} from "./notificacion.js";
 import {renderLogin} from "./login.js";
 
-
+import './pageTitle.js';
+import './menuAdmin.js';
+import './notification.js';
 
 
 renderMenuAdmin();
@@ -18,6 +20,6 @@ renderSubetiquetas();
 renderFormulario();
 renderFrontFormulario();
 renderContadorTexto();
-renderNotificacion();
+// renderNotificacion();
 renderLogin();
 

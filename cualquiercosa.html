@@ -1,0 +1,94 @@
+
+<div class="menu-admin-elemento">
+    <ul>
+        <li>Administración Empresa</li>
+        <li class="menu-item"><a href="../admin-business.html">Empresa</a></li>
+        <li class="menu-item"><a href="../admin-supplier.html">Proveedores</a></li>
+        <li class="menu-item"><a href="../admin-customer.html">Clientes</a></li>
+        <li class="menu-item"><a href="../admin-contact.html">Contactos</a></li>
+    </ul>
+</div>
+<ul class="menu-admin-elemento">
+    <li>Administración General
+        <ul>
+            <li class="menu-item"><a href="../admin-product-category.html">Categorías</a></li>
+            <li class="menu-item"><a href="../admin-product.html">Productos</a></li>
+            <li class="menu-item"><a href="../admin-language.html">Lenguajes</a></li>
+            <li class="menu-item"><a href="../admin-payment-method.html">Formas de pago</a></li>
+            <li class="menu-item"><a href="../admin-tax.html">Ivas</a></li>
+        </ul>
+    </li>
+</ul>
+<div class="menu-admin-elemento">
+    <ul>
+        <li>Administración Contable</li>
+        <li class="menu-item"><a href="../admin-shopping-cart.html">Carritos</a></li>
+        <li class="menu-item"><a href="../admin-sale.html">Ventas</a></li>
+        <li class="menu-item"><a href="../admin-refund.html">Abonos</a></li>
+    </ul>
+</div>
+
+
+<!--                          IVA                                         -->
+
+<div class="admin-formulario">
+    <form id="formulario" data-formulario="taxes">
+        <div class="etiquetas">
+            <div class="panel-etiquetas">
+                <div class="panel-etiqueta activo" data-etiqueta="#contenido">
+                    <h4>Iva</h4>
+                </div>
+            </div>
+            <div class="panel-etiquetas-contenidos">
+                <div class="panel-etiquetas-contenido activo"  id="contenido">
+                    <div class="admin-formulario-contenido">
+                        <div class="admin-formulario-datos">
+                            <div class="one-column">
+                                <div class="column">
+                                    <div class="formulario-datos">
+                                        <div class="formulario-datos-label">
+                                            <label>Tipo</label>
+                                        </div>
+                                        <div class="formulario-datos-input">
+                                            <input type="number" name="type" id="type" data-validacion="solo-numeros">
+                                        </div>
+                                        <div class="formulario-datos-requisito">
+                                            <span>El campo solo admite números</span>
+                                        </div>
+                                    </div>
+                                    <div class="formulario-datos">
+                                        <div class="formulario-datos-label">
+                                            <label>Válido</label>
+                                        </div>
+                                        <div class="formulario-datos-input">
+                                            <select>
+                                                <option></option>
+                                                <option name="valid" value="1">1</option>
+                                                <option name="valid" value="0">0</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>              
+                    </div>
+                </div>
+                <div class="admin-formulario-accion">
+                    <button type="" class="boton-admin boton-limpiar">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M19.36,2.72L20.78,4.14L15.06,9.85C16.13,11.39 16.28,13.24 15.38,14.44L9.06,8.12C10.26,7.22 12.11,7.37 13.65,8.44L19.36,2.72M5.93,17.57C3.92,15.56 2.69,13.16 2.35,10.92L7.23,8.83L14.67,16.27L12.58,21.15C10.34,20.81 7.94,19.58 5.93,17.57Z" />
+                    </svg>
+                    </button>
+                    <button  type="submit" class="boton-admin boton-envio">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" />
+                    </svg>
+                    </button>
+                </div>         
+            </div>
+        </div>
+        <div class="notificacion">
+            <p class="notificacion-mensaje"></p>
+        </div>
+    </form>
+</div>

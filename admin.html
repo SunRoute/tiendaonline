@@ -33,48 +33,14 @@
                     <div class="column">
                         <div class="header-admin">
                             <div class="titulo-admin">
-                                <h2>Administración de categorías</h2>
-                            </div>
-                            <div class="icono-menu">
-                                <img src="imagenes/menu.png" alt="menu">
-                            </div>
+                                <page-title-component title="Categorías"></page-title-component>
+                            </div>    
                         </div>
                     </div>
                 </div>
             </header>
-    
             <main>
-                <div class="menu-admin">
-                    <nav>
-                        <div class="menu-admin-elemento">
-                            <ul>
-                                <li>Administración Empresa</li>
-                                <li>Empresa</li>
-                                <li>Proveedores</li>
-                                <li>Clientes</li>
-                                <li>Contactos</li>
-                            </ul>
-                        </div>
-                        <div class="menu-admin-elemento">
-                            <ul>
-                                <li>Administración General</li>
-                                <li>Categorías</li>
-                                <li>Productos</li>
-                                <li>Lenguajes</li>
-                                <li>Formas de pago</li>
-                                <li>Ivas</li>
-                            </ul>
-                        </div>
-                        <div class="menu-admin-elemento">
-                            <ul>
-                                <li>Administración Contable</li>
-                                <li>Carritos</li>
-                                <li>Ventas</li>
-                                <li>Abonos</li> 
-                            </ul>
-                        </div>   
-                    </nav>
-                </div>
+                <page-menu-component menu="admin-header"></page-menu-component>  
                 <div class="administracion">
                     <div class="one-column">
                         <div class="column">
@@ -275,9 +241,7 @@
                                                     </div>         
                                                 </div>
                                             </div>
-                                            <div class="notificacion">
-                                                <p class="notificacion-mensaje"></p>
-                                            </div>
+                                            <page-notification-component></page-notification-component>
                                         </form>
                                     </div>
                                 </div>
@@ -381,4 +345,4 @@
                 
         </body>
     
-    </html>    
+    </html>

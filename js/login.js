@@ -23,14 +23,14 @@ export let renderLogin = () => {
             }).then(data => {
                 if(data.accessToken){
                     sessionStorage.setItem('accessToken', data.accessToken);
-                    document.dispatchEvent(new CustomEvent('mensaje', {
+                    document.dispatchEvent(new CustomEvent('message', {
                         detail: {
                             text: 'Enviado correctamente',
                             type: 'exito'
                         }
                     }));
                 }else{
-                    document.dispatchEvent(new CustomEvent('mensaje', {
+                    document.dispatchEvent(new CustomEvent('message', {
                         detail: {
                             text: 'Usuario o contraseña incorrecta',
                             type: 'fallo'
@@ -38,9 +38,9 @@ export let renderLogin = () => {
                     }));
                 }
             }).catch(error => {
-                document.dispatchEvent(new CustomEvent('mensaje', {
+                document.dispatchEvent(new CustomEvent('message', {
                     detail: {
-                        text: 'Usuario o contraseña incorrecta',
+                        text: 'Se ha producido un error',
                         type: 'fallo'
                     }
                 }));
