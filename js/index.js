@@ -1,4 +1,4 @@
-import {renderMenuAdmin} from './menu-admin.js';
+// import {renderMenuAdmin} from './menu-admin.js';
 import {renderBotonMasMenos} from './boton-mas-menos.js';
 import {renderEtiquetas} from './etiquetas.js';
 import {renderSubetiquetas} from './subetiquetas.js';
@@ -9,11 +9,11 @@ import {renderContadorTexto} from './input.js';
 import {renderLogin} from "./login.js";
 
 import './pageTitle.js';
-import './menuAdmin.js';
+import './menu.js';
 import './notification.js';
 
 
-renderMenuAdmin();
+// renderMenuAdmin();
 renderBotonMasMenos();
 renderEtiquetas();
 renderSubetiquetas();
