@@ -218,4 +218,4 @@ class PageMenu extends HTMLElement {
     }
 }
 
-customElements.define('page-menu-component', PageMenu);
+customElements.define('menu-component', PageMenu);
