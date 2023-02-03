@@ -80,7 +80,6 @@ class Menu extends HTMLElement {
             #menuToggle span:first-child {
             transform-origin: 0% 0%;
             }
-            
             #menuToggle span:nth-last-child(2) {
             transform-origin: 0% 100%;
             }
@@ -123,7 +122,7 @@ class Menu extends HTMLElement {
                 list-style: none;
                 cursor: pointer;
                 font-size: 1.4rem;
-                margin-bottom: 1rem;
+                margin: 1rem 0 ;
             }
             .menu-admin-elemento ul li a {
                 text-decoration: none;
@@ -133,7 +132,7 @@ class Menu extends HTMLElement {
                 text-shadow: 0.05rem 0.05rem 0.6rem #f66e13;
                 transform: scale(1.01,1.01);
             }
-            .menu-admin-elemento ul li:first-child {
+            .menu-admin:first-child {
                 cursor: default;
                 font-size: 1.5rem;
                 font-weight: bold;

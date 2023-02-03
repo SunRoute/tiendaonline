@@ -4,14 +4,16 @@ import {renderEtiquetas} from './etiquetas.js';
 import {renderSubetiquetas} from './subetiquetas.js';
 import {renderFormulario} from './formulario.js';
 import {renderFrontFormulario} from './front-formulario.js';
-import {renderContadorTexto} from './input.js';
+// import {renderContadorTexto} from './input.js';
 // import {renderNotificacion} from "./notificacion.js";
-import {renderLogin} from "./login.js";
+// import {renderLogin} from "./login-admin.js";
 
+import './login.js';
 import './pageTitle.js';
 import './menu.js';
 import './notification.js';
 import './table.js';
+import './form.js';
 
 
 // renderMenuAdmin();
@@ -20,7 +22,7 @@ renderEtiquetas();
 renderSubetiquetas();
 renderFormulario();
 renderFrontFormulario();
-renderContadorTexto();
+// renderContadorTexto();
 // renderNotificacion();
-renderLogin();
+// renderLogin();
 

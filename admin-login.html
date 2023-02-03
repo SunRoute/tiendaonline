@@ -41,59 +41,11 @@
             </header>
     
             <main>
-                <menu-component menu="admin-header"></menu-component>
                 <div class="administracion">
                     <div class="one-column">
                         <div class="column">      
-                            <div class="admin-formulario">
-                                <form id="formulario">
-                                    <div class="etiquetas etiquetas-login">
-                                        <div class="panel-etiquetas">
-                                            <div class="panel-etiqueta activo" data-etiqueta="#contenido">
-                                                <h4></h4>
-                                            </div>
-                                        </div>
-                                        <div class="panel-etiquetas-contenidos">
-                                            <div class="panel-etiquetas-contenido activo"  id="contenido">
-                                                <div class="admin-formulario-contenido">
-                                                    <div class="admin-formulario-datos">
-                                                        <div class="one-column">
-                                                            <div class="column">
-                                                                <div class="formulario-datos">
-                                                                    <div class="formulario-datos-label">
-                                                                        <label>Email</label>
-                                                                    </div>
-                                                                    <div class="formulario-datos-input">
-                                                                        <input type="text" name="email" id="email" data-validacion="email">
-                                                                    </div>
-                                                                    <div class="formulario-datos-requisito">
-                                                                        <span>ejemplo@ejemplo.com</span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="formulario-datos">
-                                                                    <div class="formulario-datos-label">
-                                                                        <label>Password</label>
-                                                                    </div>
-                                                                    <div class="formulario-datos-input">
-                                                                        <input type="password" name="password" id="password">
-                                                                    </div>
-                                                                    <div class="formulario-datos-requisito">
-                                                                        <span>Debe contener mayúsculas, minúsculas y números</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>              
-                                                </div>
-                                            </div>
-                                            <div class="admin-formulario-accion">
-                                                <button  type="submit" class="custom-button boton-login">Enviar</button>
-                                            </div>         
-                                        </div>
-                                    </div>
-                                    <page-notification-component></page-notification-component>
-                                </form>
-                            </div>
+                            <login-component></login-component>
+                            <page-notification-component></page-notification-component>
                         </div>
                     </div>
                 </div>

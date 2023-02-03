@@ -53,7 +53,7 @@
 </div>
 
 
-<!--                          IVA                                         -->
+<!--                          IVA  FORMULARIO                                    -->
 
 <div class="admin-formulario">
     <form id="formulario" data-formulario="taxes">
@@ -113,6 +113,325 @@
         </div>
         <div class="notificacion">
             <p class="notificacion-mensaje"></p>
+        </div>
+    </form>
+</div>
+
+<!--                          CATEGORÍA  FORMULARIO                                    -->
+<div class="admin-formulario">
+    <form id="formulario" action="http://127.0.0.1:8080/api/admin/product_categories">
+        <div class="etiquetas">
+            <div class="panel-etiquetas">
+                <div class="panel-etiqueta activo" data-etiqueta="#contenido">
+                    <h4>Contenido</h4>
+                </div>
+                <div class="panel-etiqueta" data-etiqueta="#imagenes">
+                    <h4>Imágenes</h4>
+                </div>
+            </div>
+            <div class="panel-etiquetas-contenidos">
+                <div class="panel-etiquetas-contenido activo"  id="contenido">
+                    <div class="admin-formulario-contenido">
+                        <div class="admin-formulario-datos">
+                            <div class="one-column">
+                                <div class="column">
+                                    <div class="formulario-datos">
+                                        <div class="formulario-datos-label">
+                                            <label>Nombre</label>
+                                        </div>
+                                        <div class="formulario-datos-input">
+                                            <input type="text" name="name" id="categoriaNombre" data-validacion="solo-letras">
+                                        </div>
+                                        <div class="formulario-datos-requisito">
+                                            <span>El campo solo admite letras</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>        
+                        <div class="etiquetas admin-formulario-etiquetas-anidado">
+                            <div class="panel-etiquetas">
+                                <div class="panel-etiqueta activo" data-etiqueta="#etiqueta-contenido-espanyol">
+                                    <h4>Español</h4>
+                                </div>
+                                <div class="panel-etiqueta" data-etiqueta="#etiqueta-contenido-ingles">
+                                    <h4>Inglés</h4>
+                                </div>
+                            </div>
+                            <div class="panel-etiquetas-contenidos">
+                                <div class="panel-etiquetas-contenido activo"  id="etiqueta-contenido-espanyol">
+                                    <div class="admin-formulario-contenido">
+                                        <div class="admin-formulario-datos">
+                                            <div class="one-column">
+                                                <div class="column">
+                                                    <div class="formulario-datos">
+                                                        <div class="formulario-datos-label">
+                                                            <label>Título</label>
+                                                        </div>
+                                                        <div class="formulario-datos-input">
+                                                            <input type="text" name="categoriaTituloEspanyol" id="categoriaTituloEspanyol" data-validacion="solo-letras">
+                                                        </div>
+                                                        <div class="formulario-datos-requisito">
+                                                            <span>El campo solo admite letras</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                                <div class="panel-etiquetas-contenido"  id="etiqueta-contenido-ingles">
+                                    <div class="admin-formulario-contenido">
+                                        <div class="admin-formulario-datos">
+                                            <div class="one-column">
+                                                <div class="column">
+                                                    <div class="formulario-datos">
+                                                        <div class="formulario-datos-label">
+                                                            <label>Título</label>
+                                                        </div>
+                                                        <div class="formulario-datos-input">
+                                                            <input type="text" name="categoriaTituloIngles" id="categoriaTituloIngles" data-validacion="solo-letras">
+                                                        </div>
+                                                        <div class="formulario-datos-requisito">
+                                                            <span>El campo solo admite letras</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>      
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-etiquetas-contenido"  id="imagenes">
+                    <div class="admin-formulario-contenido">
+                        <div class="admin-formulario-datos">
+                            <div class="one-column">
+                                <div class="column">
+                                    <div class="formulario-datos">
+                                        <div class="formulario-datos-label">
+                                            <label>Imagen</label>
+                                        </div>
+                                        <div class="formulario-datos-input">
+                                            <input type="file" name="urlImagen" id="urlImagen" accept="image/png,image/jpg,image/jpeg,image/webp">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="etiquetas admin-formulario-etiquetas-anidado">
+                            <div class="panel-etiquetas">
+                                <div class="panel-etiqueta activo" data-etiqueta="#etiqueta-imagenes-espanyol">
+                                    <h4>Español</h4>
+                                </div>
+                                <div class="panel-etiqueta" data-etiqueta="#etiqueta-imagenes-ingles">
+                                    <h4>Inglés</h4>
+                                </div>
+                            </div>
+                            <div class="panel-etiquetas-contenidos">
+                                <div class="panel-etiquetas-contenido activo"  id="etiqueta-imagenes-espanyol">
+                                    <div class="admin-formulario-contenido">
+                                        <div class="admin-formulario-datos">
+                                            <div class="one-column">
+                                                <div class="column">
+                                                    <div class="formulario-datos">
+                                                        <div class="formulario-datos-label">
+                                                            <label>Título</label>
+                                                        </div>
+                                                        <div class="formulario-datos-input">
+                                                            <input type="text" name="tituloImagenEspanyol" id="tituloImagenEspanyol" data-validacion="solo-letras">
+                                                        </div>
+                                                        <div class="formulario-datos-requisito">
+                                                            <span>El campo solo admite letras</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="formulario-datos">
+                                                        <div class="formulario-datos-label">
+                                                            <label>Alt</label>
+                                                        </div>
+                                                        <div class="formulario-datos-input">
+                                                            <input type="text" name="altImagenEspanyol" id="altImagenEspanyol" data-validacion="solo-letras">
+                                                        </div>
+                                                        <div class="formulario-datos-requisito">
+                                                            <span>El campo solo admite letras</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                                <div class="panel-etiquetas-contenido"  id="etiqueta-imagenes-ingles">
+                                    <div class="admin-formulario-contenido">
+                                        <div class="admin-formulario-datos">
+                                            <div class="one-column">
+                                                <div class="column">
+                                                    <div class="formulario-datos">
+                                                        <div class="formulario-datos-label">
+                                                            <label>Título</label>
+                                                        </div>
+                                                        <div class="formulario-datos-input">
+                                                            <input type="text" name="tituloImagenIngles" id="tituloImagenIngles" data-validacion="solo-letras">
+                                                        </div>
+                                                        <div class="formulario-datos-requisito">
+                                                            <span>El campo solo admite letras</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="formulario-datos">
+                                                        <div class="formulario-datos-label">
+                                                            <label>Alt</label>
+                                                        </div>
+                                                        <div class="formulario-datos-input">
+                                                            <input type="text" name="altImagenIngles" id="altImagenIngles" data-validacion="solo-letras">
+                                                        </div>
+                                                        <div class="formulario-datos-requisito">
+                                                            <span>El campo solo admite letras</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>      
+                                    </div>
+                                </div>
+                            </div>
+                        </div>      
+                    </div>
+                </div>
+                <div class="admin-formulario-accion">
+                    <button type="" class="boton-admin boton-limpiar">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M19.36,2.72L20.78,4.14L15.06,9.85C16.13,11.39 16.28,13.24 15.38,14.44L9.06,8.12C10.26,7.22 12.11,7.37 13.65,8.44L19.36,2.72M5.93,17.57C3.92,15.56 2.69,13.16 2.35,10.92L7.23,8.83L14.67,16.27L12.58,21.15C10.34,20.81 7.94,19.58 5.93,17.57Z" />
+                    </svg>
+                    </button>
+                    <button  type="submit" class="boton-admin boton-envio">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" />
+                    </svg>
+                    </button>
+                </div>         
+            </div>
+        </div>
+        <page-notification-component></page-notification-component>
+    </form>
+</div>
+<!--                          USUARIO  FORMULARIO                                    -->
+<div class="admin-formulario">
+    <form id="formulario">
+        <div class="etiquetas">
+            <div class="panel-etiquetas">
+                <div class="panel-etiqueta activo" data-etiqueta="#contenido">
+                    <h4>Usuario</h4>
+                </div>
+            </div>
+            <div class="panel-etiquetas-contenidos">
+                <div class="panel-etiquetas-contenido activo"  id="contenido">
+                    <div class="admin-formulario-contenido">
+                        <div class="admin-formulario-datos">
+                            <div class="one-column">
+                                <div class="column">
+                                    <div class="formulario-datos">
+                                        <div class="formulario-datos-label">
+                                            <label>Nombre</label>
+                                        </div>
+                                        <div class="formulario-datos-input">
+                                            <input type="text" name="name" id="nombre" data-validacion="solo-letras">
+                                        </div>
+                                        <div class="formulario-datos-requisito">
+                                            <span>El campo solo admite letras</span>
+                                        </div>
+                                    </div>
+                                    <div class="formulario-datos">
+                                        <div class="formulario-datos-label">
+                                            <label>Password</label>
+                                        </div>
+                                        <div class="formulario-datos-input">
+                                            <input type="password" name="password" id="password">
+                                        </div>
+                                        <div class="formulario-datos-requisito">
+                                            <span>Debe contener mayúsculas, minúsculas y números</span>
+                                        </div>
+                                    </div>
+                                    <div class="formulario-datos">
+                                        <div class="formulario-datos-label">
+                                            <label>Email</label>
+                                        </div>
+                                        <div class="formulario-datos-input">
+                                            <input type="text" name="email" id="email" data-validacion="email">
+                                        </div>
+                                        <div class="formulario-datos-requisito">
+                                            <span>ejemplo@ejemplo.com</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>              
+                    </div>
+                </div>
+                <div class="admin-formulario-accion">
+                    <button type="" class="boton-admin boton-limpiar">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M19.36,2.72L20.78,4.14L15.06,9.85C16.13,11.39 16.28,13.24 15.38,14.44L9.06,8.12C10.26,7.22 12.11,7.37 13.65,8.44L19.36,2.72M5.93,17.57C3.92,15.56 2.69,13.16 2.35,10.92L7.23,8.83L14.67,16.27L12.58,21.15C10.34,20.81 7.94,19.58 5.93,17.57Z" />
+                    </svg>
+                    </button>
+                    <button  type="submit" class="boton-admin boton-envio">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" />
+                    </svg>
+                    </button>
+                </div>         
+            </div>
+        </div>
+    </form>
+</div>
+
+<!--                          LOGIN  FORMULARIO                                    -->
+<div class="admin-formulario">
+    <form id="formulario">
+        <div class="etiquetas etiquetas-login">
+            <div class="panel-etiquetas">
+                <div class="panel-etiqueta activo" data-etiqueta="#contenido">
+                    <h4></h4>
+                </div>
+            </div>
+            <div class="panel-etiquetas-contenidos">
+                <div class="panel-etiquetas-contenido activo"  id="contenido">
+                    <div class="admin-formulario-contenido">
+                        <div class="admin-formulario-datos">
+                            <div class="one-column">
+                                <div class="column">
+                                    <div class="formulario-datos">
+                                        <div class="formulario-datos-label">
+                                            <label>Email</label>
+                                        </div>
+                                        <div class="formulario-datos-input">
+                                            <input type="text" name="email" id="email" data-validacion="email">
+                                        </div>
+                                        <div class="formulario-datos-requisito">
+                                            <span>ejemplo@ejemplo.com</span>
+                                        </div>
+                                    </div>
+                                    <div class="formulario-datos">
+                                        <div class="formulario-datos-label">
+                                            <label>Password</label>
+                                        </div>
+                                        <div class="formulario-datos-input">
+                                            <input type="password" name="password" id="password">
+                                        </div>
+                                        <div class="formulario-datos-requisito">
+                                            <span>Debe contener mayúsculas, minúsculas y números</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>              
+                    </div>
+                </div>
+                <div class="admin-formulario-accion">
+                    <button  type="submit" class="custom-button boton-login">Enviar</button>
+                </div>         
+            </div>
         </div>
     </form>
 </div>
