@@ -15,8 +15,6 @@ class Form extends HTMLElement {
         document.addEventListener("newUrl",( event => {
             this.setAttribute('url', event.detail.url);
         }));
-
-        this.render(); 
     }
 
     attributeChangedCallback(name, oldValue, newValue){
@@ -24,7 +22,7 @@ class Form extends HTMLElement {
         this.render();
     }
 
-    render() {
+    async render() {
         
         this.shadow.innerHTML =
         `
@@ -162,338 +160,399 @@ class Form extends HTMLElement {
             <form id="formulario">
                 <div class="etiquetas">
                     <div class="panel-etiquetas">
-                        <div class="panel-etiqueta activo" data-etiqueta="#contenido">
-                            <h4>Contenido</h4>
-                        </div>
-                        <div class="panel-etiqueta" data-etiqueta="#imagenes">
-                            <h4>Imágenes</h4>
-                        </div>
                     </div>
+
                     <div class="panel-etiquetas-contenidos">
-                        <div class="panel-etiquetas-contenido activo" id="contenido">
-                            <div class="admin-formulario-contenido">
-                                <div class="admin-formulario-datos">
-                                    <div class="one-column">
-                                        <div class="column">
-                                            <div class="formulario-datos">
-                                                <div class="formulario-datos-label">
-                                                    <label>Nombre</label>
-                                                </div>
-                                                <div class="formulario-datos-input">
-                                                    <input type="text" name="name" id="nombre" data-validacion="solo-letras">
-                                                </div>
-                                                <div class="formulario-datos-requisito">
-                                                    <span>El campo solo admite letras</span>
-                                                </div>
-                                            </div>
-                                            <div class="formulario-datos">
-                                                <div class="formulario-datos-label">
-                                                    <label>Password</label>
-                                                </div>
-                                                <div class="formulario-datos-input">
-                                                    <input type="password" name="password" id="password">
-                                                </div>
-                                                <div class="formulario-datos-requisito">
-                                                    <span>Debe contener mayúsculas, minúsculas y números</span>
-                                                </div>
-                                            </div>
-                                            <div class="formulario-datos">
-                                                <div class="formulario-datos-label">
-                                                    <label>Email</label>
-                                                </div>
-                                                <div class="formulario-datos-input">
-                                                    <input type="text" name="email" id="email" data-validacion="email">
-                                                </div>
-                                                <div class="formulario-datos-requisito">
-                                                    <span>ejemplo@ejemplo.com</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>              
-                            </div>
-                        </div>
-                        <div class="admin-formulario-accion">
-                            <button type="" class="boton-admin boton-limpiar">
-                            <svg viewBox="0 0 24 24">
-                                <path fill="currentColor" d="M19.36,2.72L20.78,4.14L15.06,9.85C16.13,11.39 16.28,13.24 15.38,14.44L9.06,8.12C10.26,7.22 12.11,7.37 13.65,8.44L19.36,2.72M5.93,17.57C3.92,15.56 2.69,13.16 2.35,10.92L7.23,8.83L14.67,16.27L12.58,21.15C10.34,20.81 7.94,19.58 5.93,17.57Z" />
-                            </svg>
-                            </button>
-                            <button  type="submit" class="boton-admin boton-envio">
-                            <svg viewBox="0 0 24 24">
-                                <path fill="currentColor" d="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" />
-                            </svg>
-                            </button>
-                        </div>         
+                        
                     </div>
                 </div>
             </form>
         </div>
         `;
 
-        let formStructure = this.setFormStructure();
-        let formContainer = this.shadow.querySelector('.admin-formulario');
+        let formStructure = await this.setFormStructure();
+        let tabContainer = this.shadow.querySelector('.panel-etiquetas');
 
-        let form = document.createElement('form');
-        form.setAttribute('id', 'formulario');
-        formContainer.append(form);
+        Object.keys(formStructure.tabs).forEach(tab => {
+
+            // console.log(formStructure.tabs[tab].label);
+
+            let tabs = document.createElement('div');
+            tabs.classList.add('panel-etiqueta');
+            tabs.dataset.etiqueta = `#${tab}`;
+            tabContainer.append(tabs);
+
+            tabs.innerHTML +=  `<h4>${formStructure.tabs[tab].label}</h4>`;
+
+            Object.values(formStructure.tabsContent[tab]).forEach(row => {
+                
+                Object.values(row).forEach( formElements => {
+
+                    // console.log(formElements);
+
+                    Object.values(formElements).forEach( formElement => {
+
+                        console.log(formElement);
+
+                        Object.values(formElement).forEach( value => {
+
+                            console.log(value);  
         
-        let tabsContainer = document.createElement('div');
-        tabsContainer.classList.add('etiquetas');  
-        form.append(tabsContainer);
+                        });
+    
+                    });
+
+                });
+            })
+        });
+
+        this.shadow.querySelector('.panel-etiqueta').classList.add("activo");
+        let tabContentContainer = this.shadow.querySelector('.panel-etiquetas-contenidos');
         
-        let tabs = document.createElement('div');
-        tabs.classList.add('panel-etiquetas');  
-        tabsContainer.append(tabs);
+        Object.keys(formStructure.tabsContent).forEach(content => {
+
+            // console.log(formStructure.tabsContent[content].rows);
+
+            let tabsContent = document.createElement('div');
+            tabsContent.classList.add('panel-etiqueta-contenido');
+            tabsContent.setAttribute('id', content);
+            tabContentContainer.append(tabsContent);
+
+            let formContentContainer = document.createElement('div');
+            formContentContainer.classList.add('admin-formulario-contenido');
+            tabsContent.append(formContentContainer);
+
+            let formContent = document.createElement('div');
+            formContent.classList.add('admin-formulario-datos');
+            formContentContainer.append(formContent);
+
+            let rows = formStructure.tabsContent[content].rows;
+            
+
+            let formData = document.createElement('div');
+            formData.classList.add('formulario-datos');
+            formContent.append(formData);
+
+
+        });
+
+        this.shadow.querySelector('.panel-etiqueta-contenido').classList.add("activo");
+
+
+        this.renderTabs();
+    }
+
+    renderTabs(){
+
+        let activarEtiquetas = this.shadow.querySelectorAll('.panel-etiqueta');
+
+        activarEtiquetas.forEach(activarEtiqueta => {
+    
+            activarEtiqueta.addEventListener('click', () => {
+    
+                let mostrarContenido = this.shadow.querySelector(activarEtiqueta.dataset.etiqueta);
+    
+                if (mostrarContenido) {
+    
+                    let parentEtiquetas = activarEtiqueta.closest('.etiquetas');
+                    let contenidoEtiquetas = parentEtiquetas.querySelectorAll('.panel-etiquetas-contenido');
+    
+                    contenidoEtiquetas.forEach(function(contenidoEtiqueta) {
+    
+                        contenidoEtiqueta.classList.remove('activo');
+    
+                    });
+    
+                    mostrarContenido.classList.add('activo');
+    
+                    let activarEtiquetas = parentEtiquetas.querySelectorAll('.panel-etiqueta');
+    
+                    activarEtiquetas.forEach( etiqueta => {
+    
+                        etiqueta.classList.remove('activo');
+    
+                    });
+    
+                    activarEtiqueta.classList.add('activo');
+    
+                    if(mostrarContenido.querySelector('.panel-etiqueta')) {
+                        mostrarContenido.querySelector('.panel-etiqueta').classList.add('activo');
+                        this.shadow.querySelector(mostrarContenido.querySelector('.panel-etiqueta').dataset.etiqueta).classList.add('activo');
+    
+                    }
+                }
+            });   
+        });  
+    }
+
+    setFormStructure = async () => {
         
+        let url = this.getAttribute('url');
 
-        
+        switch (url) {
 
-        setFormStructure = async () => {
-        
-            let url = this.getAttribute('url');
+            case '/api/admin/user':
 
-                switch (url) {
+            return {
 
-                case '/api/admin/users':
-
-                    return {
-
-                        tabs:{
-                            main: {
-                                label: 'Principal'
+                tabs:{
+                    main: {
+                        label: 'Principal'
+                    },
+                    images: {
+                        label: 'Imágenes'
+                    }
+                },
+                    
+                tabsContent: {
+                    
+                    main: {
+                        rows:{
+                            row1: {
+                                formElements:{
+                                    id:{
+                                        element: 'input',
+                                        type: 'hidden',
+                                    },
+                                    name: {
+                                        label: 'Nombre',
+                                        element: 'input',
+                                        maxLength: '10',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true,
+                                        validate: 'only-letters'
+                                    },
+                                    email: {
+                                        label: 'Email',
+                                        element: 'input',
+                                        type: 'email',
+                                        placeholder: '',
+                                        required: true,
+                                        validate: 'email'
+                                    }
+                                }
+                            },
+                            row2: {
+                                formElements:{
+                                    password: {
+                                        label: 'Contraseña',
+                                        element: 'input',
+                                        type: 'password',
+                                        placeholder: '',
+                                        required: true
+                                    },
+                                    repeatPassword: {
+                                        label: 'Repita la contraseña',
+                                        element: 'input',
+                                        type: 'password',
+                                        placeholder: '',
+                                        required: true
+                                    }
+                                }
+                            },
+                            row3: {
+                                formElements:{
+                                    permissions: {
+                                        label: 'Permisos',
+                                        element: 'input',
+                                        type: 'checkbox',
+                                        required: true,
+                                        options: [
+                                            {
+                                                label: 'Crear',
+                                                value: 'create',
+                                                checked: true
+                                            },
+                                            {
+                                                label: 'Leer',
+                                                value: 'read'
+                                            },
+                                            {
+                                                label: 'Actualizar',
+                                                value: 'update'
+                                            },
+                                            {
+                                                label: 'Eliminar',
+                                                value: 'delete'
+                                            }
+                                        ]
+                                    },
+                                    gender: {
+                                        label: 'Sexo',
+                                        element: 'input',
+                                        type: 'radio',
+                                        required: true,
+                                        options: [
+                                            {
+                                                label: 'Masculino',
+                                                value: "M",
+                                                checked: true
+                                            },
+                                            {
+                                                label: 'Femenino',
+                                                value: "F"
+                                            }
+                                        ],
+                                    }
+                                }
+                            },
+                            row4: {
+                                formElements:{
+                                    color: {
+                                        label: 'Color',
+                                        element: 'input',
+                                        type: 'color',
+                                        placeholder: ''
+                                    },
+                                    role: {
+                                        label: 'Rol',
+                                        element: 'select',
+                                        required: true,
+                                        options: [
+                                            {
+                                                label: 'Administrador',
+                                                value: 'admin'
+                                            },
+                                            {
+                                                label: 'Usuario',
+                                                value: 'user'
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            row5: {
+                                formElements:{
+                                    age: {
+                                        label: 'Edad',
+                                        element: 'input',
+                                        type: 'number',
+                                        placeholder: '',
+                                        required: true
+                                    },
+                                    phone: {
+                                        label: 'Teléfono',
+                                        element: 'input',
+                                        type: 'tel',
+                                        placeholder: '',
+                                        required: true
+                                    },
+                                    url: {
+                                        label: 'URL',
+                                        element: 'input',
+                                        type: 'url',
+                                        placeholder: '',
+                                        required: true
+                                    }
+                                }
+                            },
+                            row6: {
+                                formElements:{
+                                    creationDate: {
+                                        label: 'Fecha de creación',
+                                        element: 'input',
+                                        type: 'date',
+                                        placeholder: '',
+                                        required: true,
+                                        validate: 'date'
+                                    },
+                                    creationTime: {
+                                        label: 'Hora de creación',
+                                        element: 'input',
+                                        type: 'time',
+                                        placeholder: '',
+                                        required: true
+                                    }
+                                }
+                            },
+                            row7: {
+                                formElements:{
+                                    reservationWeek: {
+                                        label: 'Semana de reserva',
+                                        element: 'input',
+                                        type: 'week',
+                                        placeholder: '',
+                                        required: true
+                                    },
+                                    reservationMonth: {
+                                        label: 'Mes de reserva',
+                                        element: 'input',
+                                        type: 'month',
+                                        placeholder: '',
+                                        required: true
+                                    },
+                                    reservationDateTime: {
+                                        label: 'Fecha y hora',
+                                        element: 'input',
+                                        type: 'datetime-local',
+                                        placeholder: '',
+                                        required: true
+                                    }
+                                }
+                            },
+                            row8: {
+                                formElements:{
+                                    capital: {
+                                        label: 'Capital',
+                                        element: 'input',
+                                        type: 'range',
+                                        min: 0,
+                                        max: 100,
+                                        step: 1,
+                                        value: 50,
+                                        placeholder: ''
+                                    },
+                                }
+                                
+                            },
+                            row9: {
+                                formElements:{
+                                    pdf: {
+                                        label: 'Pdf',
+                                        element: 'input',
+                                        type: 'file',
+                                        placeholder: '',
+                                        required: true
+                                    },
+                                    search: {
+                                        label: 'Buscar',
+                                        element: 'input',
+                                        type: 'search',
+                                        placeholder: '',
+                                        required: true
+                                    }
+                                }
+                            },
+                            row10: {
+                                formElements:{
+                                    description: {
+                                        label: 'Descripción',
+                                        element: 'textarea',
+                                        maxLength: 100,
+                                        placeholder: '',
+                                        required: true
+                                    }
+                                }
                             }
-                        },
-
-                    tabsContent: {
-                        
-                        main: {
-                            rows:{
-                                row1: {
-                                    formElements:{
-                                        id:{
-                                            element: 'input',
-                                            type: 'hidden',
-                                        },
-                                        name: {
-                                            label: 'Nombre',
-                                            element: 'input',
-                                            maxLength: '10',
-                                            type: 'text',
-                                            placeholder: '',
-                                            required: true,
-                                            validate: 'only-letters'
-                                        },
-                                        email: {
-                                            label: 'Email',
-                                            element: 'input',
-                                            type: 'email',
-                                            placeholder: '',
-                                            required: true,
-                                            validate: 'email'
-                                        }
-                                    }
-                                },
-                                row2: {
-                                    formElements:{
-                                        password: {
-                                            label: 'Contraseña',
-                                            element: 'input',
-                                            type: 'password',
-                                            placeholder: '',
-                                            required: true
-                                        },
-                                        repeatPassword: {
-                                            label: 'Repita la contraseña',
-                                            element: 'input',
-                                            type: 'password',
-                                            placeholder: '',
-                                            required: true
-                                        }
-                                    }
-                                },
-                                row3: {
-                                    formElements:{
-                                        permissions: {
-                                            label: 'Permisos',
-                                            element: 'input',
-                                            type: 'checkbox',
-                                            required: true,
-                                            options: [
-                                                {
-                                                    label: 'Crear',
-                                                    value: 'create',
-                                                    checked: true
-                                                },
-                                                {
-                                                    label: 'Leer',
-                                                    value: 'read'
-                                                },
-                                                {
-                                                    label: 'Actualizar',
-                                                    value: 'update'
-                                                },
-                                                {
-                                                    label: 'Eliminar',
-                                                    value: 'delete'
-                                                }
-                                            ]
-                                        },
-                                        gender: {
-                                            label: 'Sexo',
-                                            element: 'input',
-                                            type: 'radio',
-                                            required: true,
-                                            options: [
-                                                {
-                                                    label: 'Masculino',
-                                                    value: "M",
-                                                    checked: true
-                                                },
-                                                {
-                                                    label: 'Femenino',
-                                                    value: "F"
-                                                }
-                                            ],
-                                        }
-                                    }
-                                },
-                                row4: {
-                                    formElements:{
-                                        color: {
-                                            label: 'Color',
-                                            element: 'input',
-                                            type: 'color',
-                                            placeholder: ''
-                                        },
-                                        role: {
-                                            label: 'Rol',
-                                            element: 'select',
-                                            required: true,
-                                            options: [
-                                                {
-                                                    label: 'Administrador',
-                                                    value: 'admin'
-                                                },
-                                                {
-                                                    label: 'Usuario',
-                                                    value: 'user'
-                                                }
-                                            ]
-                                        }
-                                    }
-                                },
-                                row5: {
-                                    formElements:{
-                                        age: {
-                                            label: 'Edad',
-                                            element: 'input',
-                                            type: 'number',
-                                            placeholder: '',
-                                            required: true
-                                        },
-                                        phone: {
-                                            label: 'Teléfono',
-                                            element: 'input',
-                                            type: 'tel',
-                                            placeholder: '',
-                                            required: true
-                                        },
-                                        url: {
-                                            label: 'URL',
-                                            element: 'input',
-                                            type: 'url',
-                                            placeholder: '',
-                                            required: true
-                                        }
-                                    }
-                                },
-                                row6: {
-                                    formElements:{
-                                        creationDate: {
-                                            label: 'Fecha de creación',
-                                            element: 'input',
-                                            type: 'date',
-                                            placeholder: '',
-                                            required: true,
-                                            validate: 'date'
-                                        },
-                                        creationTime: {
-                                            label: 'Hora de creación',
-                                            element: 'input',
-                                            type: 'time',
-                                            placeholder: '',
-                                            required: true
-                                        }
-                                    }
-                                },
-                                row7: {
-                                    formElements:{
-                                        reservationWeek: {
-                                            label: 'Semana de reserva',
-                                            element: 'input',
-                                            type: 'week',
-                                            placeholder: '',
-                                            required: true
-                                        },
-                                        reservationMonth: {
-                                            label: 'Mes de reserva',
-                                            element: 'input',
-                                            type: 'month',
-                                            placeholder: '',
-                                            required: true
-                                        },
-                                        reservationDateTime: {
-                                            label: 'Fecha y hora',
-                                            element: 'input',
-                                            type: 'datetime-local',
-                                            placeholder: '',
-                                            required: true
-                                        }
-                                    }
-                                },
-                                row8: {
-                                    formElements:{
-                                        capital: {
-                                            label: 'Capital',
-                                            element: 'input',
-                                            type: 'range',
-                                            min: 0,
-                                            max: 100,
-                                            step: 1,
-                                            value: 50,
-                                            placeholder: ''
-                                        },
-                                    }
-                                    
-                                },
-                                row9: {
-                                    formElements:{
-                                        pdf: {
-                                            label: 'Pdf',
-                                            element: 'input',
-                                            type: 'file',
-                                            placeholder: '',
-                                            required: true
-                                        },
-                                        search: {
-                                            label: 'Buscar',
-                                            element: 'input',
-                                            type: 'search',
-                                            placeholder: '',
-                                            required: true
-                                        }
-                                    }
-                                },
-                                row10: {
-                                    formElements:{
-                                        description: {
-                                            label: 'Descripción',
-                                            element: 'textarea',
-                                            maxLength: 100,
-                                            placeholder: '',
-                                            required: true
-                                        }
+                        }
+                    },
+                    images: {
+                        rows:{
+                            row1: {
+                                formElements:{
+                                    id:{
+                                        element: 'input',
+                                        type: 'hidden',
+                                    },
+                                    name: {
+                                        label: 'Nombre',
+                                        element: 'input',
+                                        maxLength: '10',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true,
+                                        validate: 'only-letters'
                                     }
                                 }
                             }
@@ -501,9 +560,8 @@ class Form extends HTMLElement {
                     }
                 }
             }
-        };
-    
-    }
+        }
+    };
 }
 
 customElements.define('form-component', Form);

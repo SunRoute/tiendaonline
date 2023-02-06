@@ -1,6 +1,6 @@
 // import {renderMenuAdmin} from './menu-admin.js';
 import {renderBotonMasMenos} from './boton-mas-menos.js';
-import {renderEtiquetas} from './etiquetas.js';
+// import {renderEtiquetas} from './etiquetas.js';
 import {renderSubetiquetas} from './subetiquetas.js';
 import {renderFormulario} from './formulario.js';
 import {renderFrontFormulario} from './front-formulario.js';
@@ -18,7 +18,7 @@ import './form.js';
 
 // renderMenuAdmin();
 renderBotonMasMenos();
-renderEtiquetas();
+// renderEtiquetas();
 renderSubetiquetas();
 renderFormulario();
 renderFrontFormulario();

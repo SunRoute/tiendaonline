@@ -87,7 +87,7 @@ class Table extends HTMLElement {
 
         this.data.forEach(element => {
 
-            console.log(element);
+            // console.log(element);
             let records = document.createElement('div');
             records.classList.add('registro');
             table.append(records);
