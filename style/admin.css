@@ -227,10 +227,6 @@ input[type=file] {
   background-color: #ffffff;
 }
 
-input[type=file]::-webkit-file-upload-button {
-  font-size: 1.3rem;
-}
-
 input[type=file]::file-selector-button {
   font-size: 1.3rem;
 }
@@ -522,7 +518,6 @@ footer .pie p {
 .admin-formulario-accion {
   display: flex;
   margin-left: auto;
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
 }
@@ -601,13 +596,6 @@ footer .pie p {
   border-radius: 0.2rem;
 }
 
-.formulario-datos-input input[type=file]::-webkit-file-upload-button {
-  border: #ffa047 3px solid;
-  border-radius: 0.2rem 0 0 0.2rem;
-  background-color: #ffd485;
-  color: #374343;
-}
-
 .formulario-datos-input input[type=file]::file-selector-button {
   border: #ffa047 3px solid;
   border-radius: 0.2rem 0 0 0.2rem;
@@ -636,7 +624,6 @@ footer .pie p {
 .formulario-datos-contador {
   font-size: 1.2rem;
   margin-left: auto;
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
 }

@@ -38,14 +38,14 @@ class Form extends HTMLElement {
                 height: 2rem;
                 width: 100%;
             }
-            // input[type="file"] {
-            //     font-size: 1.3rem;
-            //     padding: 0;
-            //     background-color: white;
-            // }
-            // input[type=file]::file-selector-button {
-            //     font-size: 1.3rem;
-            // }
+            input[type="file"] {
+                font-size: 1.3rem;
+                padding: 0;
+                background-color: white;
+            }
+            input[type=file]::file-selector-button {
+                font-size: 1.3rem;
+            }
             .admin-formulario {
                 margin: 4rem 0 2rem 2rem;
             }
@@ -84,27 +84,45 @@ class Form extends HTMLElement {
                 border: #ffa047 3px solid;
                 border-top: none;
                 border-radius: 0 0 0.5rem 0.5rem;
+                padding-bottom: 4rem;
             }
-            .panel-etiquetas-contenido {
+            .panel-etiqueta-contenido {
                 display: none;
                 // margin: 0 0 2rem 2rem;
             }
-            .panel-etiquetas-contenido.activo {
+            .panel-etiqueta-contenido.activo {
                 display: block;
             }
             .formulario-datos {
                 position: relative;
-                margin-bottom: 3rem;
+                margin-bottom: 1rem;
             }
             .formulario-datos-label  {
                 font-size: 1.5rem;
-                margin-bottom: 0.2rem;
+                margin: 0.8rem 0 0.2rem;
             }
-            .formulario-datos-input, .formulario-datos-texto  {
+            .formulario-datos-input, .formulario-datos-texto {
                 box-shadow: 0.2rem 0.2rem 1rem #ffa047; 
+            }
+            .formulario-datos-range-value {
+                font-family: "Ubuntu";
+                font-size: 1.5rem;
             }
             .formulario-datos-input input, .formulario-datos-input select, .formulario-datos-texto textarea {
                 border-radius: 0.2rem;
+            }
+            .formulario-datos-date input {
+                display: flex;
+            }
+            .formulario-datos-opcion {
+                display: flex;    
+            }
+            .formulario-datos-opcion label {
+                font-size: 1.2rem;    
+            }
+            .formulario-datos-opcion input {
+                width: 0.8rem; 
+                margin: -0.3rem 1rem 0;
             }
             .formulario-datos-input input[type=file]::file-selector-button {
                 border: #ffa047 3px solid;
@@ -140,16 +158,16 @@ class Form extends HTMLElement {
                 display: flex;
                 margin-left: auto;
                 width: max-content;
+                padding: 2rem 2rem 0;
             }
             .boton-admin {
                 cursor: pointer;
                 border: none;
                 background-color: #ffd485;
-                border-radius: 0.5rem;  
+                border-radius: 0.5rem; 
             }
             .boton-admin svg {
                 width: 2rem;
-                margin: 0.6rem;
             }
             .boton-admin svg path {
                 fill: #374343;
@@ -161,21 +179,32 @@ class Form extends HTMLElement {
                 <div class="etiquetas">
                     <div class="panel-etiquetas">
                     </div>
-
                     <div class="panel-etiquetas-contenidos">
-                        
+                        <div class="admin-formulario-accion">
+                            <button type="" class="boton-admin boton-limpiar">
+                            <svg viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M19.36,2.72L20.78,4.14L15.06,9.85C16.13,11.39 16.28,13.24 15.38,14.44L9.06,8.12C10.26,7.22 12.11,7.37 13.65,8.44L19.36,2.72M5.93,17.57C3.92,15.56 2.69,13.16 2.35,10.92L7.23,8.83L14.67,16.27L12.58,21.15C10.34,20.81 7.94,19.58 5.93,17.57Z" />
+                            </svg>
+                            </button>
+                            <button  type="submit" class="boton-admin boton-envio">
+                            <svg viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" />
+                            </svg>
+                            </button>
+                        </div>          
                     </div>
                 </div>
             </form>
         </div>
         `;
-
+        
+        let form = this.shadow.querySelector('form');
         let formStructure = await this.setFormStructure();
         let tabContainer = this.shadow.querySelector('.panel-etiquetas');
+        let tabContentContainer = this.shadow.querySelector('.panel-etiquetas-contenidos');
 
         Object.keys(formStructure.tabs).forEach(tab => {
 
-            // console.log(formStructure.tabs[tab].label);
 
             let tabs = document.createElement('div');
             tabs.classList.add('panel-etiqueta');
@@ -184,62 +213,275 @@ class Form extends HTMLElement {
 
             tabs.innerHTML +=  `<h4>${formStructure.tabs[tab].label}</h4>`;
 
-            Object.values(formStructure.tabsContent[tab]).forEach(row => {
-                
-                Object.values(row).forEach( formElements => {
-
-                    // console.log(formElements);
-
-                    Object.values(formElements).forEach( formElement => {
-
-                        console.log(formElement);
-
-                        Object.values(formElement).forEach( value => {
-
-                            console.log(value);  
-        
-                        });
+            Object.values(formStructure.tabsContent[tab]).forEach(content => {
     
-                    });
+                let tabsContent = document.createElement('div');
+                tabsContent.classList.add('panel-etiqueta-contenido');
+                tabsContent.setAttribute('id', tab);
+                tabContentContainer.append(tabsContent);
+    
+                let formContentContainer = document.createElement('div');
+                formContentContainer.classList.add('admin-formulario-contenido');
+                tabsContent.append(formContentContainer);
 
+                Object.values(formStructure.tabsContent[tab]).forEach(row => {
+                    
+                    let formContent = document.createElement('div');
+                    formContent.classList.add('admin-formulario-datos');
+                    formContentContainer.append(formContent);
+                    
+                    Object.values(row).forEach( formElements => {
+
+                        let formElementsContainer = document.createElement('div');
+                        formElementsContainer.classList.add('formulario-datos');
+                        formContent.append(formElementsContainer);
+
+                        Object.values(formElements).forEach( formElement => {
+                        
+                            
+                            for (let field in formElement){
+
+                                let item = formElement[field];
+
+                                if(item.label) {
+                                    
+                                    let labelContainer = document.createElement('div');
+                                    labelContainer.classList.add('formulario-datos-label');
+                                    formElementsContainer.append(labelContainer);
+                                    
+                                    const label = document.createElement('label');
+                                    label.innerText = item.label;
+                                    label.setAttribute('for', field);
+                                    labelContainer.append(label);
+                                }
+
+                                if (item.element === 'input') {
+        
+                                    switch (item.type) {
+            
+                                        case 'hidden': {
+            
+                                            const input = document.createElement('input');
+                                            input.type = item.type;
+                                            input.name = field;
+                                            input.value = item.value || '';
+            
+                                            form.append(input);
+            
+                                            break;
+                                        }
+            
+                                        case 'checkbox':
+                                        case 'radio': {
+                    
+                                            const inputContainer = document.createElement('div');
+                                            inputContainer.classList.add('formulario-datos-opcion');
+                            
+                                            item.options.forEach(option => {
+                                                const input = document.createElement('input');
+                                                const inputLabel = document.createElement('label');
+                                                inputLabel.innerText = option.label;
+                                                input.type = item.type;
+                                                input.name = field;
+                                                input.value = option.value || '';
+                                                input.checked = option.checked || false;
+                                                input.disabled = option.disabled || false;
+            
+                                                inputContainer.append(inputLabel);
+                                                inputContainer.append(input);
+                                            });
+            
+                                            formElementsContainer.append(inputContainer);
+            
+                                            break;
+                                        }
+            
+                                        case 'range': {
+            
+                                            const rangeContainer = document.createElement('div');
+                                            
+                                            const input = document.createElement('input');
+                                            input.id =  field;
+                                            input.type = item.type;
+                                            input.name = field;
+                                            input.min = item.min || '';
+                                            input.max = item.max || '';
+                                            input.step = item.step || '';
+                                            input.value = item.value || '';
+                                            rangeContainer.append(input);
+            
+                                            const rangeValue = document.createElement('span');
+                                            rangeValue.classList.add('formulario-datos-range-value');
+                                            rangeValue.innerText = item.value;
+                                            rangeContainer.append(rangeValue);
+            
+                                            input.addEventListener('input', () => {
+                                                rangeValue.innerText = input.value;
+                                            });
+            
+                                            formElementsContainer.append(rangeContainer);
+            
+                                            break;
+                                        }
+            
+                                        case 'number':
+                                        case 'date':
+                                        case 'time':
+                                        case 'datetime-local':
+                                        case 'month':
+                                        case 'week': {
+
+                                            const inputDate = document.createElement('div');
+                                            inputDate.classList.add('formulario-datos-date');
+                                            const input = document.createElement('input');
+                                            inputDate.append(input);
+                                            
+                                            input.id = field;
+                                            input.type = item.type;
+                                            input.name = field;
+                                            input.min = item.min || '';
+                                            input.max = item.max || '';
+                                            input.step = item.step || '';
+                                            input.placeholder = item.placeholder || '';
+                                            input.value = item.value || '';
+                                            input.readOnly = item.readOnly || false;
+                                            input.dataset.validate = item.validate || '';
+            
+                                            formElementsContainer.append(inputDate);
+                                        
+                                            break;
+                                        }
+            
+                                        case 'file': {
+            
+                                            if(!this.shadow.querySelector('image-gallery-component')){
+                                                const imageGallery = document.createElement('image-gallery-component');
+                                                this.shadow.append(imageGallery);
+                                            }
+            
+                                            const input = document.createElement('upload-image-button-component');
+                                            input.id = field;
+                                            input.setAttribute("name", field);
+                                            input.setAttribute("languageAlias", "es");
+                                            input.setAttribute("quantity", item.quantity);
+            
+                                            // input.accept = formElement.accept || '';
+                                            // input.multiple = formElement.multiple || false;
+                                            // input.required = formElement.required || false;
+                                            // input.dataset.validate = formElement.validate || '';
+            
+                                            formElementsContainer.append(input);
+            
+                                            break;
+                                        }
+            
+                                        default: {
+                                            
+                                            const defaultInput = document.createElement('div');
+                                            defaultInput.classList.add('formulario-datos-input');
+                                            const input = document.createElement('input');
+                                            defaultInput.append(input);
+                                            input.id = field;
+                                            input.type = item.type;
+                                            input.name = field;
+                                            input.value = item.value || '';
+                                            input.placeholder = item.placeholder || '';
+                                            input.dataset.validate = item.validate || '';
+                                              
+                                            if(item.maxLength){
+            
+                                                input.maxLength = item.maxLength || '';
+                                                const counterContainer = document.createElement('div');
+                                                counterContainer.classList.add('formulario-datos-contador');
+                                                const counter = document.createElement('span');
+                                                counterContainer.append(counter);
+            
+                                                input.addEventListener('input', () => {
+                                                    if(input.value.length > 0){
+                                                        counter.textContent = input.value.length + ' / ' + input.maxLength;                            
+                                                    }else{
+                                                        counter.textContent = '';
+                                                    }
+                                                });
+                                            }
+                        
+                                            formElementsContainer.append(defaultInput);
+            
+                                            break;
+                                        }
+                                    }
+                                }
+                                if (item.element === 'textarea') {
+
+                                    const textareaContainer = document.createElement('div');
+                                    textareaContainer.classList.add('formulario-datos-texto');
+                                    formElementsContainer.append(textareaContainer);
+                                    const textarea = document.createElement('textarea');
+                                    textareaContainer.append(textarea);
+                                    textarea.id = field;
+                                    textarea.name = field;
+                                    textarea.disabled = item.disabled || false;
+                                    textarea.readOnly = item.readOnly || false;
+                                    textarea.value = item.value || '';
+                                    textarea.cols = item.cols || '';
+                                    textarea.rows = item.rows || '';
+                                    textarea.wrap = item.wrap || '';
+                                    textarea.placeholder = item.placeholder || '';
+                                    textarea.dataset.validate = item.validate || '';
+                                   
+                                    if(item.maxLength){
+            
+                                        textarea.maxLength = item.maxLength || '';
+                                        const counterContainer = document.createElement('div');
+                                        counterContainer.classList.add('formulario-datos-contador');
+                                        const counter = document.createElement('span');
+                                        counterContainer.append(counter);
+    
+                                        textarea.addEventListener('textarea', () => {
+                                            if(textarea.value.length > 0){
+                                                counter.textContent = textarea.value.length + ' / ' + textarea.maxLength;                            
+                                            }else{
+                                                counter.textContent = '';
+                                            }
+                                        });
+                                    }
+            
+                                    formElementsContainer.append(textareaContainer);
+                                }
+                                if (item.element === 'select') {
+        
+                                    const select = document.createElement('select');
+                                    select.id = field;
+                                    select.name = field;
+                                    select.disabled = item.disabled || false;
+                                    select.required = item.required || false;
+                                    select.multiple = item.multiple || false;
+                    
+                                    item.options.forEach(option => {
+                                        const optionElement = document.createElement('option');
+                                        optionElement.value = option.value;
+                                        optionElement.innerText = option.label;
+                                        select.append(optionElement);
+                                    });
+                    
+                                    formElementsContainer.append(select);
+                                }
+                                
+                                
+
+                            };
+                        });
+                    });
                 });
-            })
+            });
         });
 
         this.shadow.querySelector('.panel-etiqueta').classList.add("activo");
-        let tabContentContainer = this.shadow.querySelector('.panel-etiquetas-contenidos');
-        
-        Object.keys(formStructure.tabsContent).forEach(content => {
-
-            // console.log(formStructure.tabsContent[content].rows);
-
-            let tabsContent = document.createElement('div');
-            tabsContent.classList.add('panel-etiqueta-contenido');
-            tabsContent.setAttribute('id', content);
-            tabContentContainer.append(tabsContent);
-
-            let formContentContainer = document.createElement('div');
-            formContentContainer.classList.add('admin-formulario-contenido');
-            tabsContent.append(formContentContainer);
-
-            let formContent = document.createElement('div');
-            formContent.classList.add('admin-formulario-datos');
-            formContentContainer.append(formContent);
-
-            let rows = formStructure.tabsContent[content].rows;
-            
-
-            let formData = document.createElement('div');
-            formData.classList.add('formulario-datos');
-            formContent.append(formData);
-
-
-        });
-
         this.shadow.querySelector('.panel-etiqueta-contenido').classList.add("activo");
-
+        
 
         this.renderTabs();
+        this.renderAction();
     }
 
     renderTabs(){
@@ -255,9 +497,9 @@ class Form extends HTMLElement {
                 if (mostrarContenido) {
     
                     let parentEtiquetas = activarEtiqueta.closest('.etiquetas');
-                    let contenidoEtiquetas = parentEtiquetas.querySelectorAll('.panel-etiquetas-contenido');
+                    let contenidoEtiquetas = parentEtiquetas.querySelectorAll('.panel-etiqueta-contenido');
     
-                    contenidoEtiquetas.forEach(function(contenidoEtiqueta) {
+                    contenidoEtiquetas.forEach( contenidoEtiqueta => {
     
                         contenidoEtiqueta.classList.remove('activo');
     
@@ -276,6 +518,7 @@ class Form extends HTMLElement {
                     activarEtiqueta.classList.add('activo');
     
                     if(mostrarContenido.querySelector('.panel-etiqueta')) {
+
                         mostrarContenido.querySelector('.panel-etiqueta').classList.add('activo');
                         this.shadow.querySelector(mostrarContenido.querySelector('.panel-etiqueta').dataset.etiqueta).classList.add('activo');
     
@@ -285,6 +528,69 @@ class Form extends HTMLElement {
         });  
     }
 
+    renderAction (){
+
+        let botonEnvio= this.shadow.querySelector('.boton-envio');
+
+        if (botonEnvio) {
+
+            botonEnvio.addEventListener('click', event => {
+
+                event.preventDefault();
+
+                let form = this.shadow.querySelector('form');
+                // let formularioInputs = formulario.elements;
+
+                // console.log(formulario.elements);
+                
+
+                // if(!validador(formularioInputs)){
+                //     return;
+                // };
+
+                let formData = new FormData(form);
+                let formDataJson = Object.fromEntries(formData.entries());
+                let url = API_URL + this.getAttribute("url");
+
+                console.log(formDataJson);
+
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken'),
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formDataJson)
+                }).then(response => {
+                    
+                    if(response.status == "200"){   
+                        document.dispatchEvent(new CustomEvent('message', {
+                            detail: {
+                                text: 'Formulario enviado correctamente',
+                                type: 'exito'
+                            }
+                        }));
+                    }
+
+                    return response.json();
+                }).then(data => {
+                   
+                    // else{
+
+                    // }
+                }).catch(error => {
+                    console.log(error);
+                    document.dispatchEvent(new CustomEvent('message', {
+                        detail: {
+                            text: 'Se ha producido un error',
+                            type: 'fallo'
+                        }
+                    }));
+                });              
+            });
+        };
+    }
+
     setFormStructure = async () => {
         
         let url = this.getAttribute('url');
@@ -292,6 +598,63 @@ class Form extends HTMLElement {
         switch (url) {
 
             case '/api/admin/user':
+
+            return {
+
+                tabs:{
+                    main: {
+                        label: 'Principal'
+                    }
+                },
+                    
+                tabsContent: {
+                    
+                    main: {
+                        rows:{
+                            row1: {
+                                formElements:{
+                                    name: {
+                                        label: 'Nombre',
+                                        element: 'input',
+                                        maxLength: '10',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true,
+                                        validate: 'solo-letras'
+                                    },
+                                    email: {
+                                        label: 'Email',
+                                        element: 'input',
+                                        type: 'email',
+                                        placeholder: '',
+                                        required: true,
+                                        validate: 'email'
+                                    }
+                                }
+                            },
+                            row2: {
+                                formElements:{
+                                    password: {
+                                        label: 'Contraseña',
+                                        element: 'input',
+                                        type: 'password',
+                                        placeholder: '',
+                                        required: true
+                                    },
+                                    repeatPassword: {
+                                        label: 'Repita la contraseña',
+                                        element: 'input',
+                                        type: 'password',
+                                        placeholder: '',
+                                        required: true
+                                    }
+                                }
+                            }  
+                        }
+                    }
+                }
+            };
+            case '/api/admin/all':
 
             return {
 

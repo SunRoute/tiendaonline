@@ -1,4 +1,4 @@
-class PageNotification extends HTMLElement {
+class Notification extends HTMLElement {
 
     constructor() {
         super();
@@ -67,4 +67,4 @@ class PageNotification extends HTMLElement {
 
 }
 
-customElements.define('page-notification-component', PageNotification);
+customElements.define('notification-component', Notification);

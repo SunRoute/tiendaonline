@@ -103,7 +103,7 @@ class Menu extends HTMLElement {
                 z-index: 900;
                 width: 100%;
                 height: 100%;
-                top: -1000;
+                top: -5000;
                 transition: all 0.7s;
             }
             .menu-admin.activo {
