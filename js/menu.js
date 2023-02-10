@@ -37,7 +37,7 @@ class Menu extends HTMLElement {
             ul{
                 padding:0;
             }
-            
+
             .icono-menu {
                 position: absolute;
                 z-index: 1000;
@@ -102,14 +102,16 @@ class Menu extends HTMLElement {
                 background-color: #ffa047;
                 z-index: 900;
                 width: 100%;
-                height: 100%;
-                top: -5000;
-                transition: all 0.7s;
+                height: 100vh;
+                top: -100vh;
+                transition: top 0.4s;
             }
+
             .menu-admin.activo {
                 top: 0;
-                transition: all 0.7s;
+                transition: top 0.4s;
             }
+
             .menu-admin nav {
                 display: grid;
                 grid-template-columns: repeat(3, minmax(12rem, 20rem));
@@ -192,7 +194,7 @@ class Menu extends HTMLElement {
                 
                 event.preventDefault();
                 
-                verMenu.classList.toggle('activo');
+                this.close();
 
                 document.dispatchEvent(new CustomEvent('newUrl', {
 
@@ -204,6 +206,12 @@ class Menu extends HTMLElement {
                 })); 
             })
         })   
+    }
+
+    close(){
+
+        this.shadow.querySelector(`[type="checkbox"]`).checked = false;
+        this.shadow.querySelector(".menu-admin").classList.toggle("activo");
     }
 
     createSubMenu(menuItem, li) {

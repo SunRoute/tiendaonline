@@ -40,8 +40,8 @@ class Notification extends HTMLElement {
                 font-family: 'Ubuntu';
                 position: absolute;
                 display: none;
-                bottom: 1rem;
-                right: 1rem;
+                top: 1rem;
+                right: 2rem;
             }
             .notificacion.activo {
                 display: block;

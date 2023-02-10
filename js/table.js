@@ -12,12 +12,14 @@ class Table extends HTMLElement {
     static get observedAttributes() { return ['url']; }
 
     connectedCallback() {
-
+        
         document.addEventListener("newUrl",( event => {
             this.setAttribute('url', event.detail.url);
         }));
 
-        this.render(); 
+        document.addEventListener("newData",( event => {
+            this.loadData().then( () => this.render());
+        }));   
     }
 
     attributeChangedCallback(name, oldValue, newValue){
@@ -136,7 +138,7 @@ class Table extends HTMLElement {
                             `;
                     }
 
-                    else if(key == "remove"){
+                    else if(key == "delete"){
 
                         button.innerHTML =
                             `
@@ -149,9 +151,37 @@ class Table extends HTMLElement {
                     actionButtons.append(button);
                 }
             }
-
             records.append(actionButtons);
-        });      
+        });   
+
+        this.renderAction();
+    }
+
+    renderAction() {
+
+        let editButtons = this.shadow.querySelectorAll('.edit-button');
+        let deleteButtons = this.shadow.querySelectorAll('.delete-button');
+
+        editButtons.forEach( editButton => {
+
+            editButton.addEventListener('click', event => {                
+                document.dispatchEvent(new CustomEvent('showData', {
+                    detail: {
+                        id: editButton.id
+                    }
+                }));
+            })
+        });  
+        deleteButtons.forEach( deleteButton => {
+
+            deleteButton.addEventListener('click', event => {                
+                document.dispatchEvent(new CustomEvent('showDeleteModal', {
+                    detail: {
+                        id: deleteButton.id
+                    }
+                }));
+            })
+        });  
     }
 
     setTableStructure() {
@@ -173,7 +203,7 @@ class Table extends HTMLElement {
                     },
                     buttons: {
                         edit: true,
-                        remove: true
+                        delete: true
                     }
                 };
 
@@ -187,7 +217,7 @@ class Table extends HTMLElement {
                     },
                     buttons: {
                         edit: true,
-                        remove: true
+                        delete: true
                     }
                 };
         }

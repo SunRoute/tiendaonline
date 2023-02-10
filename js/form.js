@@ -8,6 +8,7 @@ class Form extends HTMLElement {
         this.url =  this.getAttribute('url');
     }
 
+
     static get observedAttributes() { return ['url']; }
 
     connectedCallback() {
@@ -15,6 +16,10 @@ class Form extends HTMLElement {
         document.addEventListener("newUrl",( event => {
             this.setAttribute('url', event.detail.url);
         }));
+
+        document.addEventListener("showData",( event => {
+            this.showElement(event.detail.id);
+        }));   
     }
 
     attributeChangedCallback(name, oldValue, newValue){
@@ -50,7 +55,7 @@ class Form extends HTMLElement {
                 margin: 4rem 0 2rem 2rem;
             }
             .admin-formulario-datos {
-                padding: 3rem 3rem 0;
+                padding: 3rem 2rem 0;
             }
             .admin-formulario-etiquetas-anidado {
                 margin: 0.5rem;
@@ -94,12 +99,17 @@ class Form extends HTMLElement {
                 display: block;
             }
             .formulario-datos {
+                // display: grid;
+                // grid-template-columns: 1fr 1fr;
                 position: relative;
                 margin-bottom: 1rem;
             }
+            .formulario-datos-elementos {
+
+            }
             .formulario-datos-label  {
-                font-size: 1.5rem;
-                margin: 0.8rem 0 0.2rem;
+                font-size: 1.4rem;
+                margin: 1rem 0 0.2rem;
             }
             .formulario-datos-input, .formulario-datos-texto {
                 box-shadow: 0.2rem 0.2rem 1rem #ffa047; 
@@ -122,7 +132,7 @@ class Form extends HTMLElement {
             }
             .formulario-datos-opcion input {
                 width: 0.8rem; 
-                margin: -0.3rem 1rem 0;
+                margin: -0.3rem 0.5rem 0;
             }
             .formulario-datos-input input[type=file]::file-selector-button {
                 border: #ffa047 3px solid;
@@ -237,17 +247,20 @@ class Form extends HTMLElement {
                         formContent.append(formElementsContainer);
 
                         Object.values(formElements).forEach( formElement => {
-                        
-                            
+                                                      
                             for (let field in formElement){
 
                                 let item = formElement[field];
+
+                                let formElementContainer = document.createElement('div');
+                                formElementContainer.classList.add('formulario-datos-elementos');
+                                formElementsContainer.append(formElementContainer);
 
                                 if(item.label) {
                                     
                                     let labelContainer = document.createElement('div');
                                     labelContainer.classList.add('formulario-datos-label');
-                                    formElementsContainer.append(labelContainer);
+                                    formElementContainer.append(labelContainer);
                                     
                                     const label = document.createElement('label');
                                     label.innerText = item.label;
@@ -291,7 +304,7 @@ class Form extends HTMLElement {
                                                 inputContainer.append(input);
                                             });
             
-                                            formElementsContainer.append(inputContainer);
+                                            formElementContainer.append(inputContainer);
             
                                             break;
                                         }
@@ -319,7 +332,7 @@ class Form extends HTMLElement {
                                                 rangeValue.innerText = input.value;
                                             });
             
-                                            formElementsContainer.append(rangeContainer);
+                                            formElementContainer.append(rangeContainer);
             
                                             break;
                                         }
@@ -347,7 +360,7 @@ class Form extends HTMLElement {
                                             input.readOnly = item.readOnly || false;
                                             input.dataset.validate = item.validate || '';
             
-                                            formElementsContainer.append(inputDate);
+                                            formElementContainer.append(inputDate);
                                         
                                             break;
                                         }
@@ -370,7 +383,7 @@ class Form extends HTMLElement {
                                             // input.required = formElement.required || false;
                                             // input.dataset.validate = formElement.validate || '';
             
-                                            formElementsContainer.append(input);
+                                            formElementContainer.append(input);
             
                                             break;
                                         }
@@ -405,7 +418,7 @@ class Form extends HTMLElement {
                                                 });
                                             }
                         
-                                            formElementsContainer.append(defaultInput);
+                                            formElementContainer.append(defaultInput);
             
                                             break;
                                         }
@@ -446,7 +459,7 @@ class Form extends HTMLElement {
                                         });
                                     }
             
-                                    formElementsContainer.append(textareaContainer);
+                                    formElementContainer.append(textareaContainer);
                                 }
                                 if (item.element === 'select') {
         
@@ -464,11 +477,8 @@ class Form extends HTMLElement {
                                         select.append(optionElement);
                                     });
                     
-                                    formElementsContainer.append(select);
+                                    formElementContainer.append(select);
                                 }
-                                
-                                
-
                             };
                         });
                     });
@@ -530,11 +540,22 @@ class Form extends HTMLElement {
 
     renderAction (){
 
-        let botonEnvio= this.shadow.querySelector('.boton-envio');
+        let sendButton = this.shadow.querySelector('.boton-envio');
+        let clearButton = this.shadow.querySelector('.boton-limpiar');
 
-        if (botonEnvio) {
+        if (clearButton) {
 
-            botonEnvio.addEventListener('click', event => {
+            clearButton.addEventListener('click', event => {
+            
+                event.preventDefault();
+
+                this.render();
+            });
+        }
+
+        if (sendButton) {
+
+            sendButton.addEventListener('click', event => {
 
                 event.preventDefault();
 
@@ -564,20 +585,21 @@ class Form extends HTMLElement {
                 }).then(response => {
                     
                     if(response.status == "200"){   
+
                         document.dispatchEvent(new CustomEvent('message', {
                             detail: {
                                 text: 'Formulario enviado correctamente',
                                 type: 'exito'
                             }
                         }));
+
+                        document.dispatchEvent(new CustomEvent('newData'));
+
+                        this.render();
                     }
 
                     return response.json();
-                }).then(data => {
-                   
-                    // else{
 
-                    // }
                 }).catch(error => {
                     console.log(error);
                     document.dispatchEvent(new CustomEvent('message', {
@@ -589,6 +611,26 @@ class Form extends HTMLElement {
                 });              
             });
         };
+    }
+
+    showElement = async id => {
+
+        let url = `${API_URL}${this.getAttribute("url")}/${id}`;
+
+        let result = await fetch(url, {
+            headers: {
+                'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken'),
+            }
+        })
+
+        let data = await result.json();
+
+        for (const [key, value] of Object.entries(data)) {
+
+            if(this.shadow.querySelector(`[name="${key}"]`)){
+                this.shadow.querySelector(`[name="${key}"]`).value = value;
+            }
+        }
     }
 
     setFormStructure = async () => {

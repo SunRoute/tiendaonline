@@ -38,16 +38,17 @@
                         </div>
                     </div>
                 </div>
+                <delete-modal-component url="/api/admin/user"></delete-modal-component>
             </header>
             <main>
                 <menu-component menu="admin-header"></menu-component>  
                 <div class="administracion">
                     <div class="one-column">
                         <div class="column">
-                            <div class="two-columns"> 
+                            <div class="two-columns">
                                 <div class="column">
-                                    <form-component url="/api/admin/user"></form-component>
                                     <notification-component></notification-component>
+                                    <form-component url="/api/admin/user"></form-component>
                                 </div>
                                 <div class="column">
                                     <table-component url="/api/admin/user"></table-component>
@@ -56,6 +57,7 @@
                         </div>
                     </div>
                 </div>
+               
             </main> 
     
             <footer>
