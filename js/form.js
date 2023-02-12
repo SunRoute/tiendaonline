@@ -51,18 +51,6 @@ class Form extends HTMLElement {
             input[type=file]::file-selector-button {
                 font-size: 1.3rem;
             }
-            .admin-formulario {
-                margin: 4rem 0 2rem 2rem;
-            }
-            .admin-formulario-datos {
-                padding: 3rem 2rem 0;
-            }
-            .admin-formulario-etiquetas-anidado {
-                margin: 0.5rem;
-            }
-            .admin-formulario-etiquetas-anidado .admin-formulario-datos  {
-                padding: 2rem;
-            }
             .panel-etiquetas {
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
@@ -98,9 +86,22 @@ class Form extends HTMLElement {
             .panel-etiqueta-contenido.activo {
                 display: block;
             }
+            .panel-etiquetas-anidado {
+                margin: 0.5rem;
+            }
+            .panel-etiquetas-anidado .formulario-datos-contenedor  {
+                padding: 2rem;
+            }
+            .admin-formulario {
+                margin: 4rem 0 2rem 2rem;
+            }
+            .formulario-datos-contenido {
+                padding: 3rem 1rem 0;
+            }
             .formulario-datos {
-                // display: grid;
-                // grid-template-columns: 1fr 1fr;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+                gap: 2rem;
                 position: relative;
                 margin-bottom: 1rem;
             }
@@ -120,19 +121,21 @@ class Form extends HTMLElement {
             }
             .formulario-datos-input input, .formulario-datos-input select, .formulario-datos-texto textarea {
                 border-radius: 0.2rem;
+                width: 100%;
             }
             .formulario-datos-date input {
                 display: flex;
             }
             .formulario-datos-opcion {
-                display: flex;    
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);    
             }
             .formulario-datos-opcion label {
-                font-size: 1.2rem;    
+                font-size: 1rem;    
             }
             .formulario-datos-opcion input {
                 width: 0.8rem; 
-                margin: -0.3rem 0.5rem 0;
+                margin: -0.3rem 0.3rem 0;
             }
             .formulario-datos-input input[type=file]::file-selector-button {
                 border: #ffa047 3px solid;
@@ -231,13 +234,13 @@ class Form extends HTMLElement {
                 tabContentContainer.append(tabsContent);
     
                 let formContentContainer = document.createElement('div');
-                formContentContainer.classList.add('admin-formulario-contenido');
+                formContentContainer.classList.add('formulario-contenedor');
                 tabsContent.append(formContentContainer);
 
                 Object.values(formStructure.tabsContent[tab]).forEach(row => {
                     
                     let formContent = document.createElement('div');
-                    formContent.classList.add('admin-formulario-datos');
+                    formContent.classList.add('formulario-datos-contenido');
                     formContentContainer.append(formContent);
                     
                     Object.values(row).forEach( formElements => {
@@ -250,11 +253,11 @@ class Form extends HTMLElement {
                                                       
                             for (let field in formElement){
 
-                                let item = formElement[field];
-
                                 let formElementContainer = document.createElement('div');
                                 formElementContainer.classList.add('formulario-datos-elementos');
                                 formElementsContainer.append(formElementContainer);
+
+                                let item = formElement[field];
 
                                 if(item.label) {
                                     
@@ -366,25 +369,36 @@ class Form extends HTMLElement {
                                         }
             
                                         case 'file': {
-            
-                                            if(!this.shadow.querySelector('image-gallery-component')){
-                                                const imageGallery = document.createElement('image-gallery-component');
-                                                this.shadow.append(imageGallery);
-                                            }
-            
-                                            const input = document.createElement('upload-image-button-component');
+
+                                            let fileContainer = document.createElement('div');
+                                            fileContainer.classList.add('formulario-datos-input');
+                                            const input = document.createElement('input');
+                                            fileContainer.append(input);
                                             input.id = field;
+                                            input.type = item.type;
                                             input.setAttribute("name", field);
                                             input.setAttribute("languageAlias", "es");
                                             input.setAttribute("quantity", item.quantity);
+            
+                                            // if(!this.shadow.querySelector('image-gallery-component')){
+                                            //     const imageGallery = document.createElement('image-gallery-component');
+                                            //     this.shadow.append(imageGallery);
+                                            // }
+            
+                                            // const input = document.createElement('upload-image-button-component');
+                                            // input.id = field;
+                                            // input.setAttribute("name", field);
+                                            // input.setAttribute("languageAlias", "es");
+                                            // input.setAttribute("quantity", item.quantity);
             
                                             // input.accept = formElement.accept || '';
                                             // input.multiple = formElement.multiple || false;
                                             // input.required = formElement.required || false;
                                             // input.dataset.validate = formElement.validate || '';
             
-                                            formElementContainer.append(input);
-            
+                                            // formElementContainer.append(input);
+
+                                            formElementContainer.append(fileContainer);
                                             break;
                                         }
             
@@ -715,10 +729,10 @@ class Form extends HTMLElement {
                         rows:{
                             row1: {
                                 formElements:{
-                                    id:{
-                                        element: 'input',
-                                        type: 'hidden',
-                                    },
+                                    // id:{
+                                    //     element: 'input',
+                                    //     type: 'hidden',
+                                    // },
                                     name: {
                                         label: 'Nombre',
                                         element: 'input',
@@ -946,18 +960,16 @@ class Form extends HTMLElement {
                         rows:{
                             row1: {
                                 formElements:{
-                                    id:{
+                                    // id:{
+                                    //     element: 'input',
+                                    //     type: 'hidden',
+                                    // },
+                                    image: {
+                                        label: 'Imagen',
                                         element: 'input',
-                                        type: 'hidden',
-                                    },
-                                    name: {
-                                        label: 'Nombre',
-                                        element: 'input',
-                                        maxLength: '10',
-                                        type: 'text',
+                                        type: 'file',
                                         placeholder: '',
-                                        required: true,
-                                        validate: 'only-letters'
+                                        required: true
                                     }
                                 }
                             }

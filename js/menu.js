@@ -37,7 +37,6 @@ class Menu extends HTMLElement {
             ul{
                 padding:0;
             }
-
             .icono-menu {
                 position: absolute;
                 z-index: 1000;
@@ -102,8 +101,8 @@ class Menu extends HTMLElement {
                 background-color: #ffa047;
                 z-index: 900;
                 width: 100%;
-                height: 100vh;
-                top: -100vh;
+                height: 100%;
+                top: -100%;
                 transition: top 0.4s;
             }
 

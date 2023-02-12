@@ -19,7 +19,8 @@ class Table extends HTMLElement {
 
         document.addEventListener("newData",( event => {
             this.loadData().then( () => this.render());
-        }));   
+        }));
+           
     }
 
     attributeChangedCallback(name, oldValue, newValue){
@@ -48,7 +49,7 @@ class Table extends HTMLElement {
         <style>
             .registros {
                 font-family: 'Ubuntu';
-                padding: 4rem 2rem;
+                padding: 4rem 2rem 2rem;
             }
             .registro {
                 display: grid;

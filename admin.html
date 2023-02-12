@@ -1,4 +1,4 @@
-<doctype html>
+<!DOCTYPE html>
 
     <html lang="es">
     
@@ -38,9 +38,10 @@
                         </div>
                     </div>
                 </div>
-                <delete-modal-component url="/api/admin/user"></delete-modal-component>
+                
             </header>
             <main>
+                <delete-modal-component url="/api/admin/user"></delete-modal-component>
                 <menu-component menu="admin-header"></menu-component>  
                 <div class="administracion">
                     <div class="one-column">
@@ -48,7 +49,7 @@
                             <div class="two-columns">
                                 <div class="column">
                                     <notification-component></notification-component>
-                                    <form-component url="/api/admin/user"></form-component>
+                                    <form-component url="/api/admin/all"></form-component>
                                 </div>
                                 <div class="column">
                                     <table-component url="/api/admin/user"></table-component>
