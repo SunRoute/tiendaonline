@@ -42,14 +42,15 @@ class Form extends HTMLElement {
                 font-size: 1.5rem;
                 height: 2rem;
                 width: 100%;
+                accent-color: #ffa047;
             }
             input[type="file"] {
                 font-size: 1.3rem;
                 padding: 0;
                 background-color: white;
             }
-            input[type=file]::file-selector-button {
-                font-size: 1.3rem;
+            input[type="range"] {
+                accent-color: #ffa047;
             }
             .panel-etiquetas {
                 display: grid;
@@ -138,10 +139,13 @@ class Form extends HTMLElement {
                 margin: -0.3rem 0.3rem 0;
             }
             .formulario-datos-input input[type=file]::file-selector-button {
-                border: #ffa047 3px solid;
+                cursor: pointer;
+                border: #ffa047 3.5px solid;
                 border-radius: 0.2rem 0 0 0.2rem;
                 background-color: #ffd485;
-                color: #374343;   
+                font-size: 1.32rem;
+                color: #374343;
+                box-shadow: 0 0 1.2rem 0.1rem #ffa047 inset;
             }
             .formulario-datos-requisito {
                 position: absolute;
@@ -653,6 +657,108 @@ class Form extends HTMLElement {
 
         switch (url) {
 
+            case '/api/admin/business':
+
+            return {
+
+                tabs:{
+                    main: {
+                        label: ''
+                    }
+                },
+                    
+                tabsContent: {
+                    
+                    main: {
+                        rows:{
+                            row1: {
+                                formElements:{
+                                    tradingName: {
+                                        label: 'Nombre de la empresa',
+                                        element: 'input',
+                                        maxLength: '10',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true
+                                    },
+                                    cif: {
+                                        label: 'CIF',
+                                        element: 'input',
+                                        maxLength: '10',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true
+                                    }
+                                }
+                            },
+                            row2: {
+                                formElements:{
+                                    adress: {
+                                        label: 'Dirección',
+                                        element: 'input',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true
+                                    },
+                                    city: {
+                                        label: 'Ciudad',
+                                        element: 'input',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true
+                                    },
+                                    postalCode: {
+                                        label: 'Código Postal',
+                                        element: 'input',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true
+                                    }
+                                }
+                            },
+                            row3: {
+                                formElements:{
+                                    email: {
+                                        label: 'Email',
+                                        element: 'input',
+                                        type: 'email',
+                                        placeholder: '',
+                                        required: true,
+                                        validate: 'email'
+                                    },
+                                    phone: {
+                                        label: 'Teléfono',
+                                        element: 'input',
+                                        maxLength: '13',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true
+                                    }
+                                }
+                            },
+                            row4: {
+                                formElements:{
+                                    timetable: {
+                                        label: 'Horario de apertura',
+                                        element: 'input',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true
+                                    },
+                                    openingDays: {
+                                        label: 'Días de apertura',
+                                        element: 'input',
+                                        maxLength: '40',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true
+                                    }
+                                }
+                            } 
+                        }
+                    }
+                }
+            };
             case '/api/admin/user':
 
             return {

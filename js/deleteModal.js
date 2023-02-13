@@ -26,7 +26,6 @@ class DeleteModal extends HTMLElement {
 
     attributeChangedCallback(name, oldValue, newValue){
         this.render();
-        console.log(this.id);
     }
 
     render() {
@@ -116,7 +115,7 @@ class DeleteModal extends HTMLElement {
 
             backOutButton.addEventListener('click', event => {
             
-                this.id = this.removeAttribute('id');
+                this.removeAttribute('id');
                 
             });
         }
@@ -124,6 +123,42 @@ class DeleteModal extends HTMLElement {
 
             deleteConfirmationButton.addEventListener('click', event => {   
                 
+                let url = `${API_URL}${this.getAttribute("url")}/${this.id}`;
+
+                fetch(url, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken')
+                    }
+                }).then(response => {
+                    
+                    if(response.status == "200"){   
+
+                        document.dispatchEvent(new CustomEvent('message', {
+                            detail: {
+                                text: 'Registro eliminado correctamente',
+                                type: 'exito'
+                            }
+                        }));
+
+                        document.dispatchEvent(new CustomEvent('deletedData'));
+
+                        this.removeAttribute('id');
+                        this.render();
+                    }
+
+                    // return response.json();
+
+                }).catch(error => {
+                    console.log(error);
+                    document.dispatchEvent(new CustomEvent('message', {
+                        detail: {
+                            text: 'Se ha producido un error',
+                            type: 'fallo'
+                        }
+                    }));
+                });           
+
             });
         }
         
