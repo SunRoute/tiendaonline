@@ -520,7 +520,7 @@ class Form extends HTMLElement {
         
 
         this.renderTabs();
-        this.renderAction();
+        
     }
 
     renderTabs(){
@@ -564,7 +564,9 @@ class Form extends HTMLElement {
                     }
                 }
             });   
-        });  
+        });
+
+        this.renderAction(); 
     }
 
     renderAction (){
@@ -667,6 +669,7 @@ class Form extends HTMLElement {
                 }
             } 
         }
+        return formValidate;
     }
 
     showElement = async id => {
@@ -1122,7 +1125,7 @@ class Form extends HTMLElement {
                                         validate: 'solo-letras'
                                     },
                                     visible: {
-                                        label: 'Visibilidad',
+                                        label: 'Visible',
                                         element: 'select',
                                         required: false,
                                         options: [
@@ -1171,7 +1174,7 @@ class Form extends HTMLElement {
                                         required: true
                                     },
                                     visible: {
-                                        label: 'Visibilidad',
+                                        label: 'Visible',
                                         element: 'select',
                                         required: false,
                                         options: [
@@ -1194,7 +1197,6 @@ class Form extends HTMLElement {
                     }
                 }
             };
-            
             
             case '/api/admin/product':
 
@@ -1224,7 +1226,7 @@ class Form extends HTMLElement {
                                         required: true
                                     },
                                     price: {
-                                        label: 'Nombre',
+                                        label: 'Precio',
                                         element: 'input',
                                         maxLength: '10',
                                         type: 'number',
@@ -1254,7 +1256,7 @@ class Form extends HTMLElement {
                                         ]
                                     },
                                     visible: {
-                                        label: 'Visibilidad',
+                                        label: 'Visible',
                                         element: 'select',
                                         required: false,
                                         options: [
@@ -1289,6 +1291,191 @@ class Form extends HTMLElement {
                                         type: 'file',
                                         placeholder: '',
                                         required: true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            case '/api/admin/faq-category':
+
+            return {
+
+                tabs:{
+                    main: {
+                        label: ''
+                    }
+                },
+                    
+                tabsContent: {
+                    
+                    main: {
+                        rows:{
+                            row1: {
+                                formElements:{
+                                    name: {
+                                        label: 'Nombre',
+                                        element: 'input',
+                                        maxLength: '50',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true
+                                    }
+                                }
+                            },
+                            row2: {
+                                formElements:{
+                                    description: {
+                                        label: 'Descripción',
+                                        element: 'textarea',
+                                        maxLength: 100,
+                                        placeholder: '',
+                                        required: true
+                                    }
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+            };
+            
+            case '/api/admin/faq':
+
+            return {
+
+                tabs:{
+                    main: {
+                        label: ''
+                    }
+                },
+                    
+                tabsContent: {
+                    
+                    main: {
+                        rows:{
+                            row1: {
+                                formElements:{
+                                    name: {
+                                        label: 'Nombre',
+                                        element: 'input',
+                                        maxLength: '50',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true
+                                    }
+                                }
+                            },
+                            row2: {
+                                formElements:{
+                                    answer: {
+                                        label: 'Respuesta',
+                                        element: 'textarea',
+                                        maxLength: 200,
+                                        placeholder: '',
+                                        required: true
+                                    }
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+            };
+            
+            case '/api/admin/payment-method':
+
+            return {
+
+                tabs:{
+                    main: {
+                        label: ''
+                    }
+                },
+                    
+                tabsContent: {
+                    
+                    main: {
+                        rows:{
+                            row1: {
+                                formElements:{
+                                    name: {
+                                        label: 'Nombre',
+                                        element: 'input',
+                                        maxLength: '50',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true
+                                    },
+                                    visible: {
+                                        label: 'Visible',
+                                        element: 'select',
+                                        required: false,
+                                        options: [
+                                            {
+                                                label: ''
+                                            },
+                                            {
+                                                label: 'Sí',
+                                                value: true
+                                            },
+                                            {
+                                                label: 'No',
+                                                value: false
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+            
+            
+            case '/api/admin/tax':
+
+            return {
+
+                tabs:{
+                    main: {
+                        label: ''
+                    }
+                },
+                    
+                tabsContent: {
+                    
+                    main: {
+                        rows:{
+                            row1: {
+                                formElements:{
+                                    type: {
+                                        label: 'Tipo',
+                                        element: 'input',
+                                        maxLength: '50',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true
+                                    },
+                                    valid: {
+                                        label: 'Válido',
+                                        element: 'select',
+                                        required: false,
+                                        options: [
+                                            {
+                                                label: ''
+                                            },
+                                            {
+                                                label: 'Sí',
+                                                value: true
+                                            },
+                                            {
+                                                label: 'No',
+                                                value: false
+                                            }
+                                        ]
                                     }
                                 }
                             }

@@ -41,7 +41,7 @@ class Menu extends HTMLElement {
                 position: absolute;
                 z-index: 1000;
                 top: -5rem;
-                right: 3rem;
+                right: 1rem;
                 cursor: pointer;
                 width: 5rem;
             }

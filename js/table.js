@@ -436,7 +436,7 @@ class Table extends HTMLElement {
                         label: 'Alias',
                     },
                     visible: {
-                        label: 'Visibilidad',
+                        label: 'Visible',
                     }
                 },
                 buttons: {
@@ -453,7 +453,81 @@ class Table extends HTMLElement {
                         label: 'Nombre',
                     },
                     visible: {
-                        label: 'Visibilidad',
+                        label: 'Visible',
+                    }
+                },
+                buttons: {
+                    edit: true,
+                    delete: true
+                }
+            };
+
+            case '/api/admin/product':
+
+            return {
+                headers:{
+                    name: {
+                        label: 'Nombre',
+                    },
+                    price: {
+                        label: 'Price',
+                    },
+                    featured: {
+                        label: 'Destacado',
+                    },
+                    visible: {
+                        label: 'Visible',
+                    }
+                },
+                buttons: {
+                    edit: true,
+                    delete: true
+                }
+            };
+            
+            case '/api/admin/faq-category':
+
+            return {
+                headers:{
+                    name: {
+                        label: 'Nombre',
+                    },
+                    descripcion: {
+                        label: 'Descripción',
+                    }
+                },
+                buttons: {
+                    edit: true,
+                    delete: true
+                }
+            };
+            
+            case '/api/admin/faq':
+
+            return {
+                headers:{
+                    question: {
+                        label: 'Pregunta',
+                    },
+                    answer: {
+                        label: 'Respuesta',
+                    }
+                },
+                buttons: {
+                    edit: true,
+                    delete: true
+                }
+            };
+            
+            case '/api/admin/payment-method':
+
+            return {
+                headers:{
+                    name: {
+                        label: 'Nombre',
+                    },
+                    visible: {
+                        label: 'Visible',
                     }
                 },
                 buttons: {
@@ -468,6 +542,9 @@ class Table extends HTMLElement {
                 headers:{
                     type: {
                         label: 'Tipo',
+                    },
+                    valid: {
+                        label: 'Válido',
                     }
                 },
                 buttons: {

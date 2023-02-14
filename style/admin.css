@@ -556,9 +556,9 @@ footer .pie p {
 
 .goup {
   position: fixed;
-  left: 2vw;
-  bottom: 1vh;
-  width: 4rem;
+  right: 0;
+  bottom: 0;
+  width: 2.1rem;
 }
 
 .formulario-datos {
