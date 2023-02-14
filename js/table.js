@@ -288,193 +288,210 @@ class Table extends HTMLElement {
 
             case '/api/admin/business':
 
-                return {
-                    headers:{
-                        tradingName: {
-                            label: 'Nombre',
-                        },
-                        cif: {
-                            label: 'CIF',
-                        },
-                        phone: {
-                            label: 'Teléfono',
-                        },
-                        email: {
-                            label: 'Email',
-                        },
-                        adress: {
-                            label: 'Dirección',
-                        },
-                        city: {
-                            label: 'Ciudad',
-                        },
-                        postalCode: {
-                            label: 'Código postal',
-                        },
-                        timetable: {
-                            label: 'Horario de apertura',
-                        },
-                        openingDays: {
-                            label: 'Días de apertura',
-                        }
+            return {
+                headers:{
+                    tradingName: {
+                        label: 'Nombre',
                     },
-                    buttons: {
-                        edit: true,
-                        delete: true
+                    cif: {
+                        label: 'CIF',
+                    },
+                    phone: {
+                        label: 'Teléfono',
+                    },
+                    email: {
+                        label: 'Email',
+                    },
+                    adress: {
+                        label: 'Dirección',
+                    },
+                    city: {
+                        label: 'Ciudad',
+                    },
+                    postalCode: {
+                        label: 'Código postal',
+                    },
+                    timetable: {
+                        label: 'Horario de apertura',
+                    },
+                    openingDays: {
+                        label: 'Días de apertura',
                     }
-                };
+                },
+                buttons: {
+                    edit: true,
+                    delete: true
+                }
+            };
 
             case '/api/admin/user':
 
-                return {
-                    headers:{
-                        name: {
-                            label: 'Nombre',
-                        },
-                        email: {
-                            label: 'Email',
-                        }
+            return {
+                headers:{
+                    name: {
+                        label: 'Nombre',
                     },
-                    buttons: {
-                        edit: true,
-                        delete: true
+                    email: {
+                        label: 'Email',
                     }
-                };
+                },
+                buttons: {
+                    edit: true,
+                    delete: true
+                }
+            };
 
-                case '/api/admin/customer':
+            case '/api/admin/customer':
 
-                return {
-                    headers:{
-                        name: {
-                            label: 'Nombre',
-                        },
-                        surname: {
-                            label: 'Apellidos',
-                        },
-                        phone: {
-                            label: 'Teléfono',
-                        },
-                        email: {
-                            label: 'Email',
-                        },
-                        cif: {
-                            label: 'CIF',
-                        },
-                        adress: {
-                            label: 'Dirección',
-                        },
-                        city: {
-                            label: 'Ciudad',
-                        },
-                        postalCode: {
-                            label: 'Código postal',
-                        }
+            return {
+                headers:{
+                    name: {
+                        label: 'Nombre',
                     },
-                    buttons: {
-                        edit: true,
-                        delete: true
-                    }
-                };
-                
-                case '/api/admin/contact':
-
-                return {
-                    headers:{
-                        name: {
-                            label: 'Nombre',
-                        },
-                        surname: {
-                            label: 'Apellidos',
-                        },
-                        phone: {
-                            label: 'Teléfono',
-                        },
-                        email: {
-                            label: 'Email',
-                        },
-                        message: {
-                            label: 'Mensaje',
-                        }
+                    surname: {
+                        label: 'Apellidos',
                     },
-                    buttons: {
-                        edit: true,
-                        delete: true
-                    }
-                };
-
-                case '/api/admin/menu':
-
-                return {
-                    headers:{
-                        name: {
-                            label: 'Nombre',
-                        },
-                        customUrl: {
-                            label: 'URL',
-                        },
-                        order: {
-                            label: 'Posición',
-                        },
-                        parentId: {
-                            label: 'Menú al que pertenece',
-                        }
+                    phone: {
+                        label: 'Teléfono',
                     },
-                    buttons: {
-                        edit: true,
-                        delete: true
-                    }
-                };
-
-                case '/api/admin/language':
-
-                return {
-                    headers:{
-                        name: {
-                            label: 'Nombre',
-                        },
-                        alias: {
-                            label: 'Alias',
-                        },
-                        visible: {
-                            label: 'Visibilidad',
-                        }
+                    email: {
+                        label: 'Email',
                     },
-                    buttons: {
-                        edit: true,
-                        delete: true
-                    }
-                };
-
-                case '/api/admin/product-category':
-
-                return {
-                    headers:{
-                        name: {
-                            label: 'Nombre',
-                        },
-                        visible: {
-                            label: 'Visibilidad',
-                        }
+                    cif: {
+                        label: 'CIF',
                     },
-                    buttons: {
-                        edit: true,
-                        delete: true
+                    adress: {
+                        label: 'Dirección',
+                    },
+                    city: {
+                        label: 'Ciudad',
+                    },
+                    postalCode: {
+                        label: 'Código postal',
                     }
-                };
+                },
+                buttons: {
+                    edit: true,
+                    delete: true
+                }
+            };
+            
+            case '/api/admin/contact':
+
+            return {
+                headers:{
+                    name: {
+                        label: 'Nombre',
+                    },
+                    surname: {
+                        label: 'Apellidos',
+                    },
+                    phone: {
+                        label: 'Teléfono',
+                    },
+                    email: {
+                        label: 'Email',
+                    },
+                    message: {
+                        label: 'Mensaje',
+                    }
+                },
+                buttons: {
+                    edit: true,
+                    delete: true
+                }
+            };
+
+            case '/api/admin/menu':
+
+            return {
+                headers:{
+                    name: {
+                        label: 'Nombre',
+                    },
+                    customUrl: {
+                        label: 'URL',
+                    },
+                    order: {
+                        label: 'Posición',
+                    },
+                    parentId: {
+                        label: 'Menú al que pertenece',
+                    }
+                },
+                buttons: {
+                    edit: true,
+                    delete: true
+                }
+            };
+
+            case '/api/admin/language':
+
+            return {
+                headers:{
+                    name: {
+                        label: 'Nombre',
+                    },
+                    alias: {
+                        label: 'Alias',
+                    },
+                    visible: {
+                        label: 'Visibilidad',
+                    }
+                },
+                buttons: {
+                    edit: true,
+                    delete: true
+                }
+            };
+
+            case '/api/admin/product-category':
+
+            return {
+                headers:{
+                    name: {
+                        label: 'Nombre',
+                    },
+                    visible: {
+                        label: 'Visibilidad',
+                    }
+                },
+                buttons: {
+                    edit: true,
+                    delete: true
+                }
+            };
 
             case '/api/admin/tax':
 
-                return {
-                    headers:{
-                        type: {
-                            label: 'Tipo',
-                        }
-                    },
-                    buttons: {
-                        edit: true,
-                        delete: true
+            return {
+                headers:{
+                    type: {
+                        label: 'Tipo',
                     }
-                };
+                },
+                buttons: {
+                    edit: true,
+                    delete: true
+                }
+            };
+
+            case '/api/admin/book':
+
+            return {
+                headers:{
+                    title: {
+                        label: 'Título',
+                    },
+                    author: {
+                        label: 'Autor',
+                    }
+                },
+                buttons: {
+                    edit: true,
+                    delete: true
+                }
+            };
         }
     }
 }

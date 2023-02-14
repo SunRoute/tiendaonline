@@ -147,11 +147,10 @@ class Form extends HTMLElement {
                 color: #374343;
                 box-shadow: 0 0 1.2rem 0.1rem #ffa047 inset;
             }
-            .formulario-datos-requisito {
-                position: absolute;
-            }
-            .formulario-datos-requisito {
+            .formulario-datos-requisito {    
                 display: none;
+                position: absolute;
+                font-family: "Ubuntu";
                 color: red;
             }
             .formulario-datos-requisito.incorrecto {
@@ -497,6 +496,18 @@ class Form extends HTMLElement {
                     
                                     formElementContainer.append(select);
                                 }
+
+                                if(item.validate) {
+                                    
+                                    let validateContainer = document.createElement('div');
+                                    validateContainer.classList.add('formulario-datos-requisito');
+                                    formElementContainer.append(validateContainer);
+
+                                    let validateMessage = document.createElement('span');
+                                    validateContainer.append(validateMessage);
+                                    validateMessage.innerText= item.message;
+                                    
+                                }
                             };
                         });
                     });
@@ -577,15 +588,12 @@ class Form extends HTMLElement {
 
                 event.preventDefault();
 
-                let form = this.shadow.querySelector('form');
-                // let formularioInputs = formulario.elements;
-
-                // console.log(formulario.elements);
                 
+                let form = this.shadow.querySelector('form');
 
-                // if(!validador(formularioInputs)){
-                //     return;
-                // };
+                if(!this.validador(form.elements)){
+                    return;
+                };
 
                 let formData = new FormData(form);
                 let formDataJson = Object.fromEntries(formData.entries());
@@ -629,6 +637,36 @@ class Form extends HTMLElement {
                 });              
             });
         };
+    }
+
+    validador(formInputs) {
+
+        let formValidate = true;
+
+        let validators = {
+            "solo-letras": /^[a-zA-Z\s]+$/g,
+            "solo-numeros": /\d/g,
+            "telefono": /^\d{9}$/g,
+            "email": /\w+@\w+\.\w+/g,
+            "web": /^(http|https):\/\/\w+\.\w+/g,
+            "imagen": /^(.+\/)+.+(\.(png|jpg|jpeg|webp))$/g,
+            "password": /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/g,
+            "fecha": /^\d{4}-\d{2}-\d{2}$/g,
+            "hora": /^\d{2}:\d{2}$/g
+        }
+
+        for (let i = 0; i < formInputs.length; i++) {
+
+            if (formInputs[i].dataset.validate) {
+    
+                if (formInputs[i].value.match(validators[formInputs[i].dataset.validate]) == null) {
+                    formInputs[i].closest('.formulario-datos-elementos').querySelector('.formulario-datos-requisito').classList.add('incorrecto');
+                    formValidate = false;
+                } else {
+                    formInputs[i].closest('.formulario-datos-elementos').querySelector('.formulario-datos-requisito').classList.remove('incorrecto');
+                }
+            } 
+        }
     }
 
     showElement = async id => {
@@ -696,7 +734,7 @@ class Form extends HTMLElement {
                                     phone: {
                                         label: 'Teléfono',
                                         element: 'input',
-                                        maxLength: '15',
+                                        maxLength: '13',
                                         type: 'text',
                                         placeholder: '',
                                         required: true
@@ -783,7 +821,8 @@ class Form extends HTMLElement {
                                         type: 'text',
                                         placeholder: '',
                                         required: true,
-                                        validate: 'solo-letras'
+                                        validate: 'solo-letras',
+                                        message: 'El campo solo admite letras'
                                     },
                                     email: {
                                         label: 'Email',
@@ -791,7 +830,8 @@ class Form extends HTMLElement {
                                         type: 'email',
                                         placeholder: '',
                                         required: true,
-                                        validate: 'email'
+                                        validate: 'email',
+                                        message: 'ejemplo@ejemplo.com'
                                     }
                                 }
                             },
@@ -1257,6 +1297,82 @@ class Form extends HTMLElement {
                 }
             };
             
+            case '/api/admin/book':
+
+            return {
+
+                tabs:{
+                    main: {
+                        label: ''
+                    }
+                },
+                    
+                tabsContent: {
+                    
+                    main: {
+                        rows:{
+                            row1: {
+                                formElements:{
+                                    title: {
+                                        label: 'Título',
+                                        element: 'input',
+                                        maxLength: '50',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true
+                                    },
+                                    author: {
+                                        label: 'Autor',
+                                        element: 'input',
+                                        maxLength: '50',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true
+                                    }
+                                }
+                            },
+                            row2: {
+                                formElements:{
+                                    isbn: {
+                                        label: 'ISBN',
+                                        element: 'input',
+                                        maxLength: '50',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true
+                                    },
+                                    pageCount: {
+                                        label: 'Páginas',
+                                        element: 'input',
+                                        type: 'number',
+                                        placeholder: '',
+                                        required: true
+                                    },
+                                    publishedDate: {
+                                        label: 'Fecha de publicación',
+                                        element: 'input',
+                                        type: 'date',
+                                        placeholder: '',
+                                        required: true,
+                                        validate: 'date'
+                                    }
+                                }
+                            }, 
+                            row3: {
+                                formElements:{
+                                    description: {
+                                        label: 'Descripción',
+                                        element: 'textarea',
+                                        maxLength: 100,
+                                        placeholder: '',
+                                        required: true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            };
             case '/api/admin/all':
 
             return {
