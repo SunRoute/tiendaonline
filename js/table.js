@@ -286,6 +286,44 @@ class Table extends HTMLElement {
 
         switch (url) {
 
+            case '/api/admin/business':
+
+                return {
+                    headers:{
+                        tradingName: {
+                            label: 'Nombre',
+                        },
+                        cif: {
+                            label: 'CIF',
+                        },
+                        phone: {
+                            label: 'Teléfono',
+                        },
+                        email: {
+                            label: 'Email',
+                        },
+                        adress: {
+                            label: 'Dirección',
+                        },
+                        city: {
+                            label: 'Ciudad',
+                        },
+                        postalCode: {
+                            label: 'Código postal',
+                        },
+                        timetable: {
+                            label: 'Horario de apertura',
+                        },
+                        openingDays: {
+                            label: 'Días de apertura',
+                        }
+                    },
+                    buttons: {
+                        edit: true,
+                        delete: true
+                    }
+                };
+
             case '/api/admin/user':
 
                 return {
@@ -295,6 +333,127 @@ class Table extends HTMLElement {
                         },
                         email: {
                             label: 'Email',
+                        }
+                    },
+                    buttons: {
+                        edit: true,
+                        delete: true
+                    }
+                };
+
+                case '/api/admin/customer':
+
+                return {
+                    headers:{
+                        name: {
+                            label: 'Nombre',
+                        },
+                        surname: {
+                            label: 'Apellidos',
+                        },
+                        phone: {
+                            label: 'Teléfono',
+                        },
+                        email: {
+                            label: 'Email',
+                        },
+                        cif: {
+                            label: 'CIF',
+                        },
+                        adress: {
+                            label: 'Dirección',
+                        },
+                        city: {
+                            label: 'Ciudad',
+                        },
+                        postalCode: {
+                            label: 'Código postal',
+                        }
+                    },
+                    buttons: {
+                        edit: true,
+                        delete: true
+                    }
+                };
+                
+                case '/api/admin/contact':
+
+                return {
+                    headers:{
+                        name: {
+                            label: 'Nombre',
+                        },
+                        surname: {
+                            label: 'Apellidos',
+                        },
+                        phone: {
+                            label: 'Teléfono',
+                        },
+                        email: {
+                            label: 'Email',
+                        },
+                        message: {
+                            label: 'Mensaje',
+                        }
+                    },
+                    buttons: {
+                        edit: true,
+                        delete: true
+                    }
+                };
+
+                case '/api/admin/menu':
+
+                return {
+                    headers:{
+                        name: {
+                            label: 'Nombre',
+                        },
+                        customUrl: {
+                            label: 'URL',
+                        },
+                        order: {
+                            label: 'Posición',
+                        },
+                        parentId: {
+                            label: 'Menú al que pertenece',
+                        }
+                    },
+                    buttons: {
+                        edit: true,
+                        delete: true
+                    }
+                };
+
+                case '/api/admin/language':
+
+                return {
+                    headers:{
+                        name: {
+                            label: 'Nombre',
+                        },
+                        alias: {
+                            label: 'Alias',
+                        },
+                        visible: {
+                            label: 'Visibilidad',
+                        }
+                    },
+                    buttons: {
+                        edit: true,
+                        delete: true
+                    }
+                };
+
+                case '/api/admin/product-category':
+
+                return {
+                    headers:{
+                        name: {
+                            label: 'Nombre',
+                        },
+                        visible: {
+                            label: 'Visibilidad',
                         }
                     },
                     buttons: {

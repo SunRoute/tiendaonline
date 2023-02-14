@@ -693,6 +693,26 @@ class Form extends HTMLElement {
                             },
                             row2: {
                                 formElements:{
+                                    phone: {
+                                        label: 'Teléfono',
+                                        element: 'input',
+                                        maxLength: '15',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true
+                                    },
+                                    email: {
+                                        label: 'Email',
+                                        element: 'input',
+                                        type: 'email',
+                                        placeholder: '',
+                                        required: true,
+                                        validate: 'email'
+                                    }
+                                }
+                            },
+                            row3: {
+                                formElements:{
                                     adress: {
                                         label: 'Dirección',
                                         element: 'input',
@@ -710,26 +730,6 @@ class Form extends HTMLElement {
                                     postalCode: {
                                         label: 'Código Postal',
                                         element: 'input',
-                                        type: 'text',
-                                        placeholder: '',
-                                        required: true
-                                    }
-                                }
-                            },
-                            row3: {
-                                formElements:{
-                                    email: {
-                                        label: 'Email',
-                                        element: 'input',
-                                        type: 'email',
-                                        placeholder: '',
-                                        required: true,
-                                        validate: 'email'
-                                    },
-                                    phone: {
-                                        label: 'Teléfono',
-                                        element: 'input',
-                                        maxLength: '13',
                                         type: 'text',
                                         placeholder: '',
                                         required: true
@@ -759,13 +759,14 @@ class Form extends HTMLElement {
                     }
                 }
             };
+
             case '/api/admin/user':
 
             return {
 
                 tabs:{
                     main: {
-                        label: 'Principal'
+                        label: ''
                     }
                 },
                     
@@ -816,6 +817,446 @@ class Form extends HTMLElement {
                     }
                 }
             };
+
+            case '/api/admin/customer':
+
+            return {
+
+                tabs:{
+                    main: {
+                        label: ''
+                    }
+                },
+                    
+                tabsContent: {
+                    
+                    main: {
+                        rows:{
+                            row1: {
+                                formElements:{
+                                    name: {
+                                        label: 'Nombre',
+                                        element: 'input',
+                                        maxLength: '50',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true
+                                    },
+                                    surname: {
+                                        label: 'Apellidos',
+                                        element: 'input',
+                                        maxLength: '50',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true
+                                    }
+                                }
+                            },
+                            row2: {
+                                formElements:{
+                                    phone: {
+                                        label: 'Teléfono',
+                                        element: 'input',
+                                        maxLength: '15',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true
+                                    },
+                                    email: {
+                                        label: 'Email',
+                                        element: 'input',
+                                        type: 'email',
+                                        placeholder: '',
+                                        required: true,
+                                        validate: 'email'
+                                    }
+                                }
+                            },
+                            row3: {
+                                formElements:{
+                                    adress: {
+                                        label: 'Dirección',
+                                        element: 'input',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true
+                                    },
+                                    city: {
+                                        label: 'Ciudad',
+                                        element: 'input',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true
+                                    },
+                                    postalCode: {
+                                        label: 'Código Postal',
+                                        element: 'input',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            case '/api/admin/contact':
+
+            return {
+
+                tabs:{
+                    main: {
+                        label: ''
+                    }
+                },
+                    
+                tabsContent: {
+                    
+                    main: {
+                        rows:{
+                            row1: {
+                                formElements:{
+                                    name: {
+                                        label: 'Nombre',
+                                        element: 'input',
+                                        maxLength: '50',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true
+                                    },
+                                    surname: {
+                                        label: 'Apellidos',
+                                        element: 'input',
+                                        maxLength: '50',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true
+                                    }
+                                }
+                            },
+                            row2: {
+                                formElements:{
+                                    phone: {
+                                        label: 'Teléfono',
+                                        element: 'input',
+                                        maxLength: '15',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true
+                                    },
+                                    email: {
+                                        label: 'Email',
+                                        element: 'input',
+                                        type: 'email',
+                                        placeholder: '',
+                                        required: true,
+                                        validate: 'email'
+                                    }
+                                }
+                            },
+                            row3: {
+                                formElements:{
+                                    message: {
+                                        label: 'Mensaje',
+                                        element: 'textarea',
+                                        maxLength: 200,
+                                        placeholder: '',
+                                        required: true
+                                    }
+                                }
+                            } 
+                        }
+                    }
+                }
+            };
+            
+            case '/api/admin/menu':
+
+            return {
+
+                tabs:{
+                    main: {
+                        label: ''
+                    }
+                },
+                    
+                tabsContent: {
+                    
+                    main: {
+                        rows:{
+                            row1: {
+                                formElements:{
+                                    name: {
+                                        label: 'Nombre',
+                                        element: 'input',
+                                        maxLength: '50',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true
+                                    },
+                                    customUrl: {
+                                        label: 'URL',
+                                        element: 'input',
+                                        type: 'url',
+                                        placeholder: '',
+                                        required: true
+                                    }
+                                }
+                            },
+                            row2: {
+                                formElements:{
+                                    order: {
+                                        label: 'Posición',
+                                        element: 'input',
+                                        type: 'number',
+                                        placeholder: '',
+                                        required: true
+                                    },
+                                    parentId: {
+                                        label: 'Menú al que pertenece',
+                                        element: 'select',
+                                        required: true,
+                                        options: [
+                                            {
+                                                label: ''
+                                            },
+                                            {
+                                                label: 'Administración',
+                                                value: '1'
+                                            },
+                                            {
+                                                label: 'Administración Empresa',
+                                                value: '2'
+                                            },
+                                            {
+                                                label: 'Administración General',
+                                                value: '3'
+                                            },
+                                            {
+                                                label: 'Administración Contable',
+                                                value: '4'
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            case '/api/admin/language':
+
+            return {
+
+                tabs:{
+                    main: {
+                        label: ''
+                    }
+                },
+                    
+                tabsContent: {
+                    
+                    main: {
+                        rows:{
+                            row1: {
+                                formElements:{
+                                    name: {
+                                        label: 'Nombre',
+                                        element: 'input',
+                                        maxLength: '10',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true,
+                                        validate: 'solo-letras'
+                                    },
+                                    alias: {
+                                        label: 'Alias',
+                                        element: 'input',
+                                        maxLength: '2',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true,
+                                        validate: 'solo-letras'
+                                    },
+                                    visible: {
+                                        label: 'Visibilidad',
+                                        element: 'select',
+                                        required: false,
+                                        options: [
+                                            {
+                                                label: ''
+                                            },
+                                            {
+                                                label: 'Sí',
+                                                value: true
+                                            },
+                                            {
+                                                label: 'No',
+                                                value: false
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+            
+            case '/api/admin/product-category':
+
+            return {
+
+                tabs:{
+                    main: {
+                        label: ''
+                    }
+                },
+                    
+                tabsContent: {
+                    
+                    main: {
+                        rows:{
+                            row1: {
+                                formElements:{
+                                    name: {
+                                        label: 'Nombre',
+                                        element: 'input',
+                                        maxLength: '50',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true
+                                    },
+                                    visible: {
+                                        label: 'Visibilidad',
+                                        element: 'select',
+                                        required: false,
+                                        options: [
+                                            {
+                                                label: ''
+                                            },
+                                            {
+                                                label: 'Sí',
+                                                value: true
+                                            },
+                                            {
+                                                label: 'No',
+                                                value: false
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+            
+            
+            case '/api/admin/product':
+
+            return {
+
+                tabs:{
+                    main: {
+                        label: 'Principal'
+                    },
+                    images: {
+                        label: 'Imágenes'
+                    }
+                },
+                    
+                tabsContent: {
+                    
+                    main: {
+                        rows:{
+                            row1: {
+                                formElements:{
+                                    name: {
+                                        label: 'Nombre',
+                                        element: 'input',
+                                        maxLength: '50',
+                                        type: 'text',
+                                        placeholder: '',
+                                        required: true
+                                    },
+                                    price: {
+                                        label: 'Nombre',
+                                        element: 'input',
+                                        maxLength: '10',
+                                        type: 'number',
+                                        placeholder: '',
+                                        required: true
+                                    }
+                                }
+                            },
+                            row2: {
+                                formElements:{
+                                    featured: {
+                                        label: 'Destacados',
+                                        element: 'select',
+                                        required: false,
+                                        options: [
+                                            {
+                                                label: ''
+                                            },
+                                            {
+                                                label: 'Sí',
+                                                value: true
+                                            },
+                                            {
+                                                label: 'No',
+                                                value: false
+                                            }
+                                        ]
+                                    },
+                                    visible: {
+                                        label: 'Visibilidad',
+                                        element: 'select',
+                                        required: false,
+                                        options: [
+                                            {
+                                                label: ''
+                                            },
+                                            {
+                                                label: 'Sí',
+                                                value: true
+                                            },
+                                            {
+                                                label: 'No',
+                                                value: false
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    images: {
+                        rows:{
+                            row1: {
+                                formElements:{
+                                    // id:{
+                                    //     element: 'input',
+                                    //     type: 'hidden',
+                                    // },
+                                    image: {
+                                        label: 'Imagen',
+                                        element: 'input',
+                                        type: 'file',
+                                        placeholder: '',
+                                        required: true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+            
             case '/api/admin/all':
 
             return {

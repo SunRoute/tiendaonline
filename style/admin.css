@@ -554,6 +554,13 @@ footer .pie p {
   margin-bottom: 1rem;
 }
 
+.goup {
+  position: fixed;
+  right: 2vw;
+  bottom: 1vh;
+  width: 30px;
+}
+
 .formulario-datos {
   position: relative;
   margin-bottom: 3rem;

@@ -45,7 +45,7 @@ class PageTitle extends HTMLElement {
             }
         </style>
         
-        <h2>Administración de ${this.title}</h2>
+        <h2>Administración ${this.title}</h2>
         `;
         // this.title ES EL ATRIBUTO
         // LAS COMILLAS `` PERMITEN ESCRIBIR VARIABLES DENTRO DEL CÓDIGO DE TEXTO

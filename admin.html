@@ -21,7 +21,7 @@
             <header>
                 <div class="two-columns">
                     <div class="column">
-                        <div class="header-logo">
+                        <div class="header-logo" id="up">
                             <div class="header-logo-imagen">
                                 <img src="imagenes/logo.png" alt="logo">
                             </div>
@@ -33,7 +33,7 @@
                     <div class="column">
                         <div class="header-admin">
                             <div class="titulo-admin">
-                                <page-title-component title="Usuarios"></page-title-component>
+                                <page-title-component title="Empresas"></page-title-component>
                             </div>    
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                 
             </header>
             <main>
-                <delete-modal-component url="/api/admin/user"></delete-modal-component>
+                <delete-modal-component url="/api/admin/business"></delete-modal-component>
                 <menu-component menu="admin-header"></menu-component>  
                 <div class="administracion">
                     <div class="one-column">
@@ -49,10 +49,10 @@
                             <div class="two-columns">
                                 <div class="column">
                                     <notification-component></notification-component>
-                                    <form-component url="/api/admin/user"></form-component>
+                                    <form-component url="/api/admin/business"></form-component>
                                 </div>
                                 <div class="column">
-                                    <table-component url="/api/admin/user"></table-component>
+                                    <table-component url="/api/admin/business"></table-component>
                                 </div>  
                             </div>
                         </div>
@@ -66,6 +66,7 @@
                     <p>&copy; Derechos reservados</p>
                 </div>
             </footer>
+            <a href="#up"><img class="goup" src="imagenes/goup.png"></a>
     
            <script type="module" src="js/index.js"></script>
                 
