@@ -6,6 +6,7 @@ class Form extends HTMLElement {
         super();
         this.shadow = this.attachShadow({ mode: 'open' });
         this.url =  this.getAttribute('url');
+        this.id = this.getAttribute('id');
     }
 
 
@@ -18,7 +19,9 @@ class Form extends HTMLElement {
         }));
 
         document.addEventListener("showData",( event => {
+            this.id  = event.detail.id;
             this.showElement(event.detail.id);
+            // this.updateElement(event.detail.id);
         }));   
     }
 
@@ -506,8 +509,21 @@ class Form extends HTMLElement {
                                     let validateMessage = document.createElement('span');
                                     validateContainer.append(validateMessage);
                                     validateMessage.innerText= item.message;
+
                                     
                                 }
+
+                                // if(item.required === true) {
+                                    
+                                //     let requiredContainer = document.createElement('div');
+                                //     requiredContainer.classList.add('formulario-datos-requisito');
+                                //     formElementContainer.append(requiredContainer);
+
+                                //     let requiredMessage = document.createElement('span');
+                                //     validateContainer.append(requiredMessage);
+                                //     requiredMessage.innerText= item.message;
+                                    
+                                // }
                             };
                         });
                     });
@@ -580,6 +596,7 @@ class Form extends HTMLElement {
             
                 event.preventDefault();
 
+                this.id = null;
                 this.render();
             });
         }
@@ -588,9 +605,10 @@ class Form extends HTMLElement {
 
             sendButton.addEventListener('click', event => {
 
-                event.preventDefault();
+                event.preventDefault();                
 
-                
+
+
                 let form = this.shadow.querySelector('form');
 
                 if(!this.validador(form.elements)){
@@ -599,12 +617,11 @@ class Form extends HTMLElement {
 
                 let formData = new FormData(form);
                 let formDataJson = Object.fromEntries(formData.entries());
-                let url = API_URL + this.getAttribute("url");
-
-                console.log(formDataJson);
+                let url = this.id ? `${API_URL}${this.getAttribute("url")}/${this.id}` : API_URL + this.getAttribute("url");
+                let method = this.id ? "PUT" : "POST";
 
                 fetch(url, {
-                    method: 'POST',
+                    method: method,
                     headers: {
                         'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken'),
                         'Content-Type': 'application/json',
@@ -624,6 +641,7 @@ class Form extends HTMLElement {
                         document.dispatchEvent(new CustomEvent('newData'));
 
                         this.render();
+                        this.id = null;
                     }
 
                     return response.json();
@@ -636,7 +654,8 @@ class Form extends HTMLElement {
                             type: 'fallo'
                         }
                     }));
-                });              
+                });
+                        
             });
         };
     }
@@ -691,6 +710,64 @@ class Form extends HTMLElement {
             }
         }
     }
+
+    // updateElement = async id => {
+
+    //     if (sendButton) {
+
+    //         sendButton.addEventListener('click', event => {
+
+    //             event.preventDefault();
+
+                
+    //             let form = this.shadow.querySelector('form');
+
+    //             if(!this.validador(form.elements)){
+    //                 return;
+    //             };
+
+    //             let formData = new FormData(form);
+    //             let formDataJson = Object.fromEntries(formData.entries());
+    //             let url = `${API_URL}${this.getAttribute("url")}/${id}`;
+
+    //             fetch(url, {
+    //                 method: 'PUT',
+    //                 headers: {
+    //                     'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken'),
+    //                     'Content-Type': 'application/json',
+    //                 },
+    //                 body: JSON.stringify(formDataJson)
+    //             }).then(response => {
+                    
+    //                 if(response.status == "200"){   
+
+    //                     document.dispatchEvent(new CustomEvent('message', {
+    //                         detail: {
+    //                             text: 'Registro modificado correctamente',
+    //                             type: 'exito'
+    //                         }
+    //                     }));
+
+    //                     document.dispatchEvent(new CustomEvent('updatedData'));
+
+    //                     this.render();
+    //                 }
+
+    //                 return response.json();
+
+    //             }).catch(error => {
+    //                 console.log(error);
+    //                 document.dispatchEvent(new CustomEvent('message', {
+    //                     detail: {
+    //                         text: 'Se ha producido un error',
+    //                         type: 'fallo'
+    //                     }
+    //                 }));
+    //             });              
+    //         });
+    //     };
+    // }
+    
 
     setFormStructure = async () => {
         
@@ -1506,7 +1583,8 @@ class Form extends HTMLElement {
                                         maxLength: '50',
                                         type: 'text',
                                         placeholder: '',
-                                        required: true
+                                        required: true,
+                                        message: 'Dato requerido'
                                     },
                                     author: {
                                         label: 'Autor',
@@ -1514,7 +1592,8 @@ class Form extends HTMLElement {
                                         maxLength: '50',
                                         type: 'text',
                                         placeholder: '',
-                                        required: true
+                                        required: true,
+                                        message: 'Dato requerido'
                                     }
                                 }
                             },
@@ -1526,14 +1605,18 @@ class Form extends HTMLElement {
                                         maxLength: '50',
                                         type: 'text',
                                         placeholder: '',
-                                        required: true
+                                        required: true,
+                                        message: 'Dato requerido'
                                     },
                                     pageCount: {
                                         label: 'Páginas',
                                         element: 'input',
                                         type: 'number',
                                         placeholder: '',
-                                        required: true
+                                        required: true,
+                                        validate: 'solo-numeros',
+                                        message: 'El campo solo admite números'
+
                                     },
                                     publishedDate: {
                                         label: 'Fecha de publicación',
@@ -1541,7 +1624,8 @@ class Form extends HTMLElement {
                                         type: 'date',
                                         placeholder: '',
                                         required: true,
-                                        validate: 'date'
+                                        validate: 'date',
+                                        message: 'Dato requerido'
                                     }
                                 }
                             }, 
@@ -1550,9 +1634,10 @@ class Form extends HTMLElement {
                                     description: {
                                         label: 'Descripción',
                                         element: 'textarea',
-                                        maxLength: 100,
+                                        maxLength: 200,
                                         placeholder: '',
-                                        required: true
+                                        required: true,
+                                        message: 'Dato requerido'
                                     }
                                 }
                             }

@@ -27,6 +27,8 @@ class Table extends HTMLElement {
         document.addEventListener("deletedData",( event => {
             this.loadData().then( () => this.render());
         }));
+
+        
            
     }
 
