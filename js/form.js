@@ -6,7 +6,6 @@ class Form extends HTMLElement {
         super();
         this.shadow = this.attachShadow({ mode: 'open' });
         this.url =  this.getAttribute('url');
-        this.id = this.getAttribute('id');
     }
 
 
@@ -19,9 +18,8 @@ class Form extends HTMLElement {
         }));
 
         document.addEventListener("showData",( event => {
-            this.id  = event.detail.id;
+            this.setAttribute('id', event.detail.id);
             this.showElement(event.detail.id);
-            // this.updateElement(event.detail.id);
         }));   
     }
 
@@ -81,7 +79,7 @@ class Form extends HTMLElement {
                 border: #ffa047 3px solid;
                 border-top: none;
                 border-radius: 0 0 0.5rem 0.5rem;
-                padding-bottom: 4rem;
+                padding-bottom: 2rem;
             }
             .panel-etiqueta-contenido {
                 display: none;
@@ -109,10 +107,7 @@ class Form extends HTMLElement {
                 position: relative;
                 margin-bottom: 1rem;
             }
-            .formulario-datos-elementos {
-
-            }
-            .formulario-datos-label  {
+            .formulario-datos-label {
                 font-size: 1.4rem;
                 margin: 1rem 0 0.2rem;
             }
@@ -132,7 +127,7 @@ class Form extends HTMLElement {
             }
             .formulario-datos-opcion {
                 display: grid;
-                grid-template-columns: repeat(4, 1fr);    
+                grid-template-columns: repeat(4, 1fr);
             }
             .formulario-datos-opcion label {
                 font-size: 1rem;    
@@ -150,7 +145,7 @@ class Form extends HTMLElement {
                 color: #374343;
                 box-shadow: 0 0 1.2rem 0.1rem #ffa047 inset;
             }
-            .formulario-datos-requisito {    
+            .formulario-datos-requisito {
                 display: none;
                 position: absolute;
                 font-family: "Ubuntu";
@@ -169,7 +164,8 @@ class Form extends HTMLElement {
                 border-radius: 0 0 0.5rem 0.5rem;
             }
             .formulario-datos-contador {
-                font-size: 1.2rem;
+                font-family: "Ubuntu";
+                font-size: 1.1rem;
                 margin-left: auto;
                 width: max-content;
             }
@@ -368,6 +364,7 @@ class Form extends HTMLElement {
                                             input.value = item.value || '';
                                             input.readOnly = item.readOnly || false;
                                             input.dataset.validate = item.validate || '';
+                                            if(item.maxLength){input.maxLength = item.maxLength;};
             
                                             formElementContainer.append(inputDate);
                                         
@@ -405,6 +402,7 @@ class Form extends HTMLElement {
                                             // formElementContainer.append(input);
 
                                             formElementContainer.append(fileContainer);
+
                                             break;
                                         }
             
@@ -420,23 +418,24 @@ class Form extends HTMLElement {
                                             input.value = item.value || '';
                                             input.placeholder = item.placeholder || '';
                                             input.dataset.validate = item.validate || '';
+                                            if(item.maxLength){input.maxLength = item.maxLength;};
                                               
-                                            if(item.maxLength){
+                                            // if(item.maxLength){
             
-                                                input.maxLength = item.maxLength || '';
-                                                const counterContainer = document.createElement('div');
-                                                counterContainer.classList.add('formulario-datos-contador');
-                                                const counter = document.createElement('span');
-                                                counterContainer.append(counter);
+                                            //     input.maxLength = item.maxLength || '';
+                                            //     const counterContainer = document.createElement('div');
+                                            //     counterContainer.classList.add('formulario-datos-contador');
+                                            //     const counter = document.createElement('span');
+                                            //     counterContainer.append(counter);
             
-                                                input.addEventListener('input', () => {
-                                                    if(input.value.length > 0){
-                                                        counter.textContent = input.value.length + ' / ' + input.maxLength;                            
-                                                    }else{
-                                                        counter.textContent = '';
-                                                    }
-                                                });
-                                            }
+                                            //     input.addEventListener('input', () => {
+                                            //         if(input.value.length > 0){
+                                            //             counter.textContent = input.value.length + ' / ' + input.maxLength;                            
+                                            //         }else{
+                                            //             counter.textContent = '';
+                                            //         }
+                                            //     });
+                                            // }
                         
                                             formElementContainer.append(defaultInput);
             
@@ -461,23 +460,24 @@ class Form extends HTMLElement {
                                     textarea.wrap = item.wrap || '';
                                     textarea.placeholder = item.placeholder || '';
                                     textarea.dataset.validate = item.validate || '';
+                                    if(item.maxLength){textarea.maxLength = item.maxLength;};
                                    
-                                    if(item.maxLength){
+                                    // if(item.maxLength){
             
-                                        textarea.maxLength = item.maxLength || '';
-                                        const counterContainer = document.createElement('div');
-                                        counterContainer.classList.add('formulario-datos-contador');
-                                        const counter = document.createElement('span');
-                                        counterContainer.append(counter);
+                                    //     textarea.maxLength = item.maxLength || '';
+                                    //     const counterContainer = document.createElement('div');
+                                    //     counterContainer.classList.add('formulario-datos-contador');
+                                    //     const counter = document.createElement('span');
+                                    //     counterContainer.append(counter);
     
-                                        textarea.addEventListener('textarea', () => {
-                                            if(textarea.value.length > 0){
-                                                counter.textContent = textarea.value.length + ' / ' + textarea.maxLength;                            
-                                            }else{
-                                                counter.textContent = '';
-                                            }
-                                        });
-                                    }
+                                    //     textarea.addEventListener('textarea', () => {
+                                    //         if(textarea.value.length > 0){
+                                    //             counter.textContent = textarea.value.length + ' / ' + textarea.maxLength;                            
+                                    //         }else{
+                                    //             counter.textContent = '';
+                                    //         }
+                                    //     });
+                                    // }
             
                                     formElementContainer.append(textareaContainer);
                                 }
@@ -509,8 +509,21 @@ class Form extends HTMLElement {
                                     let validateMessage = document.createElement('span');
                                     validateContainer.append(validateMessage);
                                     validateMessage.innerText= item.message;
-
+                                }
+                                if(item.maxLength) {
                                     
+                                    let counterContainer = document.createElement('div');
+                                    counterContainer.classList.add('formulario-datos-contador');
+                                    formElementContainer.append(counterContainer);
+
+                                    let counterCurrent = document.createElement('span');
+                                    counterCurrent.classList.add('contador');
+                                    counterContainer.append(counterCurrent);
+                                    counterCurrent.innerText= '0';
+                                    let counterLimit = document.createElement('span');
+                                    counterContainer.append(counterLimit);
+                                    counterLimit.innerText= `/${item.maxLength}`;
+   
                                 }
 
                                 // if(item.required === true) {
@@ -631,17 +644,30 @@ class Form extends HTMLElement {
                     
                     if(response.status == "200"){   
 
-                        document.dispatchEvent(new CustomEvent('message', {
-                            detail: {
-                                text: 'Formulario enviado correctamente',
-                                type: 'exito'
-                            }
-                        }));
+                        if(this.id) {
+                            document.dispatchEvent(new CustomEvent('message', {
+                                detail: {
+                                    text: 'Registro modificado correctamente',
+                                    type: 'exito'
+                                }
+                            }));
+
+                            this.removeAttribute('id');
+
+                        } else { 
+
+                            document.dispatchEvent(new CustomEvent('message', {
+                                detail: {
+                                    text: 'Formulario enviado correctamente',
+                                    type: 'exito'
+                                }
+                            }));
+                        }
 
                         document.dispatchEvent(new CustomEvent('newData'));
-
+                        
                         this.render();
-                        this.id = null;
+                        
                     }
 
                     return response.json();
@@ -658,6 +684,28 @@ class Form extends HTMLElement {
                         
             });
         };
+        
+        this.renderCounter();
+
+    }
+
+    renderCounter (){
+
+        
+        let inputs = this.shadow.querySelector('form').elements;
+        let counter = this.shadow.querySelector('.contador');
+        console.log(inputs);
+        for (let input of inputs){
+
+            if(counter) {
+                
+                input.addEventListener('input', () => {
+                    console.log(typeof input.maxLength);
+
+                    input.closest('.formulario-datos-elementos').querySelector('.contador').textContent = input.value.length;
+                });
+            }
+        }
     }
 
     validador(formInputs) {
@@ -673,7 +721,8 @@ class Form extends HTMLElement {
             "imagen": /^(.+\/)+.+(\.(png|jpg|jpeg|webp))$/g,
             "password": /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/g,
             "fecha": /^\d{4}-\d{2}-\d{2}$/g,
-            "hora": /^\d{2}:\d{2}$/g
+            "hora": /^\d{2}:\d{2}$/g,
+            "no-vacio": /.*[\S].*$/g
         }
 
         for (let i = 0; i < formInputs.length; i++) {
@@ -711,64 +760,6 @@ class Form extends HTMLElement {
         }
     }
 
-    // updateElement = async id => {
-
-    //     if (sendButton) {
-
-    //         sendButton.addEventListener('click', event => {
-
-    //             event.preventDefault();
-
-                
-    //             let form = this.shadow.querySelector('form');
-
-    //             if(!this.validador(form.elements)){
-    //                 return;
-    //             };
-
-    //             let formData = new FormData(form);
-    //             let formDataJson = Object.fromEntries(formData.entries());
-    //             let url = `${API_URL}${this.getAttribute("url")}/${id}`;
-
-    //             fetch(url, {
-    //                 method: 'PUT',
-    //                 headers: {
-    //                     'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken'),
-    //                     'Content-Type': 'application/json',
-    //                 },
-    //                 body: JSON.stringify(formDataJson)
-    //             }).then(response => {
-                    
-    //                 if(response.status == "200"){   
-
-    //                     document.dispatchEvent(new CustomEvent('message', {
-    //                         detail: {
-    //                             text: 'Registro modificado correctamente',
-    //                             type: 'exito'
-    //                         }
-    //                     }));
-
-    //                     document.dispatchEvent(new CustomEvent('updatedData'));
-
-    //                     this.render();
-    //                 }
-
-    //                 return response.json();
-
-    //             }).catch(error => {
-    //                 console.log(error);
-    //                 document.dispatchEvent(new CustomEvent('message', {
-    //                     detail: {
-    //                         text: 'Se ha producido un error',
-    //                         type: 'fallo'
-    //                     }
-    //                 }));
-    //             });              
-    //         });
-    //     };
-    // }
-    
-
     setFormStructure = async () => {
         
         let url = this.getAttribute('url');
@@ -794,10 +785,12 @@ class Form extends HTMLElement {
                                     tradingName: {
                                         label: 'Nombre de la empresa',
                                         element: 'input',
-                                        maxLength: '10',
+                                        maxLength: '20',
                                         type: 'text',
                                         placeholder: '',
-                                        required: true
+                                        required: true,
+                                        validate: 'no-vacio',
+                                        message: 'Dato requerido'
                                     },
                                     cif: {
                                         label: 'CIF',
@@ -805,7 +798,9 @@ class Form extends HTMLElement {
                                         maxLength: '10',
                                         type: 'text',
                                         placeholder: '',
-                                        required: true
+                                        required: true,
+                                        validate: 'no-vacio',
+                                        message: 'Dato requerido'
                                     }
                                 }
                             },
@@ -817,7 +812,9 @@ class Form extends HTMLElement {
                                         maxLength: '13',
                                         type: 'text',
                                         placeholder: '',
-                                        required: true
+                                        required: true,
+                                        validate: 'no-vacio',
+                                        message: 'Dato requerido'
                                     },
                                     email: {
                                         label: 'Email',
@@ -825,7 +822,8 @@ class Form extends HTMLElement {
                                         type: 'email',
                                         placeholder: '',
                                         required: true,
-                                        validate: 'email'
+                                        validate: 'email',
+                                        message: 'ejemplo@ejemplo.com'
                                     }
                                 }
                             },
@@ -836,21 +834,27 @@ class Form extends HTMLElement {
                                         element: 'input',
                                         type: 'text',
                                         placeholder: '',
-                                        required: true
+                                        required: true,
+                                        validate: 'no-vacio',
+                                        message: 'Dato requerido'
                                     },
                                     city: {
                                         label: 'Ciudad',
                                         element: 'input',
                                         type: 'text',
                                         placeholder: '',
-                                        required: true
+                                        required: true,
+                                        validate: 'no-vacio',
+                                        message: 'Dato requerido'
                                     },
                                     postalCode: {
                                         label: 'Código Postal',
                                         element: 'input',
                                         type: 'text',
                                         placeholder: '',
-                                        required: true
+                                        required: true,
+                                        validate: 'no-vacio',
+                                        message: 'Dato requerido'
                                     }
                                 }
                             },
@@ -859,9 +863,12 @@ class Form extends HTMLElement {
                                     timetable: {
                                         label: 'Horario de apertura',
                                         element: 'input',
+                                        maxLength: '20',
                                         type: 'text',
                                         placeholder: '',
-                                        required: true
+                                        required: true,
+                                        validate: 'no-vacio',
+                                        message: 'Dato requerido'
                                     },
                                     openingDays: {
                                         label: 'Días de apertura',
@@ -869,7 +876,9 @@ class Form extends HTMLElement {
                                         maxLength: '40',
                                         type: 'text',
                                         placeholder: '',
-                                        required: true
+                                        required: true,
+                                        validate: 'no-vacio',
+                                        message: 'Dato requerido'
                                     }
                                 }
                             } 
@@ -922,7 +931,9 @@ class Form extends HTMLElement {
                                         element: 'input',
                                         type: 'password',
                                         placeholder: '',
-                                        required: true
+                                        required: true,
+                                        validate: "password",
+                                        message: 'Mayúsculas, minúsculas y números'
                                     },
                                     repeatPassword: {
                                         label: 'Repita la contraseña',
@@ -957,18 +968,22 @@ class Form extends HTMLElement {
                                     name: {
                                         label: 'Nombre',
                                         element: 'input',
-                                        maxLength: '50',
+                                        maxLength: '30',
                                         type: 'text',
                                         placeholder: '',
-                                        required: true
+                                        required: true,
+                                        validate: 'solo-letras',
+                                        message: 'El campo solo admite letras'
                                     },
                                     surname: {
                                         label: 'Apellidos',
                                         element: 'input',
-                                        maxLength: '50',
+                                        maxLength: '30',
                                         type: 'text',
                                         placeholder: '',
-                                        required: true
+                                        required: true,
+                                        validate: 'solo-letras',
+                                        message: 'El campo solo admite letras'
                                     }
                                 }
                             },
@@ -977,10 +992,12 @@ class Form extends HTMLElement {
                                     phone: {
                                         label: 'Teléfono',
                                         element: 'input',
-                                        maxLength: '15',
+                                        maxLength: '13',
                                         type: 'text',
                                         placeholder: '',
-                                        required: true
+                                        required: true,
+                                        validate: 'telefono',
+                                        message: 'Debe ser un teléfono válido'
                                     },
                                     email: {
                                         label: 'Email',
@@ -988,7 +1005,8 @@ class Form extends HTMLElement {
                                         type: 'email',
                                         placeholder: '',
                                         required: true,
-                                        validate: 'email'
+                                        validate: 'email',
+                                        message: 'ejemplo@ejemplo.com'
                                     }
                                 }
                             },
@@ -997,23 +1015,32 @@ class Form extends HTMLElement {
                                     adress: {
                                         label: 'Dirección',
                                         element: 'input',
+                                        maxLength: '40',
                                         type: 'text',
                                         placeholder: '',
-                                        required: true
+                                        required: true,
+                                        validate: 'no-vacio',
+                                        message: 'Dato requerido'
                                     },
                                     city: {
                                         label: 'Ciudad',
                                         element: 'input',
+                                        maxLength: '13',
                                         type: 'text',
                                         placeholder: '',
-                                        required: true
+                                        required: true,
+                                        validate: 'no-vacio',
+                                        message: 'Dato requerido'
                                     },
                                     postalCode: {
                                         label: 'Código Postal',
                                         element: 'input',
+                                        maxLength: '6',
                                         type: 'text',
                                         placeholder: '',
-                                        required: true
+                                        required: true,
+                                        validate: 'no-vacio',
+                                        message: 'Dato requerido'
                                     }
                                 }
                             }
