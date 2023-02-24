@@ -63,7 +63,7 @@ class Table extends HTMLElement {
         <style>
             .registros {
                 font-family: 'Ubuntu';
-                padding: 4rem 2rem 2rem;
+                padding: 4rem 2rem 0.5rem;
             }
             .registro {
                 display: grid;
@@ -96,34 +96,29 @@ class Table extends HTMLElement {
             .table-pagination {
                 margin: 0 2rem;
             }
-           
-            .table-pagination .table-pagination-info{
+            .table-pagination .table-pagination-info {
                 color: #374343;
                 display: flex;
                 font-family: 'Ubuntu', sans-serif;
                 justify-content: space-between;
             }
-
-            .table-pagination .table-pagination-buttons p{
+            .table-pagination .table-pagination-buttons p {
                 color: #374343;
-                font-family: 'Roboto', sans-serif;
-                margin: 1rem 0;
+                font-family: 'Ubuntu', sans-serif;
+                margin: 1.1rem 0;
             }
-
             .table-pagination-info p{
                 margin: 0;
             }
-       
-            .table-pagination .table-pagination-button{
+            .table-pagination .table-pagination-button {
                 cursor: pointer;
-                margin-right: 1em;
+                margin-right: 1rem;
             }
        
-            .table-pagination .table-pagination-button:hover{
-                color: hsl(19, 100%, 50%);
+            .table-pagination .table-pagination-button:hover {
+                color: #ffa047;
             }
-       
-            .table-pagination .table-pagination-button.inactive{
+            .table-pagination .table-pagination-button.inactive {
                 color: hsl(0, 0%, 69%);
             }
 

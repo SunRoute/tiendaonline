@@ -232,7 +232,7 @@ input[type=file]::file-selector-button {
 }
 
 .mantener-alto {
-  height: 100%;
+  height: 95%;
 }
 
 .mantener-alto div:last-child {
@@ -569,7 +569,7 @@ footer .pie p {
 }
 
 .galeria-articulo-titulo {
-  margin: 0 1rem 1.3rem;
+  margin: -1.2rem 1rem 2.2rem;
 }
 
 .galeria-articulo-ampliar button {
